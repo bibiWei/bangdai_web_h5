@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1, user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" href="../css/mui.min.css">
+		<link rel="stylesheet" href="../css/home.css">
+		<link rel="stylesheet" type="text/css" href="../css/icons-extra.css" />
+		<link rel="stylesheet" type="text/css" href="../css/app.css" />
+		<title>购物就去海淘-购物车</title>
+		<link href="favicon.ico" type="image/x-icon" rel="icon">
+		<link href="iTunesArtwork@2x.png" sizes="114x114" rel="apple-touch-icon-precomposed">
+		<style>
+			html,
+			body {
+				background-color: #efeff4;
+			}
+			
+			.mui-bar .mui-pull-left .mui-icon {
+				padding-right: 5px;
+				font-size: 28px;
+			}
+			
+			.mui-bar .mui-btn {
+				font-weight: normal;
+				font-size: 17px;
+			}
+			
+			.mui-bar .mui-btn-link {
+				top: 1px;
+			}
+			
+			.mui-content img {
+				width: 100%;
+			}
+			
+			.hm-description {
+				margin: 15px;
+			}
+			
+			.hm-description>li {
+				font-size: 14px;
+				color: #8f8f94;
+			}
+			
+			devidera {
+				color: #000000;
+			}
+		</style>
+	</head>
+
+	<body>
+
+		<header class="mui-bar mui-bar-nav aui-header b-line">
+			<a class="mui-action-back mui-icon mui-icon-arrowleft mui-pull-left"></a>
+			<h1 class="mui-title">我的订单</h1>
+		</header>
+		<div class="mui-content">
+			<div class="mui-segmented-control" id="segmentedControl">
+				<a class="mui-control-item mui-active" href="#nav_1" id="all">帮带订单</a>
+				<a class="mui-control-item dd" href="#nav_2" id="notpayed">求带订单</a>
+			</div>
+			<div class="devider"></div>
+
+			<ul class="mui-table-view mui-table-view t-line" id="OA_task_1">
+				<div style="background-color: #f4f5f8;height: 8em;">
+					<div class="mui-row">
+						<div class="mui-col-sm-5" style="margin-top: 10px;">
+							<div style="text-align: center">
+								<span style="position: relative;top: 50%;transform: translateY(-50%); font-size: 45px;">北京</span>
+							</div>
+							<div style="text-align: center">
+								<span style="position: relative;top: 50%;transform: translateY(-50%);">2017-12-12</span>
+							</div>
+						</div>
+						<div class="mui-col-sm-2" style="margin-top: 10px;">
+							<div style="text-align: center;margin-top: 3em;">
+								<span>---></span>
+							</div>
+						</div>
+						<div class="mui-col-sm-5" style="margin-top: 10px;">
+							<div style="text-align: center">
+								<span style="position: relative;top: 50%;transform: translateY(-50%); font-size: 45px;">纽约</span>
+							</div>
+							<div style="text-align: center">
+								<span style="position: relative;top: 50%;transform: translateY(-50%);">2017-12-12</span>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="aui-title-h ">
+					<p>
+						<div class="mui-row">
+							<div class="mui-col-xs-3"><span class="mui-pull-right">截止日期：</span></div>
+							<div class="mui-col-xs-9"><span id="orderNo">2017-12-8</span></div>
+						</div>
+					</p>
+					<p>
+						<div class="mui-row">
+							<div class="mui-col-xs-3">
+								<div class="mui-pull-right"><span>机票：</span></div>
+							</div>
+							<div class="mui-col-xs-9"><span id="orderNo" style="color: red;">已认证</span></div>
+						</div>
+					</p>
+					<p>
+						<div class="mui-row">
+							<div class="mui-col-xs-3">
+								<div class="mui-pull-right"><span>重量要求：</span></div>
+							</div>
+							<div class="mui-col-xs-9"><span id="orderNo">10KG3</span></div>
+						</div>
+					</p>
+					<p>
+						<div class="mui-row">
+							<div class="mui-col-xs-3">
+								<div class="mui-pull-right"><span>价格：</span></div>
+							</div>
+							<div class="mui-col-xs-9"><span id="orderNo">5RMB/KG</span></div>
+						</div>
+					</p>
+					<p>
+						<div class="mui-row">
+							<div class="mui-col-xs-3">
+								<div class="mui-pull-right"><span>留言：</span></div>
+							</div>
+							<div class="mui-col-xs-9"><span id="orderNo">3件化妆品,一个电脑</span></div>
+						</div>
+					</p>
+				</div>
+				<div>
+					<div class="x_line "></div>
+				</div>
+				<div class="aui-title-h ">
+					<div style="text-align: center;"><span style="font-size: 20px;color:#3f8dff;">帮 带 信 息</span></div>
+				</div>
+				<li class="mui-table-view-cell  mui-table-view-cell mui-media b-line">
+					<div class=" mui-input-row mui-checkbox mui-left"><input name="checkbox" value="Item 1" type="checkbox"></div>
+
+					<div class="mui-slider-handle mui-table">
+						<a href="javascript:;">
+							<img class="mui-media-object aui-ma-d mui-pull-left" src="images/ad1.jpg">
+							<div class="mui-media-body">
+								<div style="font-size: 18px; color: #000000;margin-left: 10px;border-bottom: 5px dashed #f7f7f7;height: 3em;">
+									<div style="padding-top: 1em;"><span>北京</pan><span style="margin-left: 10px;margin-right: 10px;">--></span><span>纽约</span></div>
+								</div>
+								<div class="mui-row" style="font-size: 14px; color: #000000;margin-left: 10px; margin-top: 10px;">
+									<div class="mui-col-xs-6">
+										<div style="margin-top: 5px;"><span>帮带价格:</pan><span style="color: red;">12.00/RMB</span></div>
+									</div>
+									<div class="mui-col-xs-6"><button type="button" style="border-radius:30px;" class="mui-btn mui-btn-warning mui-btn-outlined mui-pull-right">待确认</button></div>
+								</div>
+							</div>
+
+						</a>
+					</div>
+				</li>
+			</ul>
+			<div class="devider b-line"></div>
+			<nav class="mui-bar mui-bar-tab" style="background-color: #FFFFFF;">
+				<div class="t-line">
+					<a href="index.html" class="aui-tab-item mui-active">
+						<span class="mui-icon mui-icon-home"></span>
+						<span class="mui-tab-label">帮带</span>
+					</a>
+					<a href="category.html" class="aui-tab-item">
+						<span class="mui-icon mui-icon-extra mui-icon-extra-class"></span>
+						<span class="mui-tab-label">求带</span>
+					</a>
+					<a class="aui-tab-item" href="car.html">
+						<span class="mui-icon mui-icon-extra mui-icon-extra-cart"></span>
+						<span class="mui-tab-label">消息</span>
+					</a>
+					<a class="aui-tab-item" href="car.html">
+						<span class="mui-icon mui-icon-extra mui-icon-extra-cart"></span>
+						<span class="mui-tab-label">熊圈</span>
+					</a>
+					<a class="aui-tab-item" href="me.html">
+						<span class="mui-icon mui-icon-extra mui-icon-extra-people"></span>
+						<span class="mui-tab-label">我的</span>
+					</a>
+				</div>
+			</nav>
+		</div>
+		<script src="../js/mui.min.js"></script>
+	</body>
+
+</html>
