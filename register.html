@@ -1,97 +1,131 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1, user-scalable=no">
-	<meta name="apple-mobile-web-app-capable" content="yes">
-	<meta name="apple-mobile-web-app-status-bar-style" content="black">
-	<link rel="stylesheet" href="css/mui.min.css">
-	<link rel="stylesheet" href="css/home.css">
-	<link rel="stylesheet" type="text/css" href="css/icons-extra.css" />
-	<link rel="stylesheet" type="text/css" href="css/app.css"/>
-	<title>购物就去海淘-购物车</title>
-	<link href="favicon.ico" type="image/x-icon" rel="icon">
-	<link href="iTunesArtwork@2x.png" sizes="114x114" rel="apple-touch-icon-precomposed">
-	<style>
-		html,
-		body {
-			background-color: #efeff4;
-		}
 
-		.mui-bar .mui-pull-left .mui-icon {
-			padding-right: 5px;
-			font-size: 28px;
-		}
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1, user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" href="css/mui.min.css">
+		<link rel="stylesheet" href="css/home.css">
+		<link rel="stylesheet" type="text/css" href="css/icons-extra.css" />
+		<link rel="stylesheet" type="text/css" href="css/app.css" />
+		<link href="css/mui.picker.css" rel="stylesheet" />
+		<link href="css/mui.poppicker.css" rel="stylesheet" />
+		<title>购物就去海淘-购物车</title>
+		<link href="favicon.ico" type="image/x-icon" rel="icon">
+		<link href="iTunesArtwork@2x.png" sizes="114x114" rel="apple-touch-icon-precomposed">
+		<style>
+			html,
+			body {
+				background-color: #efeff4;
+			}
+			
+			.mui-bar .mui-pull-left .mui-icon {
+				padding-right: 5px;
+				font-size: 28px;
+			}
+			
+			.mui-bar .mui-btn {
+				font-weight: normal;
+				font-size: 17px;
+			}
+			
+			.mui-bar .mui-btn-link {
+				top: 1px;
+			}
+			
+			.mui-content img {
+				width: 100%;
+			}
+			
+			.hm-description {
+				margin: 15px;
+			}
+			
+			.hm-description>li {
+				font-size: 14px;
+				color: #8f8f94;
+			}
+			
+			label {
+				font-weight: bold;
+			}
+			
+			.code {
+				text-align: center;
+				position: fixed;
+				right: 0;
+			}
+			
+			.mui-input-row .mui-btn {
+				line-height: 1.1;
+				float: right;
+				width: 25%;
+				padding: 10px 15px;
+			}
+		</style>
+	</head>
 
-		.mui-bar .mui-btn {
-			font-weight: normal;
-			font-size: 17px;
-		}
+	<body>
 
-		.mui-bar .mui-btn-link {
-			top: 1px;
-		}
+		<header class="mui-bar mui-bar-nav aui-header b-line">
+			<a class="mui-action-back mui-icon mui-icon-arrowleft mui-pull-left"></a>
+			<h1 class="mui-title">注册</h1>
+			<a class="mui-icon mui-icon-paperplane mui-pull-right"></a>
+		</header>
+		<div class="mui-content">
+			<div class="devider b-line"></div>
+			<form class="mui-input-group">
 
-		.mui-content img{
-			width: 100%;
-		}
-		.hm-description{
-			margin: 15px;
-		}
+				<div class="mui-input-row b-line">
+					<label>区号：</label>
+					<input type="text" placeholder="请选择" id='showAreaCodePicker' readonly="readonly">
+				</div>
+				<div class="mui-input-row b-line">
+					<label>手机号码：</label>
+					<input type="text" placeholder="请输入您的昵称" id="uPhone">
+				</div>
+				<div class="mui-input-row b-line">
+					<label>验证码：</label>
+					<input id="code" type="password" class="mui-input-clear" placeholder="请输入您的密码" data-input-clear="5"><span class="mui-icon mui-icon-clear mui-hidden"></span>
+					<a class="mui-btn mui-btn-primary mui-btn-block mui-pull-left code" id="getCode" disabled="true">验证码</a>
+				</div>
+				<div class="mui-input-row b-line">
+					<label>账号：</label>
+					<input id="userCode" type="text" placeholder="账号">
+				</div>
+				<div class="mui-input-row b-line">
+					<label>昵称：</label>
+					<input id="nickName" type="text" placeholder="请输入您的用户名">
+				</div>
+				<div class="mui-input-row b-line">
+					<label>密码：</label>
+					<input id="passwd" type="password" class="mui-input-clear" placeholder="请输入您的密码" data-input-clear="5"><span class="mui-icon mui-icon-clear mui-hidden"></span>
+				</div>
+				<div class="mui-input-row b-line">
+					<label>确认密码：</label>
+					<input id="checkPsw" type="text" placeholder="请输入您的用户名">
+				</div>
+				<div class="mui-button-row" style="padding-top:20px; padding-bottom:10px; height:auto">
+					<a type="button" class="mui-btn mui-btn-primary" id="registerBtn" style="width:90%; padding:10px 0">立即注册</a>
 
-		.hm-description>li {
-			font-size: 14px;
-			color: #8f8f94;
-		}
+				</div>
+				<div style="padding-bottom:10px; text-align:right; padding-right:15px">
+					<a href="login.html">以有账号 登录</a>
+				</div>
+			</form>
 
-
-	</style>
-</head>
-<body>
-
-
-<header class="mui-bar mui-bar-nav aui-header b-line">
-	<a class="mui-action-back mui-icon mui-icon-arrowleft mui-pull-left"></a>
-	<h1 class="mui-title">注册</h1>
-	<a class="mui-icon mui-icon-paperplane mui-pull-right"></a>
-</header>
-<div class="mui-content">
-	<div class="devider b-line"></div>
-	<form class="mui-input-group">
-		<div class="mui-input-row b-line">
-			<label>用户名：</label>
-			<input type="text" placeholder="请输入您的用户名">
 		</div>
-		<div class="mui-input-row b-line">
-			<label>密码：</label>
-			<input type="password" class="mui-input-clear" placeholder="请输入您的密码" data-input-clear="5"><span class="mui-icon mui-icon-clear mui-hidden"></span>
-		</div>
-		<div class="mui-input-row b-line">
-			<label>确认密码：</label>
-			<input type="text" placeholder="请输入您的用户名">
-		</div>
-		<div class="mui-input-row b-line">
-			<label>验证码：</label>
-			<input type="password" class="mui-input-clear" placeholder="请输入您的密码" data-input-clear="5"><span class="mui-icon mui-icon-clear mui-hidden"></span>
-		</div>
 
-		<div class="mui-button-row" style="padding-top:20px; padding-bottom:10px; height:auto">
-			<a type="button" class="mui-btn mui-btn-primary" href="me.html" style="width:90%; padding:10px 0">立即注册</a>
+		<script src="js/mui.min.js"></script>
+		<script src="js/mui.poppicker.js"></script>
+		<script src="js/mui.picker.js"></script>
+		<script src="js/common/area.code.data.js"></script>
+		<script src="js/jquery/jquery-2.1.1.min.js"></script>
+		<script src="js/common/common.js"></script>
+		<script src="register.js"></script>
 
-		</div>
-		<div style="padding-bottom:10px; text-align:right; padding-right:15px">
-			<a href="login.html">以有账号 登录</a>
-		</div>
-	</form>
+	</body>
 
-
-</div>
-
-
-
-<script src="js/mui.min.js"></script>
-
-
-
-</body>
 </html>

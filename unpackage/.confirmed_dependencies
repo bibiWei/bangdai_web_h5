@@ -1,0 +1,31 @@
+{
+  "index.html": {
+    "resources": [
+      "images/bd2.jpg",
+      "favicon.ico",
+      "css/icons-extra.css",
+      "images/bd3.jpg",
+      "images/icon/icon-4.png",
+      "css/home.css",
+      "images/bd1.jpg",
+      "images/icon/icon-1.png",
+      "images/ad3.jpg",
+      "images/banner.jpg",
+      "images/bd4.jpg",
+      "images/ad2.jpg",
+      "js/mui.min.js",
+      "css/app.css",
+      "images/banner1.jpg",
+      "images/bd6.jpg",
+      "images/icon/icon-3.png",
+      "images/ad4.jpg",
+      "css/mui.min.css",
+      "images/bd5.jpg",
+      "images/ad1.jpg",
+      "images/icon/icon-2.png",
+      "images/hot.jpg",
+      "fonts/mui.ttf"
+    ],
+    "refer": []
+  }
+}

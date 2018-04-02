@@ -1,0 +1,14 @@
+.myHeader{
+	background: blue;
+}
+.myTitle{
+	color: white;
+}
+.myHeader i{
+	color: white;
+	float: right;
+	font-weight: bold;
+}
+.mui-bar-tab .mui-tab-item.mui-active {
+color: green;
+}
