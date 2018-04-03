@@ -1,215 +1,186 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8" />
-    <title>Document</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
-    <link rel="stylesheet" type="text/css" href="../../css/mui.min.css"/>
-    <link href="../../css/index.css" rel="stylesheet"/>
-    <style>
-		#topPopover {
-			position: fixed;
-			top: 16px;
-			right: 6px;
-			z-index: 9999;
-		}
-		#topPopover .mui-popover-arrow {
-			left: auto;
-			right: 6px;
-		}
-		.mui-popover {
-			height: 200px;
-			width: 130px;
-		}
-		.mui-table-view-chevron .mui-table-view-cell {
-   			padding-right: 45px;
-   			border-bottom: 1px solid #C7C7CC;
-		}
-	</style>
-</head>
-<body>
-	<header class="mui-bar mui-bar-nav myHeader">
-	    <h1 class="mui-title myTitle">消息中心</h1>
-	</header>
-    <div id="refreshContainer" class="mui-content mui-scroll-wrapper">
-		<div class="mui-scroll">
-			<!--数据列表-->
-			<ul class="mui-table-view mui-table-view-chevron myContent">
-				<li class="mui-table-view-cell mui-media" title="幸福">
-					<a href="javascript:;">
-						<img class="mui-media-object mui-pull-left" src="../../images/message/1.jpg">
-						<div class="mui-media-body">
-							幸福
-							<p class="mui-ellipsis">能和心爱的人一起睡觉，是件幸福的事情；可是，打呼噜怎么办？</p>
-						</div>
-					</a>
-				</li>
-				<li class="mui-table-view-cell mui-media" title="木屋">
-					<a href="javascript:;">
-						<img class="mui-media-object mui-pull-left" src="../../images/message/2.jpg">
-						<div class="mui-media-body">
-							木屋
-							<p class="mui-ellipsis">想要这样一间小木屋，夏天挫冰吃瓜，冬天围炉取暖.</p>
-						</div>	
-						<span class="mui-badge mui-badge-danger" style="margin-bottom: 30px;margin-right: 10px;">45</span>
-					</a>
-				</li>
-				<li class="mui-table-view-cell mui-media" title="CBD">
-					<a href="javascript:;">
-						<img class="mui-media-object mui-pull-left" src="../../images/message/3.jpg">
-						<div class="mui-media-body">
-							CBD
-							<p class="mui-ellipsis">烤炉模式的城，到黄昏，如同打翻的调色盘一般.</p>
-						</div>
-					</a>
-				</li>
-				<li class="mui-table-view-cell mui-media" title="小王">
-					<a href="javascript:;">
-						<img class="mui-media-object mui-pull-left" src="../../images/message/4.jpg">
-						<div class="mui-media-body">
-							小王
-							<p class="mui-ellipsis">烤炉模式的城，到黄昏，如同打翻的调色盘一般.</p>
-						</div>
-					</a>
-				</li>
-				<li class="mui-table-view-cell mui-media" title="小张">
-					<a href="javascript:;">
-						<img class="mui-media-object mui-pull-left" src="../../images/message/5.jpg">
-						<div class="mui-media-body">
-							小张
-							<p class="mui-ellipsis">烤炉模式的城，到黄昏，如同打翻的调色盘一般.</p>
-						</div>
-					</a>
-				</li>
-				<li class="mui-table-view-cell mui-media" title="小李">
-					<a href="javascript:;">
-						<img class="mui-media-object mui-pull-left" src="../../images/message/6.jpg">
-						<div class="mui-media-body">
-							小李
-							<p class="mui-ellipsis">烤炉模式的城，到黄昏，如同打翻的调色盘一般.</p>
-						</div>
-					</a>
-				</li>
-				<li class="mui-table-view-cell mui-media" title="小赵">
-					<a href="javascript:;">
-						<img class="mui-media-object mui-pull-left" src="../../images/message/7.jpg">
-						<div class="mui-media-body">
-							小赵
-							<p class="mui-ellipsis">烤炉模式的城，到黄昏，如同打翻的调色盘一般.</p>
-						</div>
-					</a>
-				</li>
-			</ul>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title>xxxx</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="stylesheet" href="../../css/mui.min.css">
+		<style>
+			html,
+			body {
+				background-color: #efeff4;
+			}
+			
+			.title {
+				padding: 20px 15px 10px;
+				color: #6d6d72;
+				font-size: 15px;
+				background-color: #1e82d2;
+			}
+			
+			.mui-indexed-list-search {
+				border-bottom: solid 1px #e3e3e3;
+				z-index: 15;
+				margin: 5px auto;
+				padding: 0px 11px;
+				border-radius: 5px;
+				background: #f0f0f6;
+			}
+			
+			.mui-indexed-list-search.mui-search:before {
+				margin-top: -10px;
+				padding-left: 10px;
+			}
+			
+			.mui-indexed-list-search input {
+				margin: 0px;
+				background-color: #fff;
+				border-radius: 5px;
+				line-height: 30px;
+			}
+			
+			.mui-left {
+				float: left;
+			}
+			
+			.mui-time {
+				float: right;
+			}
+			
+			.mui-table-view-chevron .mui-table-view-cell {
+				padding-right: 15%;
+			}
+			
+			.chat-li img {
+				position: relative;
+			}
+			
+			.mes-badge {
+				display: inline-block;
+				border-radius: 100%;
+				background: red;
+				position: absolute;
+				/*right: 10px;*/
+				width: 15px;
+				height: 15px;
+				font-size: 12px;
+				text-align: center;
+				line-height: 15px;
+				color: #fff;
+				left: 45px;
+				top: 4px;
+				float: left;
+				font-style: normal;
+			}
+			
+			.mui-bar {
+				background: #1e82d2;
+				color: #FFFFFF;
+			}
+			
+			.mui-title {
+				color: #FFFFFF;
+			}
+			
+			.top-bt {
+				margin-top: 50px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<h1 id="title" class="mui-title">消息</h1>
+		</header>
+		<div class="mui-segmented-control" id="segmentedControl" style="margin-top: 50px;">
+			<a class="mui-control-item mui-active" href="#nav_1" id="all">用户消息</a>
+			<a class="mui-control-item dd" href="#nav_2" id="notpayed">系统消息</a>
 		</div>
-	</div>
-	<div id="topPopover" class="mui-popover">
-			<div class="mui-popover-arrow"></div>
-			<div class="mui-scroll-wrapper">
-				<div class="mui-scroll">
-					<ul class="mui-table-view">
-						<li class="mui-table-view-cell"><a href="#"><i class="mui-icon mui-icon-chatbubble"></i> 发起群聊</a>
-						</li>
-						<li class="mui-table-view-cell" id="add"><a href="#"><i class="mui-icon mui-icon-personadd"></i> 添加朋友</a>
-						</li>
-						<li class="mui-table-view-cell" id="barcode"><a href="#"><i class="mui-icon mui-icon-spinner mui-spin"></i> 扫一扫</a>
-						</li>
-						<li class="mui-table-view-cell"><a href="#"><i class="mui-icon mui-icon-checkmarkempty"></i> 收付款</a>
-						</li>
-					</ul>
-				</div>
+		<div id="pullrefresh" class="mui-content mui-scroll-wrapper mui-content-reset">
+			<div class="mui-scroll">
+				<!--<div class="mui-indexed-list-search mui-input-row mui-search">
+					<input type="search" class="mui-input-clear mui-indexed-list-search-input" placeholder="搜索">
+				</div>-->
+				<ul class="mui-table-view mui-table-view-chevron evaluate-content top-bt" id="messageList" >
+				</ul>
 			</div>
-
 		</div>
-    <script src="../../js/mui.js" type="text/javascript" charset="utf-8"></script>
-    <script src="../../js/jquery/jquery.min.js"></script>
-    <script type="text/javascript">
-    mui.init({
-    	 pullRefresh : {
-    container:"#refreshContainer",
-    down : {
-      contentdown : "下拉可以刷新",
-      contentover : "释放立即刷新",
-      contentrefresh : "正在刷新...",
-      callback :pullfreshDown
-    },
-    up : {
-      contentrefresh : "正在加载...",
-      
-      callback :pullfreshUp
-    }
-  }
-    });
-    function pullfreshDown(){
-    	mui.ajax({
-    		url:'https://api.douban.com/v2/movie/top250?count=5&start=5',
-    		type:'post',
-    		dataType:'json',
-    		success:function(data){
-    			for(var i=0;i<data.subjects.length;i++){
-    				$('.myContent').prepend('<li class="mui-table-view-cell mui-media" title="'+data.subjects[i].title+'">'+
-		        '<a href="javascript:;"><img class="mui-media-object mui-pull-left" src="'+data.subjects[i].images.small+'">'+
-		           '<div class="mui-media-body">'+data.subjects[i].title+'<p class="mui-ellipsis">'+data.subjects[i].directors[0].name+'</p></div></a></li>')
-    			}
-    			}
-    	});
-    	mui('#refreshContainer').pullRefresh().endPulldownToRefresh();
-    };
-    function pullfreshUp(){
-    	mui.ajax({
-    		url:'https://api.douban.com/v2/movie/in_theaters?count=6&start=20',
-    		type:'post',
-    		dataType:'json',
-    		success:function(res){
-    			for(var i=0;i<res.subjects.length;i++){
-    				$('.myContent').append('<li class="mui-table-view-cell mui-media" title="'+res.subjects[i].title+'">'+
-		        '<a href="javascript:;"><img class="mui-media-object mui-pull-left" src="'+res.subjects[i].images.small+'">'+
-		           '<div class="mui-media-body">'+res.subjects[i].title+'<p class="mui-ellipsis">'+res.subjects[i].directors[0].name+'</p></div></a></li>')
-    		
-    			}
-    			}
-    	});
-    	 this.endPullupToRefresh(true|false);
-    };
-    $('.myContent').on('tap','.mui-table-view-cell',function(){
-	  	      	 mui.openWindow({
-	  	      	 	url:'charts.html',
-	  	      	 	id:'charts.html',
-	  	      	 	style:{},
-	  	      	 	extras:{  
-	  	      	 		title:this.getAttribute('title')
-	  	      	 	},
-	  	      	 	show:{
-	  	      	 		autoShow:true,  
-	  	      	 		aniShow:'slide-in-right',
-	  	      	 		duration:100 
-	  	      	 	}
-	  	      	 })
-	  	    });
-	  	    $('#add').on('tap',function(){
-	  	      	 mui.openWindow({
-	  	      	 	url:'addFriend.html',
-	  	      	 	id:'addFriend.html',
-	  	      	 	style:{},
-	  	      	 	show:{
-	  	      	 		autoShow:true,  
-	  	      	 		aniShow:'slide-in-right',
-	  	      	 		duration:100 
-	  	      	 	}
-	  	      	 })
-	  	    });
-	  	    $('#barcode').on('tap',function(){
-	  	      	 mui.openWindow({
-	  	      	 	url:'barcode.html',
-	  	      	 	id:'barcode.html',
-	  	      	 	style:{},
-	  	      	 	show:{
-	  	      	 		autoShow:true,  
-	  	      	 		aniShow:'slide-in-right',
-	  	      	 		duration:100 
-	  	      	 	}
-	  	      	 })
-	  	    });
-    </script>
-</body>
-</html>
+		<script src="../../js/mui.min.js"></script>
+		<script src="../../js/jquery/jquery-2.1.1.min.js"></script>
+		<script src="../../js/common/common.js"></script>
+		<script src="../../js/sdk/webim.min.js"></script>
+		<script src="weixinInfo.js"></script>
+		<script type="text/javascript" src="../../js/sdk/json2.js"></script>
+		<script src="messageList.js"></script>
 
+		<!--<script>
+			mui.init({
+				swipeBack: false,
+				pullRefresh: {
+					container: '#pullrefresh',
+					down: {
+						callback: pulldownRefresh
+					},
+					up: {
+						contentrefresh: '正在加载...',
+						callback: pullupRefresh
+					}
+				}
+			});
+			mui.plusReady(function(){
+				plus.navigator.setStatusBarBackground('#1e82d2')
+			})
+			/**
+			 * 下拉刷新具体业务实现
+			 */
+			function pulldownRefresh() {
+				setTimeout(function() {
+					var table = document.body.querySelector('.mui-table-view');
+					var cells = document.body.querySelectorAll('.mui-table-view-cell');
+					for (var i = cells.length, len = i + 3; i < len; i++) {
+						var li = document.createElement('li');
+						li.className = 'mui-table-view-cell mui-media chat-li';
+						var inner  = '<a href="" class="evalItem">';
+						    inner +=		'<img class="mui-media-object mui-pull-left" src="../../images/chat/qq.png">' ;
+						    inner += 	'<i class="mes-badge">1</i>';
+						    inner += 	'<div class="mui-media-body mui-left">3<p class="mui-ellipsis">第三次测试</p></div>'
+						    inner +=    '<p class="mui-time">2:00</p>';
+						    inner += '</a>'
+						    
+						li.innerHTML = inner;
+						//下拉刷新，新纪录插到最前面；
+						table.insertBefore(li, table.firstChild);
+					}
+					mui('#pullrefresh').pullRefresh().endPulldownToRefresh(); //refresh completed
+				}, 1000);
+			}
+			var count = 0;
+			/**
+			 * 上拉加载具体业务实现
+			 */
+			function pullupRefresh() {
+				setTimeout(function() {
+					mui('#pullrefresh').pullRefresh().endPullupToRefresh((++count > 2)); //参数为true代表没有更多数据了。
+					var table = document.body.querySelector('.mui-table-view');
+					var cells = document.body.querySelectorAll('.mui-table-view-cell');
+					for (var i = cells.length, len = i + 20; i < len; i++) {
+						var li = document.createElement('li');
+						li.className = 'mui-table-view-cell mui-media chat-li';
+						var inner  = '<a href="" class="evalItem">';
+						    inner +=		'<img class="mui-media-object mui-pull-left" src="../../images/chat/qq.png">' ;
+						    inner += 	'<i class="mes-badge">1</i>';
+						    inner += 	'<div class="mui-media-body mui-left">3<p class="mui-ellipsis">第三次测试</p></div>'
+						    inner +=    '<p class="mui-time">2:00</p>';
+						    inner += '</a>'
+						li.innerHTML = inner;
+						table.appendChild(li);
+					}
+				}, 1000);
+			}
+		</script>-->
+	</body>
+
+</html>
