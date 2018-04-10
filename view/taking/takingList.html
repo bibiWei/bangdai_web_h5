@@ -1,0 +1,177 @@
+<!DOCTYPE HTML>
+
+<script>
+	if(localStorage.getItem("token") == null) {
+		window.location.href = "../../login.jsp"
+	}
+</script>
+<html lang="zh-cn">
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1, user-scalable=no">
+		<link rel="stylesheet" href="../../css/mui.min.css">
+		<link rel="stylesheet" href="../../css/home.css">
+
+		<link rel="stylesheet" type="text/css" href="../../css/base/base.css" />
+		<link href="favicon.ico" type="image/x-icon" rel="icon">
+		<link href="iTunesArtwork@2x.png" sizes="114x114" rel="apple-touch-icon-precomposed">
+		<title>药师-全球顶级医药平台</title>
+		<style>
+			body {
+				width: 100%;
+				height: 100%;
+				background-color: #F5F5F5;
+			}
+			
+			.mui-title {
+				left: 2px;
+				z-index: 3;
+			}
+			
+			.mui-title input {
+				width: 100%;
+			}
+			
+			.taking-block {
+				margin-top: 2em;
+			}
+			
+			.auth-pic {
+				text-align: center;
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				transform: translateY(-50%) translateX(-50%);
+			}
+			
+			.auth-pic img {}
+			
+			.auth-place {
+				text-align: center;
+				color: #000000;
+			}
+		</style>
+	</head>
+
+	<body>
+		<header>
+			<h1 class="mui-title mui-row">
+				<div class="mui-col-xs-3" >
+					<img src="../../images/index/moreMessage.png" width="30px">
+				</div>
+				<div class="mui-col-xs-6">
+					<img src="../../images/index/moreMessage.png" width="30px">
+				</div>
+				<div class="mui-col-xs-3">
+					<img src="../../images/index/moreMessage.png" width="30px">
+				</div>
+			</h1>
+		</header>
+		<div class="mui-content">
+			<div id="slider" class="mui-slider">
+				<div class="mui-slider-group mui-slider-loop">
+					<!-- 额外增加的一个节点(循环轮播：第一个节点是最后一张轮播) -->
+					<div class="mui-slider-item mui-slider-item-duplicate">
+						<a href="#">
+							<img src="../../images/circle/pic.jpeg">
+						</a>
+					</div>
+					<!-- 第一张 -->
+					<div class="mui-slider-item">
+						<a href="#">
+							<img src="../../images/circle/pic.jpeg">
+						</a>
+					</div>
+					<!-- 第二张 -->
+					<div class="mui-slider-item">
+						<a href="#">
+							<img src="../../images/circle/pic.jpeg">
+						</a>
+					</div>
+					<!-- 第三张 -->
+					<div class="mui-slider-item">
+						<a href="#">
+							<img src="../../images/circle/pic.jpeg">
+						</a>
+					</div>
+					<!-- 第四张 -->
+					<div class="mui-slider-item">
+						<a href="#">
+							<img src="../../images/circle/pic.jpeg">
+						</a>
+					</div>
+					<!-- 额外增加的一个节点(循环轮播：最后一个节点是第一张轮播) -->
+					<div class="mui-slider-item mui-slider-item-duplicate">
+						<a href="#">
+							<img src="../../images/circle/pic.jpeg">
+						</a>
+					</div>
+				</div>
+				<div class="mui-slider-indicator">
+					<div class="mui-indicator mui-active"></div>
+					<div class="mui-indicator"></div>
+					<div class="mui-indicator"></div>
+					<div class="mui-indicator"></div>
+				</div>
+				<div class="taking-block">
+					<div class="mui-card">
+						<div class="mui-card-content mui-row" style="position: relative;">
+							<div class="mui-col-xs-5 ">
+								<p class="auth-place" style="margin-top: 10px;margin-bottom: 0px;">
+									<span>中国</span>
+									<span>.</span>
+									<span>北京</span>
+								</p>
+								<p class="auth-place">
+									2017-12-12
+								</p>
+							</div>
+							<div class="auth-pic">
+								<img class="center" src="../../images/circle/pic.jpeg" width="30px">
+							</div>
+							<div class="mui-col-xs-2">
+							</div>
+							<div class="mui-col-xs-5 ">
+								<p class="auth-place" style="margin-top: 10px;margin-bottom: 0px;">
+									<span>中国</span>
+									<span>.</span>
+									<span>北京</span>
+								</p>
+								<p class="auth-place">
+									2017-12-12
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
+				<nav class="mui-bar mui-bar-tab ">
+					<div class="t-line ">
+						<a href="index.html " class="aui-tab-item ">
+							<span class="mui-icon mui-icon-home "></span>
+							<span class="mui-tab-label ">首页</span>
+						</a>
+						<a href="category.html " class="aui-tab-item ">
+							<span class="mui-icon mui-icon-extra mui-icon-extra-class "></span>
+							<span class="mui-tab-label ">分类</span>
+						</a>
+						<a href="category.html " class="aui-tab-item ">
+							<span class="mui-icon mui-icon-extra mui-icon-extra-class "></span>
+							<span class="mui-tab-label ">分类</span>
+						</a>
+						<a class="aui-tab-item mui-active " href="car.html ">
+							<span class="mui-icon mui-icon-extra mui-icon-extra-cart "></span>
+							<span class="mui-tab-label ">购物车</span>
+						</a>
+						<a class="aui-tab-item " href="me.html ">
+							<span class="mui-icon mui-icon-extra mui-icon-extra-people "></span>
+							<span class="mui-tab-label ">我的</span>
+						</a>
+					</div>
+				</nav>
+			</div>
+			<script src="../../js/mui.min.js "></script>
+			<script src="takingList.js"></script>
+	</body>
+
+</html>

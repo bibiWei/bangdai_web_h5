@@ -60,32 +60,30 @@
 	<form class="mui-input-group">
 		<div class="mui-input-row b-line">
 			<label>用户名：</label>
-			<input type="text" placeholder="请输入您的用户名">
+			<input type="text" placeholder="请输入账号或手机号" id="userCode">
 		</div>
 		<div class="mui-input-row b-line">
 			<label>密码：</label>
-			<input type="password" class="mui-input-clear" placeholder="请输入您的密码" data-input-clear="5"><span class="mui-icon mui-icon-clear mui-hidden"></span>
+			<input type="password" id="password" class="mui-input-clear" placeholder="请输入您的密码" data-input-clear="5"><span class="mui-icon mui-icon-clear mui-hidden"></span>
 		</div>
-
-		<div class="mui-input-row mui-plus-visible">
-			<label>密码：</label>
-			<input type="text" class="mui-input-speech mui-input-clear" placeholder="语音输入" data-input-clear="6" data-input-speech="6"><span class="mui-icon mui-icon-clear mui-hidden"></span><span class="mui-icon mui-icon-speech"></span>
-		</div>
+		
 		<div class="mui-button-row" style="padding-top:20px; padding-bottom:10px; height:auto">
-			<a type="button" class="mui-btn mui-btn-primary" href="me.html" style="width:90%; padding:10px 0">立即登录</a>
-
+			<a type="button" class="mui-btn mui-btn-primary" style="width:90%; padding:10px 0" id="loginBtn">立即登录</a>
 		</div>
 		<div style="padding-bottom:10px; text-align:right; padding-right:15px">
 			<a href="register.html">注册账号</a>
 		</div>
+		<div style="width: 100%;text-align: center;">
+			<div style="width: 20%;text-align: center;left: 100px;" id="qqLogin">
+				<img src="favicon.ico" height="50px" style="border-radius: 30px;left: 100px;" >
+			</div>
+		</div>
 	</form>
-
 </div>
-
-
-
 <script src="js/mui.min.js"></script>
-
+<script src="js/jquery/jquery-2.1.1.min.js"></script>
+<script src="js/common/common.js"></script>
+<script src="login.js"></script>
 
 
 </body>

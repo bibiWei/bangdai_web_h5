@@ -9,7 +9,7 @@ var CONSTANT = {
 	token : "token",
 	auth: "auth",
 	
-	baseUrl: 'http://localhost:8082',	
+	baseUrl: 'https://www.lifanmao.top/papi',	
 	
 	pageSize : 10,
 	//订单列表显示5条
