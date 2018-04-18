@@ -1,4 +1,4 @@
-﻿{
+{
     "@platforms": ["android", "iPhone", "iPad"],
     "id": "com.ed.cn",/*应用的标识，创建应用时自动生成，勿手动修改*/
     "name": "",/*应用名称，程序桌面图标名称*/
@@ -226,6 +226,18 @@
 					"images/icon/icon-2.png",
 					"images/hot.jpg",
 					"fonts/mui.ttf"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"login.html": {
+				"resources": [
+					"images/circle/pic.jpeg",
+					"images/login/login-third.png",
+					"js/mui.min.js",
+					"images/login/login-first.png",
+					"css/mui.min.css",
+					"images/login/login-secend.png"
 				],
 				"refer": [],
 				"priority": 0
@@ -591,7 +603,6 @@
 				"js/plugins/jquery-validation/js/localization/messages_ge.js",
 				"js/plugins/jquery-animateNumber/demo/jquery.color.min.js",
 				"js/plugins/icheck/skins/flat/aero.png",
-				"login.html",
 				"js/plugins/highcharts/js/themes/gray.js",
 				"js/plugins/jquery-validation/js/localization/messages_is.min.js",
 				"js/plugins/jquery-validation/js/localization/messages_sr_lat.min.js",

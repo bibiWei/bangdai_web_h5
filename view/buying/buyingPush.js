@@ -1,7 +1,8 @@
 (function($) {
 	$.init();
 })(mui);
-buyingList = {
+
+buyingPush = {
 	// 事件注册
 	event: function() {
 	},
@@ -16,8 +17,8 @@ buyingList = {
 
 	dao: {},
 	init: function() {
-		buyingList.event();
+		buyingPush.event();
 
 	},
 }
-buyingList.init();
+buyingPush.init();

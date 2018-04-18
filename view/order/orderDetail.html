@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link rel="stylesheet" href="../../css/mui/mui.min.css">
+		<link rel="stylesheet" href="../../css/base/base.css">
+		<title>xxxxx</title>
+		<style>
+			body {
+				font-family: 'Helvetica Neue', Helvetica, sans-serif;
+				font-size: 18px;
+				line-height: 31px;
+				color: #000;
+				background-color: #efeff4;
+				-webkit-overflow-scrolling: touch;
+			}
+			
+			.order-title {
+				background-color: orange;
+				width: 100%;
+				height: 8em;
+			}
+			
+			.img-div {
+				display: table-cell;
+				vertical-align: middle;
+				position: relative;
+			}
+			
+			.order-title img {
+				width: 60px;
+				height: 60px;
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%, 50%);
+			}
+			
+			.order-status-div {
+				margin-top: 1.4em;
+			}
+			
+			.order-status {
+				color: #FFFFFF;
+				margin-left: 1em;
+				font-size: 20px;
+				font-weight: bold;
+				margin-top: 10px;
+			}
+			
+			.detail-btn {
+				margin-top: 15px;
+				margin-left: 1.5em;
+				margin-right: 1.5em;
+			}
+			.receiver-block{
+				height: 10em;
+				
+			}
+			
+		</style>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav aui-header b-line gradient">
+			<a class="mui-action-back mui-icon mui-icon-back mui-pull-left"></a>
+			<h1 class="mui-title">订单详情</h1>
+		</header>
+		<body>
+			<div class="mui-content">
+				<div class="order-title mui-row">
+					<div class="img-div mui-col-xs-8">
+						<div class="order-status-div"><span class="order-status">待确认订单</span></div>
+					</div>
+					<div class="img-div mui-col-xs-4">
+						<img src="../../images/circle/circle.png" />
+					</div>
+				</div>
+				<div class="b-line"></div>
+				<div class="receiver-block">
+				</div>
+				<div class="detail-btn"><button type="button" class="mui-btn mui-btn-primary" style="width: 100%;"><span id="btn-title">撤销订单<span></span></button></div>
+		</body>
+
+</html>

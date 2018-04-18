@@ -1,90 +1,128 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1, user-scalable=no">
-	<meta name="apple-mobile-web-app-capable" content="yes">
-	<meta name="apple-mobile-web-app-status-bar-style" content="black">
-	<link rel="stylesheet" href="css/mui.min.css">
-	<link rel="stylesheet" href="css/home.css">
-	<link rel="stylesheet" type="text/css" href="css/icons-extra.css" />
-	<link rel="stylesheet" type="text/css" href="css/app.css"/>
-	<title>购物就去海淘-购物车</title>
-	<link href="favicon.ico" type="image/x-icon" rel="icon">
-	<link href="iTunesArtwork@2x.png" sizes="114x114" rel="apple-touch-icon-precomposed">
-	<style>
-		html,
-		body {
-			background-color: #efeff4;
-		}
+<html>
 
-		.mui-bar .mui-pull-left .mui-icon {
-			padding-right: 5px;
-			font-size: 28px;
-		}
+	<head>
+		<meta charset="utf-8">
+		<title>Hello MUI</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
 
-		.mui-bar .mui-btn {
-			font-weight: normal;
-			font-size: 17px;
-		}
+		<!--标准mui.css-->
+		<link rel="stylesheet" href="css/mui.min.css">
+		<!--App自定义的css-->
+		<!--<link rel="stylesheet" type="text/css" href="../css/app.css" />-->
+	</head>
 
-		.mui-bar .mui-btn-link {
-			top: 1px;
-		}
+	<body>
 
-		.mui-content img{
-			width: 100%;
-		}
-		.hm-description{
-			margin: 15px;
-		}
+		<style>
+			body {
+				width: 100%;
+				height: 100%;
+			}
+			
+			.mui-control-content {
+				background-color: white;
+				min-height: 215px;
+			}
+			
+			.mui-control-content .mui-loading {
+				margin-top: 50px;
+			}
+			
+			.logo {}
+			
+			.mui-slider .mui-slider-group .mui-slider-item img {
+				margin-top: 5.333333333333333rem;
+				width: 6rem;
+				height: 6rem;
+				border-radius: 6rem;
+			}
+			
+			.mui-scroll {
+				text-align: center;
+			}
+			
+			.details {
+				color: #ffffff;
+				margin-top: 4em;
+			}
+			
+			.details h3 {
+				font-size: 21px;
+			}
+			
+			.btn-group {
+				margin-top: 10rem;
+			}
+			
+			h1 {
+				color: white;
+				margin-top: 3rem;
+			}
+			
 
-		.hm-description>li {
-			font-size: 14px;
-			color: #8f8f94;
-		}
+		</style>
 
+		<div class="mui-content">
+			<div id="slider" class="mui-slider">
+				<div class="mui-slider-group" style="height: 667px">
+					<div id="item1mobile" class="mui-slider-item mui-control-content mui-active" style="background-image:url('images/login/login-first.png') ;">
+						<div id="scroll1" class="mui-scroll-wrapper">
+							<div class="mui-scroll">
+								<img src="images/circle/pic.jpeg" class="logo">
+								<h1>欢迎使用满豆药师</h1>
+								<div class="details">
+									<h3>只要你想要的 无论在这个世界</h3>
+									<h3>上的任何地方 我都会为你带来</h3>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div id="item2mobile" class="mui-slider-item mui-control-content" style="background-image:url('images/login/login-secend.png') ;">
+						<div id="scroll2" class="mui-scroll-wrapper">
+							<div class="mui-scroll">
+								<img src="images/circle/pic.jpeg" class="logo">
+								<h1>欢迎使用满豆药师</h1>
+								<div class="details">
+									<h3>只要你想要的 无论在这个世界</h3>
+									<h3>上的任何地方 我都会为你带来</h3>
+								</div>
+							</div>
+						</div>
 
-	</style>
-</head>
-<body>
+					</div>
+					<div id="item3mobile" class="mui-slider-item mui-control-content" style="background-image:url('images/login/login-third.png') ;">
+						<div id="scroll3" class="mui-scroll-wrapper">
+							<div class="mui-scroll">
+								<img src="images/circle/pic.jpeg" class="logo">
+								<h1>欢迎使用满豆药师</h1>
+								<div class="details">
+									<h3>只要你想要的 无论在这个世界</h3>
+									<h3>上的任何地方 我都会为你带来</h3>
+								</div>
+								<div class="btn-group mui-row">
+									<div class="mui-col-xs-6">
+										<button type="button" class="mui-btn mui-btn-danger" style="width: 100%;">登录</button>
+									</div>
+									<div class="mui-col-xs-6">
+										<button type="button" class="mui-btn mui-btn-danger">注册</button>
+									</div>
+									<div>
+										<button type="button" class="mui-btn mui-btn-danger mui-btn-outlined">先去首页看看</button>
+									</div>
+								</div>
+							</div>
+						</div>
 
-
-<header class="mui-bar mui-bar-nav aui-header b-line">
-	<a class="mui-action-back mui-icon mui-icon-arrowleft mui-pull-left"></a>
-	<h1 class="mui-title">登录</h1>
-	<!--<a class="mui-icon mui-icon-paperplane mui-pull-right"></a>-->
-</header>
-<div class="mui-content">
-	<div class="devider b-line"></div>
-	<form class="mui-input-group">
-		<div class="mui-input-row b-line">
-			<label>用户名：</label>
-			<input type="text" placeholder="请输入账号或手机号" id="userCode">
-		</div>
-		<div class="mui-input-row b-line">
-			<label>密码：</label>
-			<input type="password" id="password" class="mui-input-clear" placeholder="请输入您的密码" data-input-clear="5"><span class="mui-icon mui-icon-clear mui-hidden"></span>
-		</div>
-		
-		<div class="mui-button-row" style="padding-top:20px; padding-bottom:10px; height:auto">
-			<a type="button" class="mui-btn mui-btn-primary" style="width:90%; padding:10px 0" id="loginBtn">立即登录</a>
-		</div>
-		<div style="padding-bottom:10px; text-align:right; padding-right:15px">
-			<a href="register.html">注册账号</a>
-		</div>
-		<div style="width: 100%;text-align: center;">
-			<div style="width: 20%;text-align: center;left: 100px;" id="qqLogin">
-				<img src="favicon.ico" height="50px" style="border-radius: 30px;left: 100px;" >
+					</div>
+				</div>
 			</div>
+
 		</div>
-	</form>
-</div>
-<script src="js/mui.min.js"></script>
-<script src="js/jquery/jquery-2.1.1.min.js"></script>
-<script src="js/common/common.js"></script>
-<script src="login.js"></script>
+		<script src="js/mui.min.js"></script>
 
+	</body>
 
-</body>
 </html>

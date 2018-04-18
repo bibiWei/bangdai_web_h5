@@ -1,0 +1,79 @@
+<!DOCTYPE HTML>
+
+<script>
+	if(localStorage.getItem("token") == null) {
+		window.location.href = "../../login.jsp"
+	}
+</script>
+<html lang="zh-cn">
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1, user-scalable=no">
+		<link rel="stylesheet" href="../../css/mui.min.css">
+		<link rel="stylesheet" href="../../css/home.css">
+
+		<link rel="stylesheet" type="text/css" href="../../css/base/base.css" />
+		<link href="favicon.ico" type="image/x-icon" rel="icon">
+		<link href="iTunesArtwork@2x.png" sizes="114x114" rel="apple-touch-icon-precomposed">
+		<title>药师-全球顶级医药平台</title>
+		<style>
+			body {
+				width: 100%;
+				height: 100%;
+				background-color: #F5F5F5;
+			}
+			
+			.mui-title {
+				left: 2px;
+				z-index: 3;
+			}
+			
+			.mui-title input {
+				width: 100%;
+			}
+			
+			.taking-block {
+				margin-top: 2em;
+			}
+			
+			.mui-col-xs-6 p {
+				margin-top: 1em;
+				margin-left: 1em;
+				color: #000000;
+				font-size: 17px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<header>
+			<h1 class="mui-title mui-row">
+				<div class="mui-col-xs-3" >
+					<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+				</div>
+				<div class="mui-col-xs-6">
+					<span >认证中心</span>
+				</div>
+			</h1>
+		</header>
+		<div class="mui-content">
+			<img src="../../images/circle/pic.jpeg" width="100%" />
+			<div id="segmentedControl" class="mui-segmented-control">
+				<a class="mui-control-item mui-active" href="#item1">身份认证</a>
+				<a class="mui-control-item" href="#item2">护照认证</a>
+				<a class="mui-control-item" href="#item3">外籍认证</a>
+			</div>
+			<div id="item1" class="mui-control-content mui-active">
+				<div id="scroll" class="mui-scroll-wrapper">
+					<div class="mui-scroll">
+						<span>上传你的身份证照片</span>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script src="../../js/mui.min.js "></script>
+		<script src="authInfo.js"></script>
+	</body>
+
+</html>
