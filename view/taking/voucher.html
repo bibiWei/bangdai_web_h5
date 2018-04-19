@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link rel="stylesheet" href="../../css/mui/mui.min.css" />
+		<!-- less.min.js 编译 less 为 css -->
+		<!--<link rel="stylesheet/less" type="text/css" href="css/common/common.less">-->
+		<link rel="stylesheet" href="../../css/base/base.css" />
+		<link href="../../css/mui/mui.picker.css" rel="stylesheet" />
+		<link href="../../css/mui/mui.poppicker.css" rel="stylesheet" />
+		<title>冷链物流</title>
+		<style>
+			body {
+				font-family: 'Helvetica Neue', Helvetica, sans-serif;
+				font-size: 18px;
+				line-height: 31px;
+				color: #000;
+				background-color: #efeff4;
+				-webkit-overflow-scrolling: touch;
+			}
+			
+			.mui-table-view:after {
+				background-color: #FFFFFF;
+			}
+			
+			.li-title {
+				font-size: 18px;
+			}
+			
+			.border-line {
+				border-bottom: 1px solid #F0F0F0;
+			}
+			
+			.check-font {
+				font-size: 14px;
+				color: gray;
+			}
+			
+			.upload {
+				text-align: center;
+				margin-left: 10px;
+			}
+			
+			.upload img {
+				width: 150px;
+				height: 150px;
+				style: margin-top: 10px;
+			}
+			
+			input {
+				float: right;
+				line-height: 21px;
+				width: 30%;
+				height: auto;
+				margin-bottom: 0px;
+				padding: 0px 0px;
+				-webkit-user-select: text;
+				border: 0px solid rgba(0, 0, 0, .2);
+				border-radius: 3px;
+				outline: 0;
+				background-color: #fff;
+				-webkit-appearance: none;
+			}
+			
+			::-webkit-input-placeholder {
+				color: #c7c7c7;
+				direction: rtl;
+				font-size: 14px;
+			}
+			
+			:-moz-placeholder {
+				color: #c7c7c7;
+				direction: rtl;
+				font-size: 14px;
+			}
+			
+			::-moz-placeholder {
+				color: #c7c7c7;
+				direction: rtl;
+				font-size: 14px;
+			}
+			
+			:-ms-input-placeholder {
+				color: #c7c7c7;
+				direction: rtl;
+				font-size: 14px;
+			}
+			
+			input {
+				text-align: right;
+			}
+			
+			.mui-table-view-chevron .mui-table-view-cell {
+				padding-right: 15px;
+			}
+			
+			.footer-btn {
+				width: 100%;
+				position: absolute;
+				bottom: 0px;
+				height: 50px;
+				background-color: #FFFFFF;
+			}
+			
+			.mui-col-xs-4 {
+				background-color: orange;
+				color: #FFFFFF;
+				text-align: center;
+				vertical-align: middle;
+			}
+		</style>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav aui-header gradient">
+			<a class="mui-action-back mui-icon mui-icon-back mui-pull-left"></a>
+			<h1 class="mui-title">上传凭证</h1>
+		</header>
+		<div class="mui-content">
+
+			<div class="b-line"></div>
+			<ul class="mui-table-view mui-table-view-chevron">
+				<li class="mui-table-view-cell ">
+					<div><span class="pic-check-title">上传凭证照片</span>
+						<div class="upload"><img src="../../images/circle/pic.jpeg"></div>
+					</div>
+				</li>
+
+				<li class="mui-table-view-cell " id='showStartPicker'>
+					<div class="mui-navigate-right">费用类型
+						<span class="mui-pull-right check-font" id="startPlaceName">请选择费用类型</span>
+					</div>
+				</li>
+
+				<li class="mui-table-view-cell ">
+					<div>费用价格
+						<input class="mui-input-clear" placeholder="费用价格" data-input-clear="5" id="sendName"><span class="mui-icon mui-icon-clear mui-hidden"></span>
+					</div>
+				</li>
+				<li class="mui-table-view-cell ">
+					<div>备注:本次服务在海关需要征收关税,现已上传凭证
+					</div>
+				</li>
+			</ul>
+			<div class="b-line">
+
+			</div>
+
+		</div>
+		<div class="footer-btn">
+			<div class="mui-row">
+				<div class="mui-col-xs-8" style="height: 50px;">
+					需付金额:
+					<span style="color: red;">¥350</span>
+				</div>
+				<div class="mui-col-xs-4" style="height: 50px;">
+					<span style="padding-top: 1.2em;">确定</span>
+				</div>
+			</div>
+		</div>
+		<script src="../../js/mui/mui.min.js"></script>
+
+	</body>
+
+</html>

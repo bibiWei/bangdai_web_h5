@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link rel="stylesheet" href="../../css/mui/mui.min.css" />
+		<!-- less.min.js 编译 less 为 css -->
+		<!--<link rel="stylesheet/less" type="text/css" href="css/common/common.less">-->
+		<link rel="stylesheet" href="../../css/base/base.css" />
+		<link href="../../css/mui/mui.picker.css" rel="stylesheet" />
+		<link href="../../css/mui/mui.poppicker.css" rel="stylesheet" />
+		<title>冷链物流</title>
+		<style>
+			body {
+				font-family: 'Helvetica Neue', Helvetica, sans-serif;
+				font-size: 18px;
+				line-height: 31px;
+				color: #000;
+				background-color: #efeff4;
+				-webkit-overflow-scrolling: touch;
+			}
+			
+			.mui-table-view:after {
+				background-color: #FFFFFF;
+			}
+			
+			.li-title {
+				font-size: 18px;
+			}
+			
+			.border-line {
+				border-bottom: 1px solid #F0F0F0;
+			}
+			
+			.check-font {
+				font-size: 14px;
+				color: gray;
+			}
+			
+			.footer-btn {
+				width: 100%;
+				padding-top: 40px;
+				padding-left: 20px;
+				padding-right: 20px;
+				padding-bottom: 20px;
+			}
+			
+			.footer-btn button {
+				width: 100%;
+				border-radius: 40px;
+			}
+			
+			input {
+				float: right;
+				line-height: 21px;
+				width: 30%;
+				height: auto;
+				margin-bottom: 0px;
+				padding: 0px 0px;
+				-webkit-user-select: text;
+				border: 0px solid rgba(0, 0, 0, .2);
+				border-radius: 3px;
+				outline: 0;
+				background-color: #fff;
+				-webkit-appearance: none;
+			}
+			
+			::-webkit-input-placeholder {
+				color: #c7c7c7;
+				direction: rtl;
+				font-size: 14px;
+			}
+			
+			:-moz-placeholder {
+				color: #c7c7c7;
+				direction: rtl;
+				font-size: 14px;
+			}
+			
+			::-moz-placeholder {
+				color: #c7c7c7;
+				direction: rtl;
+				font-size: 14px;
+			}
+			
+			:-ms-input-placeholder {
+				color: #c7c7c7;
+				direction: rtl;
+				font-size: 14px;
+			}
+			
+			input {
+				text-align: right;
+			}
+			
+			.mui-table-view-chevron .mui-table-view-cell {
+				padding-right: 15px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav aui-header gradient">
+			<a class="mui-action-back mui-icon mui-icon-back mui-pull-left"></a>
+			<h1 class="mui-title">添加收货地址</h1>
+		</header>
+		<div class="mui-content">
+
+			<div class="b-line"></div>
+			<ul class="mui-table-view mui-table-view-chevron">
+				<li class="mui-table-view-cell ">
+					<div>收件人
+						<input class="mui-input-clear" placeholder="请输入收件人" data-input-clear="5" id="sendName"><span class="mui-icon mui-icon-clear mui-hidden"></span>
+					</div>
+				</li>
+				<li class="mui-table-view-cell " id='showStartPicker'>
+					<div class="mui-navigate-right">省市区
+						<span class="mui-pull-right check-font" id="startPlaceName">省市区</span>
+					</div>
+				</li>
+				<li class="mui-table-view-cell ">
+					<div>详细地址
+						<input class="mui-input-clear" placeholder="请输入详细地址" data-input-clear="5" id="sendPhone"><span class="mui-icon mui-icon-clear mui-hidden"></span>
+					</div>
+				</li>
+				<li class="mui-table-view-cell ">
+					<div>联系方式
+						<input class="mui-input-clear" placeholder="请输入联系方式" data-input-clear="5" id="sendPhone"><span class="mui-icon mui-icon-clear mui-hidden"></span>
+					</div>
+				</li>
+
+			</ul>
+			<div class="b-line"></div>
+			<ul class="mui-table-view mui-table-view-chevron">
+				<li class="mui-table-view-cell " id='showStartPicker'>
+					<div class="mui-navigate-right">物品类型
+						<span class="mui-pull-right check-font" id="startPlaceName">请选择物品类型</span>
+					</div>
+				</li>
+				<li class="mui-table-view-cell ">
+					<div>物品重量(KG)
+						<input class="mui-input-clear" placeholder="请输入物品重量" data-input-clear="5" id="sendName"><span class="mui-icon mui-icon-clear mui-hidden"></span>
+					</div>
+				</li>
+			</ul>
+		</div>
+		<div class="logout-btn"><button type="button" class="mui-btn mui-btn-warning" style="width: 100%;">退出登录</button></div>
+
+		</div>
+
+		<script src="../../js/mui/mui.min.js"></script>
+
+	</body>
+
+</html>

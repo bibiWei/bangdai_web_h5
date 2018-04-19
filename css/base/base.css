@@ -84,3 +84,14 @@
 	background-repeat: no-repeat;
 	background-size: 100% 100%;
 }
+
+.logout-btn {
+	margin-top: 3em;
+	margin-left: 1.5em;
+	margin-right: 1.5em;
+}
+
+.logout-btn button {
+	border-radius: 30px;
+	font-size: 18px;
+}
