@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+		<link href="../../css/base/base.css" rel="stylesheet" />
+		<link href="../../css/mui/mui.min.css" rel="stylesheet" />
+		<style type="text/css">
+			.mui-icon-star {
+				color: #B5B5B5;
+				font-size: 30px;
+			}
+			
+			.mui-icon-star-filled {
+				color: #FFB400;
+				font-size: 30px;
+			}
+			
+			ul {
+				padding: 10px 0px;
+			}
+			
+			li {
+				display: -webkit-box;
+				width: 100%;
+				padding: 0 10px;
+			}
+			
+			li a {
+				-webkit-box-flex: 1;
+				display: block;
+				font-size: 15px;
+				line-height: 30px;
+				color: #000;
+			}
+			
+			li div {
+				-webkit-box-flex: 2;
+				text-align: right;
+			}
+			
+			#info {
+				padding: 20px 10px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<h1 class="mui-title">评价</h1>
+		</header>
+		<div class="mui-content">
+			<ul class="mui-table-view">
+				<li class="star-li">
+					<a class="mui-action-back mui-icon mui-icon-back mui-pull-left"></a>
+					<a>评价</a>
+					<div class="icons">
+						<i data-index="1" class="mui-icon mui-icon-star"></i>
+						<i data-index="2" class="mui-icon mui-icon-star"></i>
+						<i data-index="3" class="mui-icon mui-icon-star"></i>
+						<i data-index="4" class="mui-icon mui-icon-star"></i>
+						<i data-index="5" class="mui-icon mui-icon-star"></i>
+					</div>
+				</li>
+			</ul>
+			<div id="info"></div>
+		</div>
+		<script src="../../js/mui/mui.min.js"></script>
+		<script type="text/javascript" charset="utf-8">
+			mui.init();
+			mui('.icons').on('click', 'i', function() {
+				var index = parseInt(this.getAttribute("data-index")); //获取当前元素的索引值
+				var parent = this.parentNode; //获取当前元素的父节点
+				var children = parent.children; //获取父节点下所有子元素
+				if(this.classList.contains("mui-icon-star")) { //判断当前节点列表中是否含有.mui-icon-star元素
+					for(var i = 0; i < index; i++) { //亮星
+						children[i].classList.remove('mui-icon-star');
+						children[i].classList.add('mui-icon-star-filled');
+					}
+				} else { //重置已经亮星的元素
+					for(var i = index; i < 5; i++) {
+						children[i].classList.add('mui-icon-star')
+						children[i].classList.remove('mui-icon-star-filled')
+					}
+				}
+				document.getElementById("info").innerHTML = parent.previousElementSibling.innerText + "：" + index + "星好评";
+			})
+		</script>
+	</body>
+
+</html>

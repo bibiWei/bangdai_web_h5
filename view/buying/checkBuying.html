@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link rel="stylesheet" href="../../css/mui/mui.min.css" />
+		<!-- less.min.js 编译 less 为 css -->
+		<!--<link rel="stylesheet/less" type="text/css" href="css/common/common.less">-->
+		<link rel="stylesheet" href="../../css/base/base.css" />
+
+		<link href="../../css/mui/mui.picker.css" rel="stylesheet" />
+		<link href="../../css/mui/mui.poppicker.css" rel="stylesheet" />
+		<title>冷链物流</title>
+		<style>
+			.mui-bar-nav {
+				background-color: orange;
+				color: #FFFFFF
+			}
+			
+			a {
+				color: #FFFFFF;
+			}
+			
+			.mui-title {
+				color: #FFFFFF
+			}
+			
+			.list {
+				margin-top: 15px;
+			}
+			
+			.mui-card {
+				border-radius: 10px;
+			}
+			
+			.mui-row-place {
+				text-align: center;
+				font-size: 18px;
+				margin-top: 5px;
+			}
+			
+			.mui-row-inner {
+				text-align: center;
+				color: gray;
+			}
+			
+			.mui-row-weight {
+				color: gray;
+			}
+			
+			.span-price {
+				color: red;
+			}
+			.mui-card-footer button{
+				border-radius: 30px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav aui-header gradient">
+			<a class="mui-action-back mui-icon mui-icon-back mui-pull-left"></a>
+			<h1 class="mui-title">选择求带人</h1>
+		</header>
+		<div class="mui-content">
+
+			<div class="mui-card">
+				<div class="mui-card-header">
+					<span>我的路线</span>
+				</div>
+				<div class="mui-card-content">
+					<div class="mui-row mui-row-place">
+						<div class="mui-col-xs-5">
+							<div>大连 - 中国</div>
+						</div>
+						<div class="mui-col-xs-2" style="vertical-align: middle;">
+							<img src="../../images/circle/pic.jpeg" style="width: 40px; height: 20px;margin-top: 5px;" />
+						</div>
+						<div class="mui-col-xs-5">
+							<div>上海 - 中国</div>
+						</div>
+					</div>
+					<div class="mui-row mui-row-inner">
+						<div class="mui-col-xs-5">
+							<img src="../../images/circle/pic.jpeg" style="width: 20px; height: 20px;margin-top: 5px;" /> 2018-02-02
+						</div>
+						<div class="mui-col-xs-2" style="vertical-align: middle;">
+							&nbsp;
+						</div>
+						<div class="mui-col-xs-5">
+							<img src="../../images/circle/pic.jpeg" style="width: 20px; height: 20px;margin-top: 5px;" /> 2018-02-02
+						</div>
+					</div>
+					<div class="mui-row ">
+						<div class="mui-col-xs-5" style="padding-left: 1.7em;">
+							<img src="../../images/circle/pic.jpeg" style="width: 20px; height: 20px;margin-top: 5px;" />5KG
+						</div>
+						<div class="mui-col-xs-2" style="vertical-align: middle;">
+							&nbsp;
+						</div>
+						<div class="mui-col-xs-5" style="padding-left: 1.7em;">
+							<img src="../../images/circle/pic.jpeg" style="width: 20px; height: 20px;margin-top: 5px;" />$10/KG
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="mui-card">
+				<div class="mui-card-header">
+					<div>
+						<img src="../../images/circle/circle.png" width="20px" height="20px" /> 王二麻子
+					</div>
+					<span class="span-price">¥10/KG</span>
+				</div>
+				<div class="mui-card-content">
+					<div class="mui-row mui-row-place">
+						<div class="mui-col-xs-5">
+							<div>大连 - 中国</div>
+						</div>
+						<div class="mui-col-xs-2" style="vertical-align: middle;">
+							<img src="../../images/circle/pic.jpeg" style="width: 40px; height: 20px;margin-top: 5px;" />
+						</div>
+						<div class="mui-col-xs-5">
+							<div>上海 - 中国</div>
+						</div>
+					</div>
+					<div class="mui-row mui-row-inner">
+						<div class="mui-col-xs-5">
+							<img src="../../images/circle/pic.jpeg" style="width: 20px; height: 20px;margin-top: 5px;" /> 2018-02-02
+						</div>
+						<div class="mui-col-xs-2" style="vertical-align: middle;">
+							&nbsp;
+						</div>
+						<div class="mui-col-xs-5">
+							<img src="../../images/circle/pic.jpeg" style="width: 20px; height: 20px;margin-top: 5px;" /> 2018-02-02
+						</div>
+					</div>
+					<div class="mui-row ">
+						<div class="mui-col-xs-5" style="padding-left: 1.7em;">
+							<img src="../../images/circle/pic.jpeg" style="width: 20px; height: 20px;margin-top: 5px;" />5KG
+						</div>
+						<div class="mui-col-xs-2" style="vertical-align: middle;">
+							&nbsp;
+						</div>
+						<div class="mui-col-xs-5" style="padding-left: 1.7em;">
+						</div>
+					</div>
+				</div>
+
+				<div class="mui-card-footer">
+					<div style="width: 100%;">
+					<button type="button" class="mui-btn mui-btn-warning mui-pull-right" id="orderBbtn">发消息</button>
+					<button type=" button " class="mui-btn mui-btn-warning mui-pull-right" id="orderBbtn" style="margin-right: 10px;">下&nbsp;&nbsp;&nbsp;&nbsp;单</button>
+					</div>
+				</div>
+			</div>
+
+			<script src="../../js/mui/mui.min.js"></script>
+
+	</body>
+
+</html>

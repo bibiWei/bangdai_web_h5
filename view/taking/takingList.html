@@ -1,177 +1,147 @@
-<!DOCTYPE HTML>
-
-<script>
-	if(localStorage.getItem("token") == null) {
-		window.location.href = "../../login.jsp"
-	}
-</script>
-<html lang="zh-cn">
+<!DOCTYPE html>
+<html lang="en">
 
 	<head>
 		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1, user-scalable=no">
-		<link rel="stylesheet" href="../../css/mui.min.css">
-		<link rel="stylesheet" href="../../css/home.css">
-
-		<link rel="stylesheet" type="text/css" href="../../css/base/base.css" />
-		<link href="favicon.ico" type="image/x-icon" rel="icon">
-		<link href="iTunesArtwork@2x.png" sizes="114x114" rel="apple-touch-icon-precomposed">
-		<title>药师-全球顶级医药平台</title>
-		<style>
-			body {
-				width: 100%;
-				height: 100%;
-				background-color: #F5F5F5;
-			}
-			
-			.mui-title {
-				left: 2px;
-				z-index: 3;
-			}
-			
-			.mui-title input {
-				width: 100%;
-			}
-			
-			.taking-block {
-				margin-top: 2em;
-			}
-			
-			.auth-pic {
-				text-align: center;
-				position: absolute;
-				top: 50%;
-				left: 50%;
-				transform: translateY(-50%) translateX(-50%);
-			}
-			
-			.auth-pic img {}
-			
-			.auth-place {
-				text-align: center;
-				color: #000000;
-			}
-		</style>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link rel="stylesheet" href="../../css/mui/mui.min.css" />
+		<title>首页</title>
+		<link rel="stylesheet" href="../../css/swiper/swiper.min.css">
+		<link rel="stylesheet" href="../../css/base/base.css">
 	</head>
+	<style>
+		.list {
+			margin-top: 0px;
+		}
+		
+		.mui-card {
+			border-radius: 7px;
+		}
+		
+		.mui-row-place {
+			text-align: center;
+			font-size: 18px;
+			margin-top: 5px;
+		}
+		
+		.mui-row-inner {
+			text-align: center;
+			color: gray;
+		}
+		
+		.mui-row-weight {
+			color: gray;
+		}
+	</style>
 
 	<body>
-		<header>
-			<h1 class="mui-title mui-row">
-				<div class="mui-col-xs-3" >
-					<img src="../../images/index/moreMessage.png" width="30px">
-				</div>
-				<div class="mui-col-xs-6">
-					<img src="../../images/index/moreMessage.png" width="30px">
-				</div>
-				<div class="mui-col-xs-3">
-					<img src="../../images/index/moreMessage.png" width="30px">
-				</div>
-			</h1>
+
+		<header class="mui-bar mui-bar-nav aui-header gradient">
+			<h1 class="mui-title">首页</h1>
 		</header>
+		<!-- Swiper -->
 		<div class="mui-content">
-			<div id="slider" class="mui-slider">
-				<div class="mui-slider-group mui-slider-loop">
-					<!-- 额外增加的一个节点(循环轮播：第一个节点是最后一张轮播) -->
-					<div class="mui-slider-item mui-slider-item-duplicate">
-						<a href="#">
-							<img src="../../images/circle/pic.jpeg">
-						</a>
-					</div>
-					<!-- 第一张 -->
-					<div class="mui-slider-item">
-						<a href="#">
-							<img src="../../images/circle/pic.jpeg">
-						</a>
-					</div>
-					<!-- 第二张 -->
-					<div class="mui-slider-item">
-						<a href="#">
-							<img src="../../images/circle/pic.jpeg">
-						</a>
-					</div>
-					<!-- 第三张 -->
-					<div class="mui-slider-item">
-						<a href="#">
-							<img src="../../images/circle/pic.jpeg">
-						</a>
-					</div>
-					<!-- 第四张 -->
-					<div class="mui-slider-item">
-						<a href="#">
-							<img src="../../images/circle/pic.jpeg">
-						</a>
-					</div>
-					<!-- 额外增加的一个节点(循环轮播：最后一个节点是第一张轮播) -->
-					<div class="mui-slider-item mui-slider-item-duplicate">
-						<a href="#">
-							<img src="../../images/circle/pic.jpeg">
-						</a>
+			<section class="pc-banner">
+				<div class="swiper-container">
+					<div class="swiper-wrapper">
+						<div class="swiper-slide swiper-slide-center none-effect">
+							<a href="#"><img src="../../images/banner/top_hero_conc_2017.jpg"></a>
+						</div>
+						<div class="swiper-slide">
+							<a href="#"><img src="../../images/banner/top_hero_cs_2017.jpg"></a>
+						</div>
+						<div class="swiper-slide">
+							<a href="#"><img src="../../images/banner/top_hero_cw_im17.jpg"></a>
+						</div>
+						<div class="swiper-slide">
+							<a href="#"><img src="../../images/banner/top_hero_hakko.jpg"></a>
+						</div>
+						<div class="swiper-slide">
+							<a href="#"><img src="../../images/banner/top_hero_karadacalpis_im02.jpg"></a>
+						</div>
 					</div>
 				</div>
-				<div class="mui-slider-indicator">
-					<div class="mui-indicator mui-active"></div>
-					<div class="mui-indicator"></div>
-					<div class="mui-indicator"></div>
-					<div class="mui-indicator"></div>
-				</div>
-				<div class="taking-block">
+				<div id="buyingList" class="list">
 					<div class="mui-card">
-						<div class="mui-card-content mui-row" style="position: relative;">
-							<div class="mui-col-xs-5 ">
-								<p class="auth-place" style="margin-top: 10px;margin-bottom: 0px;">
-									<span>中国</span>
-									<span>.</span>
-									<span>北京</span>
-								</p>
-								<p class="auth-place">
-									2017-12-12
-								</p>
+						<div class="mui-card-content">
+							<div class="mui-row mui-row-place">
+								<div class="mui-col-xs-5">
+									<div>大连 - 中国</div>
+								</div>
+								<div class="mui-col-xs-2" style="vertical-align: middle;">
+									<img src="../../images/circle/pic.jpeg" style="width: 40px; height: 20px;margin-top: 5px;" />
+								</div>
+								<div class="mui-col-xs-5">
+									<div>上海 - 中国</div>
+								</div>
 							</div>
-							<div class="auth-pic">
-								<img class="center" src="../../images/circle/pic.jpeg" width="30px">
-							</div>
-							<div class="mui-col-xs-2">
-							</div>
-							<div class="mui-col-xs-5 ">
-								<p class="auth-place" style="margin-top: 10px;margin-bottom: 0px;">
-									<span>中国</span>
-									<span>.</span>
-									<span>北京</span>
-								</p>
-								<p class="auth-place">
-									2017-12-12
-								</p>
+							<div class="mui-row mui-row-inner">
+								<div class="mui-col-xs-5">
+									<img src="../../images/circle/pic.jpeg" style="width: 20px; height: 20px;margin-top: 5px;" /> 2018-02-02
+								</div>
+								<div class="mui-col-xs-2" style="vertical-align: middle;">
+									<img src="../../images/circle/pic.jpeg" style="width: 40px; height: 20px;margin-top: 5px;" />
+								</div>
+								<div class="mui-col-xs-5">
+									<img src="../../images/circle/pic.jpeg" style="width: 20px; height: 20px;margin-top: 5px;" /> 2018-02-02
+								</div>
 							</div>
 						</div>
 					</div>
 				</div>
-				<nav class="mui-bar mui-bar-tab ">
-					<div class="t-line ">
-						<a href="index.html " class="aui-tab-item ">
-							<span class="mui-icon mui-icon-home "></span>
-							<span class="mui-tab-label ">首页</span>
-						</a>
-						<a href="category.html " class="aui-tab-item ">
-							<span class="mui-icon mui-icon-extra mui-icon-extra-class "></span>
-							<span class="mui-tab-label ">分类</span>
-						</a>
-						<a href="category.html " class="aui-tab-item ">
-							<span class="mui-icon mui-icon-extra mui-icon-extra-class "></span>
-							<span class="mui-tab-label ">分类</span>
-						</a>
-						<a class="aui-tab-item mui-active " href="car.html ">
-							<span class="mui-icon mui-icon-extra mui-icon-extra-cart "></span>
-							<span class="mui-tab-label ">购物车</span>
-						</a>
-						<a class="aui-tab-item " href="me.html ">
-							<span class="mui-icon mui-icon-extra mui-icon-extra-people "></span>
-							<span class="mui-tab-label ">我的</span>
-						</a>
-					</div>
-				</nav>
-			</div>
-			<script src="../../js/mui.min.js "></script>
-			<script src="takingList.js"></script>
+			</section>
+
+			<nav class="mui-bar mui-bar-tab" style="	background-color: #FFFFFF;">
+				<a class="mui-tab-item mui-active" href="#tabbar">
+					<span class="mui-icon mui-icon-home"></span>
+					<span class="mui-tab-label">求带</span>
+				</a>
+				<a class="mui-tab-item" href="#tabbar-with-chat">
+					<span class="mui-icon mui-icon-email"></span>
+					<span class="mui-tab-label">帮带</span>
+				</a>
+				<a class="mui-tab-item" href="views/goods/goodsList.html">
+					<span class="mui-icon mui-icon-contact"></span>
+					<span class="mui-tab-label">发布</span>
+				</a>
+				<a class="mui-tab-item" href="#tabbar-with-map">
+					<span class="mui-icon mui-icon-gear"></span>
+					<span class="mui-tab-label">熊圈</span>
+				</a>
+				<a class="mui-tab-item" href="#tabbar-with-map">
+					<span class="mui-icon mui-icon-gear"></span>
+					<span class="mui-tab-label">我的</span>
+				</a>
+			</nav>
+		</div>
+
+		<script src="../../js/swiper/swiper.min.js"></script>
+		<script src="../../js/mui/mui.min.js"></script>
+		<!-- Initialize Swiper -->
+		<script>
+			window.onload = function() {
+				var swiper = new Swiper('.swiper-container', {
+					autoplay: 4000,
+					speed: 1000,
+					autoplayDisableOnInteraction: false,
+					loop: true,
+					centeredSlides: true,
+					slidesPerView: 1.5,
+					pagination: '.swiper-pagination',
+					paginationClickable: true,
+					prevButton: '.swiper-button-prev',
+					nextButton: '.swiper-button-next',
+					onInit: function(swiper) {
+						swiper.slides[1].className = "swiper-slide swiper-slide-active"; //第一次打开不要动画
+					},
+					breakpoints: {
+						1000: {
+							slidesPerView: 1.5,
+						}
+					}
+				});
+			}
+		</script>
 	</body>
 
 </html>
