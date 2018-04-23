@@ -142,10 +142,10 @@ body {
 }
 
 .pc-banner {
-
 	width: 100%;
 	float: left;
 }
+
 
 /*@media screen and (max-width: 668px) {
 	.pc-banner {
@@ -159,14 +159,6 @@ body {
 	margin-top: 10px;
 }
 
-/*@media screen and (max-width: 668px) {
-	.swiper-container {
-		width: 100%;
-		margin-top: 50px;
-		
-	}
-}*/
-
 .swiper-slide {
 	-webkit-transition: transform 1.0s;
 	-moz-transition: transform 1.0s;
@@ -176,26 +168,11 @@ body {
 	transform: scale(0.7);
 }
 
-/*@media screen and (max-width: 668px) {
-	.swiper-slide {
-		-webkit-transform: scale(0.97);
-		transform: scale(0.97);
-	}
-}*/
-
 .swiper-slide-active,
 .swiper-slide-duplicate-active {
 	-webkit-transform: scale(1);
 	transform: scale(1);
 }
-
-/*@media screen and (max-width: 668px) {
-	.swiper-slide-active,
-	.swiper-slide-duplicate-active {
-		-webkit-transform: scale(0.97);
-		transform: scale(0.97);
-	}
-}*/
 
 .none-effect {
 	-webkit-transition: none;
@@ -211,44 +188,15 @@ body {
 	border-radius: 14px;
 }
 
-/*@media screen and (min-width: 668px) {
-	.swiper-slide a:after {
-		position: absolute;
-		top: 0;
-		left: 0;
-		display: block;
-		box-sizing: border-box;
-		border: 10px solid #fff;
-		content: "";
-		width: 100%;
-		height: 100%;
-		background: url(../../images/banner/top_slick_cover_bg01.png) 0 0 repeat;
-		border-radius: 20px;
-	}
-}*/
-
 .swiper-slide-active a:after {
 	background: none;
 }
-
-/*@media screen and (max-width: 668px) {
-	.swiper-slide a {
-		padding: 5px;
-		border-radius: 7px;
-	}
-}*/
 
 .swiper-slide img {
 	width: 100%;
 	border-radius: 14px;
 	display: block;
 }
-
-/*@media screen and (max-width: 668px) {
-	.swiper-slide img {
-		border-radius: 7px;
-	}
-}*/
 
 .swiper-pagination {
 	position: relative;
@@ -273,41 +221,12 @@ body {
 	margin-bottom: 0;
 }
 
-/*@media screen and (max-width: 668px) {
-	.swiper-pagination {
-		position: relative;
-		margin-bottom: 20px;
-	}
-	.swiper-pagination-bullet {
-		background: #00a0e9;
-		margin-left: 2px;
-		margin-right: 2px;
-		width: 8px;
-		height: 8px;
-		margin-bottom: 2px;
-	}
-	.swiper-pagination-bullet-active {
-		width: 6px;
-		height: 6px;
-		background: #FFF;
-		border: 3px solid #00a0e9;
-		margin-bottom: 0;
-	}
-}*/
-
 .button {
 	width: 1000px;
 	margin: 0 auto;
 	bottom: 43px;
 	position: relative;
 }
-
-/*@media screen and (max-width: 668px) {
-	.button {
-		width: 70%;
-		bottom: 22px;
-	}
-}*/
 
 .button div:hover {
 	background-color: #2f4798;
@@ -327,9 +246,60 @@ body {
 	background: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2027%2044'%3E%3Cpath%20d%3D'M27%2C22L5%2C44l-4.2-4.2L18.6%2C22L0.8%2C4.2L5%2C0z'%20fill%3D'%23ffffff'%2F%3E%3C%2Fsvg%3E") #00a0e9 center 50%/50% 50% no-repeat;
 }
 
-/*@media screen and (max-width: 668px) {
-	.button div {
-		width: 28px;
-		height: 28px;
-	}
-}*/
+.gradient-bg {
+	background: -webkit-linear-gradient(right, #ef5350, #ff6e42);
+	background: -o-linear-gradient(right, #ef5350, #ff6e42);
+	background: -moz-linear-gradient(right, #ef5350, #ff6e42);
+	background: -mos-linear-gradient(right, #ef5350, #ff6e42);
+	background: linear-gradient(right, #ef5350, #ff6e42);
+}
+
+.mui-btn,
+button,
+input[type=button],
+input[type=reset],
+input[type=submit] {
+	border: 0px solid #FFFFFF;
+}
+
+.mui-bar-nav .mui-title {
+	color: white;
+}
+
+.mui-bar-nav a {
+	color: white;
+}
+
+.top-header {
+	margin-top: 44px;
+}
+
+.gradient-send {
+	background: -webkit-linear-gradient(left, #ef5350, #ff6e42);
+	background: -o-linear-gradient(left, #ef5350, #ff6e42);
+	background: -moz-linear-gradient(left, #ef5350, #ff6e42);
+	background: -mos-linear-gradient(left, #ef5350, #ff6e42);
+	background: linear-gradient(left, #ef5350, #ff6e42);
+	color: #ffffff;
+	padding: 3px;
+	border-radius: 30px;
+	padding-bottom: 1px;
+	margin-bottom: 2px;
+	width: 50px;
+	text-align: center;
+}
+
+.cash-btn {
+	margin-left: 10px;
+	margin-right: 10px;
+	margin-top: 20px;
+}
+
+.cash-btn button {
+	width: 100%;
+	border-radius: 30px;
+	font-size: 20px;
+	color: #FFFFFF;
+	line-height: 1.72;
+	margin-top: 20px;
+}

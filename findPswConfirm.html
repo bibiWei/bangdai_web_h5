@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link rel="stylesheet" href="css/mui/mui.min.css">
+		<link rel="stylesheet" href="css/base/base.css">
+		<title>xxxxx</title>
+		<style>
+			body {
+				font-family: 'Helvetica Neue', Helvetica, sans-serif;
+				font-size: 18px;
+				line-height: 31px;
+				color: #000;
+				background-color: #FFFFFF;
+				-webkit-overflow-scrolling: touch;
+			}
+			
+			.mui-content {
+				background-color: #ffffff;
+			}
+			
+			.btn-col {
+				background-color: #FFFFFF;
+				line-height: 2.3;
+			}
+			
+			.btn-col .inner {
+				padding-top: 10px;
+				padding-bottom: 10px;
+			}
+			
+			.mui-card {
+				font-size: 14px;
+				position: relative;
+				overflow: hidden;
+				margin: 10px;
+				border-radius: 6px;
+				background-color: #fff;
+				background-clip: padding-box;
+				box-shadow: 0 0px 0px rgba(0, 0, 0, .3);
+				border: 1px solid gainsboro;
+				margin-top: 2em;
+			}
+			
+			.mui-card-content-inner {
+				position: relative;
+				padding: 0px 15px;
+			}
+			
+			input {
+				margin-bottom: 1px;
+			}
+			
+			input[type=password],
+			input[type=text] {
+				line-height: 21px;
+				width: 100%;
+				height: 30px;
+				margin-bottom: 1px;
+				padding: 1px;
+				-webkit-user-select: text;
+				border: 0px solid rgba(0, 0, 0, .2);
+				border-radius: 3px;
+				outline: 0;
+				background-color: #fff;
+				-webkit-appearance: none;
+			}
+			
+			.input-header {
+				margin: 3px 0px;
+				margin-left: 3px;
+				font-size: 16px;
+				color: #ff0000;
+			}
+		</style>
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav gradient-bg ">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title">重置密码</h1>
+		</header>
+		<div class="mui-content">
+			<div class="btn-group-inner">
+				<div class="mui-card">
+					<div class="mui-card-content-inner">
+						<div class="input-header">验证码</div>
+						<input id='account' type="text" class="mui-input-clear mui-input" placeholder="请选择" style="width: 50%;">
+						<span class="mui-pull-right gradient-send">发送</span>
+					</div>
+				</div>
+				<div class="mui-card">
+					<div class="mui-card-content-inner">
+						<div class="input-header">登录密码</div>
+						<input id='account' type="text" class="mui-input-clear mui-input" placeholder="请输入">
+					</div>
+				</div>
+				<div class="mui-card">
+					<div class="mui-card-content-inner">
+						<div class="input-header">确认密码</div>
+						<input id='account' type="password" class="mui-input-clear mui-input" placeholder="请输入">
+					</div>
+				</div>
+			</div>
+
+			<div>
+				<div class="cash-btn">
+					<button type="button" class="mui-btn gradient-bg ">完成重置</button>
+				</div>
+			</div>
+	</body>
+
+</html>

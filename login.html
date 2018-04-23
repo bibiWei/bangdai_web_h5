@@ -20,6 +20,9 @@
 			body {
 				width: 100%;
 				height: 100%;
+				padding: 0;
+				margin: 0;
+				overflow: hidden;
 			}
 			
 			.mui-control-content {
@@ -35,9 +38,9 @@
 			
 			.mui-slider .mui-slider-group .mui-slider-item img {
 				margin-top: 5.333333333333333rem;
-				width: 6rem;
-				height: 6rem;
-				border-radius: 6rem;
+				width: 8rem;
+				height: 8rem;
+				
 			}
 			
 			.mui-scroll {
@@ -62,16 +65,42 @@
 				margin-top: 3rem;
 			}
 			
-
+			.full-height {
+				height: 100%;
+			}
+			
+			.col-btn {
+				padding: 0px 10px;
+			}
+			
+			.btn-home {
+				margin-top: 5em;
+			}
+			
+			.gradient-login-btn{
+				background: -webkit-linear-gradient(left, #ef5350, #ff6e42);
+				background: -o-linear-gradient(left, #ef5350, #ff6e42);
+				background: -moz-linear-gradient(left, #ef5350, #ff6e42);
+				background: -mos-linear-gradient(left, #ef5350, #ff6e42);
+				background: linear-gradient(left, #ef5350, #ff6e42);
+				color: #FFFFFF;
+				border: 0px solid #FFFFFF;
+			}
+			.mui-btn, button, input[type=button], input[type=reset], input[type=submit]{
+				line-height: 2.52;
+				font-size: 20px;
+				border-radius: 40px;
+			}
+			
 		</style>
 
 		<div class="mui-content">
-			<div id="slider" class="mui-slider">
-				<div class="mui-slider-group" style="height: 667px">
-					<div id="item1mobile" class="mui-slider-item mui-control-content mui-active" style="background-image:url('images/login/login-first.png') ;">
+			<div id="slider" class="mui-slider full-height" style="position: absolute;">
+				<div class="mui-slider-group full-height">
+					<div id="item1mobile" class="mui-slider-item mui-control-content mui-active" style="background-image:url('images/login/login-first.png');background-size: cover;height: 100%;background-position: center center;background-attachment: fixed;background-position: center center;">
 						<div id="scroll1" class="mui-scroll-wrapper">
 							<div class="mui-scroll">
-								<img src="images/circle/pic.jpeg" class="logo">
+								<img src="images/icon/logo.png" class="logo">
 								<h1>欢迎使用满豆药师</h1>
 								<div class="details">
 									<h3>只要你想要的 无论在这个世界</h3>
@@ -80,10 +109,10 @@
 							</div>
 						</div>
 					</div>
-					<div id="item2mobile" class="mui-slider-item mui-control-content" style="background-image:url('images/login/login-secend.png') ;">
+					<div id="item2mobile" class="mui-slider-item mui-control-content" style="background-image:url('images/login/login-seco	nd.png') ;">
 						<div id="scroll2" class="mui-scroll-wrapper">
 							<div class="mui-scroll">
-								<img src="images/circle/pic.jpeg" class="logo">
+								<img src="images/icon/logo.png" class="logo">
 								<h1>欢迎使用满豆药师</h1>
 								<div class="details">
 									<h3>只要你想要的 无论在这个世界</h3>
@@ -91,38 +120,37 @@
 								</div>
 							</div>
 						</div>
-
 					</div>
 					<div id="item3mobile" class="mui-slider-item mui-control-content" style="background-image:url('images/login/login-third.png') ;">
 						<div id="scroll3" class="mui-scroll-wrapper">
 							<div class="mui-scroll">
-								<img src="images/circle/pic.jpeg" class="logo">
-								<h1>欢迎使用满豆药师</h1>
+								<img src="images/icon/logo.png" class="logo">
+								<h1>欢迎使用环球易带</h1>
 								<div class="details">
 									<h3>只要你想要的 无论在这个世界</h3>
 									<h3>上的任何地方 我都会为你带来</h3>
 								</div>
 								<div class="btn-group mui-row">
-									<div class="mui-col-xs-6">
-										<button type="button" class="mui-btn mui-btn-danger" style="width: 100%;">登录</button>
+									<div class="mui-col-xs-6 col-btn">
+										<button type="button" class="mui-btn gradient-login-btn" style="width: 100%;" id="loginBtn">登录</button>
 									</div>
-									<div class="mui-col-xs-6">
-										<button type="button" class="mui-btn mui-btn-danger">注册</button>
+									<div class="mui-col-xs-6 col-btn">
+										<button type="button" class="mui-btn gradient-login-btn" style="width: 100%;" id="registerBtn">注册</button>
 									</div>
-									<div>
-										<button type="button" class="mui-btn mui-btn-danger mui-btn-outlined">先去首页看看</button>
+									<div class="btn-home col-btn">
+										<button type="button" class="mui-btn mui-btn-danger mui-btn-outlined" style="width: 100%;" id="homeBtn">先去首页看看</button>
 									</div>
 								</div>
 							</div>
 						</div>
-
 					</div>
 				</div>
 			</div>
 
 		</div>
 		<script src="js/mui/mui.min.js"></script>
-
+		<script src="js/jquery/jquery-2.1.1.min.js"></script>
+		<script src="login.js"></script>
 	</body>
 
 </html>
