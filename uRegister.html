@@ -6,6 +6,8 @@
 		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
 		<link rel="stylesheet" href="css/mui/mui.min.css">
 		<link rel="stylesheet" href="css/base/base.css">
+		<link href="css/mui/mui.picker.css" rel="stylesheet" />
+		<link href="css/mui/mui.poppicker.css" rel="stylesheet" />
 		<title>xxxxx</title>
 		<style>
 			body {
@@ -110,7 +112,6 @@
 				overflow: hidden;
 			}
 			
-			
 			.mui-checkbox input[type=checkbox]:checked:before,
 			.mui-radio input[type=radio]:checked:before {
 				color: #ff0000;
@@ -132,20 +133,20 @@
 				<div class="mui-card">
 					<div class="mui-card-content-inner">
 						<div class="input-header">国家区号</div>
-						<input id='account' type="text" class="mui-input-clear mui-input" placeholder="请选择" readonly="readonly">
+						<input id='showAreaCodePicker' type="text" class="mui-input-clear mui-input" placeholder="请选择" readonly="readonly">
 					</div>
 				</div>
 				<div class="mui-card">
 					<div class="mui-card-content-inner">
 						<div class="input-header">手机号码</div>
-						<input id='account' type="text" class="mui-input-clear mui-input" placeholder="请选择">
+						<input id='uPhone' type="text" class="mui-input-clear mui-input" placeholder="请选择">
 					</div>
 				</div>
 				<div class="mui-card">
 					<div class="mui-card-content-inner">
 						<div class="input-header">验证码</div>
-						<input id='account' type="text" class="mui-input-clear mui-input" placeholder="请选择" style="width: 50%;">
-						<span class="mui-pull-right gradient-send">发送</span>
+						<input id='code' type="text" class="mui-input-clear mui-input" placeholder="请选择" style="width: 50%;">
+						<span id="getCode" class="mui-pull-right gradient-send">发送</span>
 					</div>
 				</div>
 			</div>
@@ -156,18 +157,24 @@
 					<span style="font-size: 16px;margin-top: 1em;">我已经阅读并同意</span>
 					<span class="f-password">《用户协议》</span>
 					</label>
-					<input name="checkbox" value="Item 1" type="checkbox">
+					<input name="checkbox" value="" type="checkbox" id="userRes" >
 				</div>
 			</div>
 			<div>
 				<div class="cash-btn">
-					<button type="button" class="mui-btn gradient-bg ">立即注册</button>
+					<button id="registerBtn" type="button" class="mui-btn gradient-bg ">立即注册</button>
 				</div>
 				<div class="do-register">
 					<span>已有账户?</span><span class="create">立即登录</span>
 				</div>
 			</div>
-			<script src="center.js"></script>
+			<script src="js/mui/mui.min.js"></script>
+			<script src="js/mui/mui.poppicker.js"></script>
+			<script src="js/mui/mui.picker.js"></script>
+			<script src="js/common/area.code.data.js"></script>
+			<script src="js/jquery/jquery-2.1.1.min.js"></script>
+			<script src="js/common/common.js"></script>
+			<script src="uRegister.js"></script>
 	</body>
 
 </html>

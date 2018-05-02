@@ -65,16 +65,17 @@
 
 .m-username .m-nick-success {
 	vertical-align: middle;
-	color: #000000;
+	color: #ffffff;
 }
 
 .m-profile-success {
 	display: block;
 	width: 100%;
 	height: 180px;
-	background-color: #f1f5fa;
+	background-color: #ffffff;
 	background-repeat: no-repeat;
 	background-size: 100% 100%;
+	color: #FFFFFF;
 }
 
 .m-profile-card {
@@ -118,12 +119,12 @@ body {
 	color: #FFFFFF;
 	border-color: #ffffff;
 	border-left: 0px solid #FFFFFF;
-	background-color: orange;
+	background-color: rgba(255,255,255,0);
 }
 
 .mui-segmented-control .mui-control-item.mui-active {
 	color: #ffffff;
-	background-color: orange;
+	background-color: rgba(255,255,255,0) ;
 	border-bottom: 5px solid #ffffff;
 }
 
@@ -146,12 +147,115 @@ body {
 	float: left;
 }
 
+.bar-buying {
+	background-image: url(../../images/index/navbar/buying.png);
+	height: 35px;
+	width: 35px;
+	text-align: center;
+	float: right;
+	background-repeat: no-repeat;
+	background-size: contain;
+}
 
-/*@media screen and (max-width: 668px) {
-	.pc-banner {
-		background-size: auto 100%;
-	}
-}*/
+.bar-buying-active {
+	background-image: url(../../images/index/navbar/buying-active.png);
+	height: 35px;
+	width: 35px;
+	text-align: center;
+	float: right;
+	background-repeat: no-repeat;
+	background-size: contain;
+}
+
+.bar-taking {
+	background-image: url(../../images/index/navbar/taking.png);
+	height: 35px;
+	width: 35px;
+	text-align: center;
+	float: right;
+	background-repeat: no-repeat;
+	background-size: contain;
+}
+
+.bar-taking-active {
+	background-image: url(../../images/index/navbar/taking-active.png);
+	height: 35px;
+	width: 35px;
+	text-align: center;
+	float: right;
+	background-repeat: no-repeat;
+	background-size: contain;
+}
+
+.bar-add {
+	background-image: url(../../images/index/navbar/push.png);
+	height: 40px;
+	width: 40px;
+	text-align: center;
+	float: right;
+	background-repeat: no-repeat;
+	background-size: contain;
+}
+
+.bar-circle {
+	background-image: url(../../images/index/navbar/circle.png);
+	height: 35px;
+	width: 35px;
+	text-align: center;
+	float: right;
+	background-repeat: no-repeat;
+	background-size: contain;
+}
+
+.bar-circle-active {
+	background-image: url(../../images/index/navbar/circle-active.png);
+	height: 35px;
+	width: 35px;
+	text-align: center;
+	float: right;
+	background-repeat: no-repeat;
+	background-size: contain;
+}
+
+.bar-me {
+	background-image: url(../../images/index/navbar/me.png);
+	height: 35px;
+	width: 35px;
+	text-align: center;
+	float: right;
+	background-repeat: no-repeat;
+	background-size: contain;
+}
+
+.bar-me-active {
+	background-image: url(../../images/index/navbar/me-active.png);
+	height: 35px;
+	width: 35px;
+	text-align: center;
+	float: right;
+	background-repeat: no-repeat;
+	background-size: contain;
+}
+
+.mui-bar-tab .mui-tab-item .mui-icon-add {
+	top: 15px;
+	width: 40px;
+	height: 40px;
+}
+
+.mui-bar-tab .mui-tab-item .mui-icon {
+	top: 10px;
+	width: 35px;
+	height: 35px;
+}
+
+.mui-bar-tab .mui-tab-item.mui-active {
+	color: #f76149;
+}
+
+.mui-bar-tab .mui-tab-item .mui-icon~.mui-tab-label {
+	font-size: 14px;
+}
 
 .swiper-container {
 	width: 100%;
@@ -164,8 +268,8 @@ body {
 	-moz-transition: transform 1.0s;
 	-ms-transition: transform 1.0s;
 	-o-transition: transform 1.0s;
-	-webkit-transform: scale(0.7);
-	transform: scale(0.7);
+	-webkit-transform: scale(0.9);
+	transform: scale(0.9);
 }
 
 .swiper-slide-active,
@@ -183,7 +287,7 @@ body {
 
 .swiper-slide a {
 	background: #fff;
-	padding: 10px;
+	/*padding: 10px;*/
 	display: block;
 	border-radius: 14px;
 }
@@ -302,4 +406,61 @@ input[type=submit] {
 	color: #FFFFFF;
 	line-height: 1.72;
 	margin-top: 20px;
+}
+
+.mui-bar {
+	box-shadow: 0 0 0px rgba(0, 0, 0, .85);
+}
+
+.mui-bar-tab {
+	height: 43px;
+}
+
+.mui-title img {
+	width: 40px;
+	height: 40px;
+	margin-top: 2px;
+}
+
+.message {
+	background-image: url(../../images/index/message.png);
+	height: 25px;
+	width: 25px;
+	text-align: center;
+	float: right;
+	background-repeat: no-repeat;
+	background-size: contain;
+	margin-top: 7px;
+	margin-right: 10px;
+}
+
+.push-div {
+	position: absolute;
+	bottom: 200px;
+	width: 100%;
+}
+
+.push-div .left-btn {
+	width: 50%;
+	float: left;
+	text-align: center;
+}
+
+.push-div .right-btn {
+	width: 50%;
+	float: left;
+	text-align: center;
+}
+
+
+
+.push-bottom-div {
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+}
+
+.push-bottom-div .bottom-div {
+	width: 100%;
+	text-align: center;
 }

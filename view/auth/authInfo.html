@@ -8,6 +8,10 @@
 		<link rel="stylesheet" href="../../css/base/base.css">
 		<title>xxxxx</title>
 		<style>
+			body {
+				background-color: #FFFFFF;
+			}
+			
 			.mui-bar-nav {
 				background-color: orange;
 			}
@@ -26,55 +30,206 @@
 			
 			.upload {
 				text-align: center;
-				margin-left: 10px;
 			}
 			
 			.upload img {
-				width:200px;
-				height: 150px;
-				style: margin-top: 10px;
+				width: 90%;
+				margin-top: 10px;
+			}
+			
+			.mui-table-view-chevron .mui-table-view-cell {
+				padding-right: 15px;
+			}
+			
+			.mui-input-group .mui-input-row {
+				height: 50px;
+			}
+			
+			.mui-input-row label {
+				font-family: 'Helvetica Neue', Helvetica, sans-serif;
+				line-height: 1.1;
+				float: left;
+				width: 35%;
+				padding: 16px 15px;
+			}
+			
+			input[type=color],
+			input[type=date],
+			input[type=datetime-local],
+			input[type=datetime],
+			input[type=email],
+			input[type=month],
+			input[type=number],
+			input[type=password],
+			input[type=search],
+			input[type=tel],
+			input[type=text],
+			input[type=time],
+			input[type=url],
+			input[type=week],
+			select,
+			textarea {
+				line-height: 21px;
+				width: 100%;
+				height: 50px;
+				margin-bottom: 15px;
+				padding: 10px 15px;
+				-webkit-user-select: text;
+				border: 1px solid rgba(0, 0, 0, .2);
+				border-radius: 3px;
+				outline: 0;
+				background-color: #fff;
+				-webkit-appearance: none;
 			}
 		</style>
 	</head>
 
 	<body>
-		<header class="mui-bar mui-bar-nav aui-header gradient">
+		<header class="mui-bar mui-bar-nav aui-header gradient-bg">
 			<a class="mui-action-back mui-icon mui-icon-back mui-pull-left"></a>
 			<h1 class="mui-title">认证中心<h1>
 		</header>
-		<body>
+	
 			<div class="mui-content">
-				<div class="m-profile ">
+				<div class="m-profile gradient-bg">
 					<div class="m-avatar">
 						<a href="#">
-							<img src="../../images/wallet/icon3.png" alt="用户头像">
+							<img src="../../images/wallet/aliy.png" alt="用户头像">
 						</a>
 					</div>
 					<div class="m-username">
 						<a href="#">
-							<div><span class="m-nick">王小二</span><i class="u-arrow"></i></div>
+							<div>
+								<span class="m-nick">王小二</span>
+								<i class="u-arrow"></i>
+							</div>
 						</a>
-						<div><span class="m-nick">18766312029</span><i class="u-arrow"></i></div>
+						<div>
+							<span class="m-nick">18766312029</span>
+							<i class="u-arrow"></i>
+						</div>
 					</div>
 				</div>
-				<div id="slider" class="mui-slider mui-fullscreen">
-					<div class="mui-segmented-control" id="segmentedControl">
+				<div id="slider" class="mui-slider mui-fullscreen ">
+					<div class="mui-segmented-control gradient-bg" id="segmentedControl">
 						<a class="mui-control-item mui-active" id="all">身份认证</a>
-						<a class="mui-control-item dd" id="notpayed">护照认证</a>
-						<a class="mui-control-item dd" id="notpayed">外籍认证</a>
+						<a class="mui-control-item " id="notpayed">护照认证</a>
+						<a class="mui-control-item " id="notpayed">外籍认证</a>
 					</div>
 				</div>
 				<div class="b-line" style="margin-top: 40px;"></div>
-				<ul class="mui-table-view mui-table-view-chevron">
-					<li class="mui-table-view-cell ">
-						<div><span class="pic-check-title">上传你的身份证照片</span>
-							<div class="upload"><img src="../../images/circle/pic.jpeg"></div>
+				<div class="idCard" hidden="hidden">
+					<ul class="mui-table-view mui-table-view-chevron">
+						<li class="mui-table-view-cell ">
+							<div>
+								<span class="pic-check-title">上传你的身份证照片</span>
+								<div class="upload">
+									<img src="../../images/auth/upload.png"/>
+									<p>(拍摄的证件照必须清晰.完整且与如下填写的信息一直)</p>
+									<p style="text-align: left; margin-left: 30px;">环球易带讲依法保护您的信息</p>
+									<button id="loginBtn" type="button" class="mui-btn gradient-bg cash-btn" style="height: 40px;color: #FFFFFF;width: 100px;border-radius: 50px;">上传</button>
+								</div>
+							</div>
+						</li>
+					</ul>
+					<div class="b-line" ></div>
+					<form class="mui-input-group">
+					<div class="mui-input-row">
+						<label>身份证号</label>
+						<input type="text" placeholder="请输入">
+					</div>
+					<div class="mui-input-row">
+						<label>姓名</label>
+						<input type="text" placeholder="请输入">
+					</div>
+					<div class="mui-input-row">
+						<label>性别</label>
+					</div>
+					<div class="mui-input-row">
+						<label>年龄</label>
+						<input type="text" placeholder="请输入">
+					</div>
+				<div>
+					<div class="cash-btn" style="margin-bottom: 50px;">
+						<button id="registerBtn" type="button" class="mui-btn gradient-bg ">立即注册</button>
+					</div>
+				</div>
+				</form>
+				</div>
+				<div class="hsCard" hidden="hidden">
+					<ul class="mui-table-view mui-table-view-chevron">
+						<li class="mui-table-view-cell ">
+							<div>
+								<span class="pic-check-title">上传你的护照</span>
+								<div class="upload">
+									<img src="../../images/auth/upload.png" />
+									<p>(拍摄的证件照必须清晰.完整且与如下填写的信息一直)</p>
+									<p style="text-align: left; margin-left: 30px;">环球易带讲依法保护您的信息</p>
+									<button id="loginBtn" type="button" class="mui-btn gradient-bg cash-btn" style="height: 40px;color: #FFFFFF;width: 100px;border-radius: 50px;">上传</button>
+								</div>
+							</div>
+						</li>
+					</ul>
+					<div class="b-line"></div>
+					<form class="mui-input-group">
+						<div class="mui-input-row">
+							<label>身份证号</label>
+							<input type="text" placeholder="请输入">
 						</div>
-						<div style="text-align: center;"></div>
-					</li>
-				</ul>
+						<div class="mui-input-row">
+							<label>姓名</label>
+							<input type="text" placeholder="请输入">
+						</div>
+						<div class="mui-input-row">
+							<label>性别</label>
+						</div>
+						<div class="mui-input-row">
+							<label>年龄</label>
+							<input type="text" placeholder="请输入">
+						</div>
+						<div>
+							<div class="cash-btn" style="margin-bottom: 50px;">
+								<button id="registerBtn" type="button" class="mui-btn gradient-bg ">立即注册</button>
+							</div>
+						</div>
+					</form>
+				</div>
+			
+				<div class="wjCard" >
+					<ul class="mui-table-view mui-table-view-chevron">
+						<li class="mui-table-view-cell ">
+							<div>
+								<span class="pic-check-title">上传你的护照/驾驶证</span>
+								<div class="upload">
+									<img src="../../images/auth/upload.png" />
+									<p>(拍摄的证件照必须清晰.完整且与如下填写的信息一直)</p>
+									<p style="text-align: left; margin-left: 30px;">环球易带讲依法保护您的信息</p>
+									<button id="loginBtn" type="button" class="mui-btn gradient-bg cash-btn" style="height: 40px;color: #FFFFFF;width: 100px;border-radius: 50px;">上传</button>
+								</div>
+							</div>
+						</li>
+					</ul>
+					<div class="b-line"></div>
+					<ul class="mui-table-view mui-table-view-chevron">
+						<li class="mui-table-view-cell ">
+							<div>
+								<span class="pic-check-title">上传你的photoId</span>
+								<div class="upload">
+									<img src="../../images/auth/upload.png" />
+									<p>(拍摄的证件照必须清晰.完整且与如下填写的信息一直)</p>
+									<p style="text-align: left; margin-left: 30px;">环球易带讲依法保护您的信息</p>
+									<button id="loginBtn" type="button" class="mui-btn gradient-bg cash-btn" style="height: 40px;color: #FFFFFF;width: 100px;border-radius: 50px;">上传</button>
+								</div>
+							</div>
+						</li>
+					</ul>
+					<div>
+						<div class="cash-btn" style="margin-bottom: 50px;">
+							<button id="registerBtn" type="button" class="mui-btn gradient-bg ">立即注册</button>
+						</div>
+					</div>
+				</div>			
 			</div>
 			<script src="authInfo.js"></script>
-		</body>
-
+	</body>
 </html>

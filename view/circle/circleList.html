@@ -7,17 +7,16 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
 		<meta name="apple-mobile-web-app-capable" content="yes">
 		<meta name="apple-mobile-web-app-status-bar-style" content="black">
-
-		<!--标准mui.css-->
-		<link rel="stylesheet" href="../../css/mui/mui.min.css">
-		<link rel="stylesheet" href="../../css/home.css">
-		<link rel="stylesheet" type="text/css" href="../../css/icons-extrmui-media-bodya.css" />
-		<link rel="stylesheet" type="text/css" href="../../css/app.css" />
+		<link rel="stylesheet" href="../../css/mui/mui.min.css" />
+		<title>首页</title>
+		<link rel="stylesheet" href="../../css/swiper/swiper.min.css">
+		<link rel="stylesheet" href="../../css/base/base.css">
 		<!--App自定义的css-->
 		<style>
-			body{
+			body {
 				background-color: #F5F5F5;
 			}
+			
 			h5 {
 				padding-top: 8px;
 				padding-bottom: 8px;
@@ -73,113 +72,40 @@
 	</head>
 
 	<body>
-		<header class="mui-bar mui-bar-nav">
-			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
-			<h1 class="mui-title">熊圈列表</h1>
+		<header class="mui-bar mui-bar-nav  ">
+			<h1 class="mui-title" style="color: #000000;">熊圈列表</h1>
 		</header>
-		<div class="mui-content" style="background-color:#fff">
-			<ul class="mui-table-view mui-grid-view">
-				<li class="mui-table-view-cell" style="width: 50%;">
-					<div class="mui-card">
-						<div class="mui-card-content mui-card-media">
-							<img width="100%" src="../../images/circle/pic.jpeg" />
-							<div class="mui-media-body">
-								<p class="title">IMAC 测评一款神奇</p>
-								<p class="describle">发表于 2016-06-30 15:30</p>
-							</div>
-						</div>
-						<div class="mui-card-footer mui-card-media">
-							<img width="30em" height="30em" " src="../../images/circle/pic.jpeg " />
-							<div  class="mui-media-body " style="text-align: left;margin-left: 5px;margin-top: 0px; ">
-								<p style="font-size: 13px; ">小李子</p>
-								<p style="font-size: 10px; ">2018-12-31</p>
-							</div>
-						</div>
-					</div>
-				</li>
-				<li class="mui-table-view-cell mui-media mui-col-xs-6 ">
-					<div class="mui-card ">
-						<div class="mui-card-content mui-card-media ">
-							<img width="100% " src="../../images/circle/pic.jpeg " />
-							<div class="mui-media-body ">
-								<p class="title ">IMAC 测评一款神奇</p>
-								<p class="describle ">发表于 2016-06-30 15:30</p>
-							</div>
-						</div>
-						<div class="mui-card-footer mui-card-media " >
-							<img width="30em " height="30em " " src="../../images/circle/pic.jpeg" />
-							<div class="mui-media-body" style="text-align: left;margin-left: 5px;margin-top: 0px;">
-								<p style="font-size: 13px;">小李子</p>
-								<p style="font-size: 10px;">2018-12-31</p>
-							</div>
-						</div>
-					</div>
-				</li>
-				<li class="mui-table-view-cell mui-media mui-col-xs-6">
-					<div class="mui-card">
-						<div class="mui-card-content mui-card-media">
-							<img width="100%" src="../../images/circle/pic.jpeg" />
-							<div class="mui-media-body">
-								<p class="title">IMAC 测评一款神奇</p>
-								<p class="describle">发表于 2016-06-30 15:30</p>
-							</div>
-						</div>
-						<div class="mui-card-footer mui-card-media">
-							<img width="30em" height="30em" " src="../../images/circle/pic.jpeg " />
-							<div  class="mui-media-body " style="text-align: left;margin-left: 5px;margin-top: 0px; ">
-								<p style="font-size: 13px; ">小李子</p>
-								<p style="font-size: 10px; ">2018-12-31</p>
-							</div>
-						</div>
-					</div>
-				</li>
-				<li class="mui-table-view-cell mui-media mui-col-xs-6 ">
-					<div class="mui-card ">
-						<div class="mui-card-content mui-card-media ">
-							<img width="100% " src="../../images/circle/pic.jpeg " />
-							<div class="mui-media-body ">
-								<p class="title ">IMAC 测评一款神奇</p>
-								<p class="describle ">发表于 2016-06-30 15:30</p>
-							</div>
-						</div>
-						<div class="mui-card-footer mui-card-media " >
-							<img width="30em " height="30em " " src="../../images/circle/pic.jpeg" />
-							<div class="mui-media-body" style="text-align: left;margin-left: 5px;margin-top: 0px;">
-								<p style="font-size: 13px;">小李子</p>
-								<p style="font-size: 10px;">2018-12-31</p>
-							</div>
-						</div>
-					</div>
-				</li>
+		<div class="mui-content" style="background-color:#fff" id="buyingContainer">
+			<ul class="mui-table-view mui-grid-view" id="circleList">
 			</ul>
 		</div>
-		<div style="height:55px"></div>
-		<nav class="mui-bar mui-bar-tab">
-			<div class="t-line">
-				<a href="index.html" class="aui-tab-item ">
-					<span class="mui-icon mui-icon-home"></span>
-					<span class="mui-tab-label">首页</span>
-				</a>
-				<a href="category.html" class="aui-tab-item">
-					<span class="mui-icon mui-icon-extra mui-icon-extra-class"></span>
-					<span class="mui-tab-label">分类</span>
-				</a>
-				<a href="category.html" class="aui-tab-item">
-					<span class="mui-icon mui-icon-extra mui-icon-extra-class"></span>
-					<span class="mui-tab-label">分类</span>
-				</a>
-				<a class="aui-tab-item mui-active" href="car.html">
-					<span class="mui-icon mui-icon-extra mui-icon-extra-cart"></span>
-					<span class="mui-tab-label">购物车</span>
-				</a>
-				<a class="aui-tab-item" href="me.html">
-					<span class="mui-icon mui-icon-extra mui-icon-extra-people"></span>
-					<span class="mui-tab-label">我的</span>
-				</a>
-			</div>
+		<div style="height:55px "></div>
+		<nav class="mui-bar mui-bar-tab " style=" background-color: #FFFFFF; ">
+			<a class="mui-tab-item mui-active " href="#tabbar ">
+				<span class="mui-icon "><div class="bar-buying-active "></div></span>
+				<span class="mui-tab-label ">求带</span>
+			</a>
+			<a class="mui-tab-item " href="#tabbar-with-chat ">
+				<span class="mui-icon "><div class="bar-taking "></div></span>
+				<span class="mui-tab-label ">帮带</span>
+			</a>
+			<a class="mui-tab-item " id="showAddBtn ">
+				<span class="mui-icon "><div class="bar-add " style="position: absolute; " ></div></span>
+			</a>
+			<a class="mui-tab-item " href="#tabbar-with-map ">
+				<span class="mui-icon "><div class="bar-circle "></div></span>
+				<span class="mui-tab-label ">熊圈</span>
+			</a>
+			<a class="mui-tab-item " href="#tabbar-with-map ">
+				<span class="mui-icon "><div class="bar-me "></div></span>
+				<span class="mui-tab-label ">我的</span>
+			</a>
 		</nav>
 	</body>
-	<script src="../../js/mui/mui.min.js"></script>
+	<script src="../../js/mui/mui.min.js "></script>
+	<script src="../../js/jquery/jquery-2.1.1.min.js"></script>
+	<script src="../../js/common/common.js"></script>
+	<script src="circleList.js"></script>
 	<script>
 		mui.init({
 			swipeBack: true //启用右滑关闭功能

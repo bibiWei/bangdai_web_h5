@@ -40,7 +40,7 @@
 			<h1 class="mui-title">首页</h1>
 		</header>
 		<!-- Swiper -->
-		<div class="mui-content">
+		<div id="takingContainer" class="mui-content mui-scroll-wrapper">
 			<section class="pc-banner">
 				<div class="swiper-container">
 					<div class="swiper-wrapper">
@@ -61,36 +61,11 @@
 						</div>
 					</div>
 				</div>
-				<div id="buyingList" class="list">
-					<div class="mui-card">
-						<div class="mui-card-content">
-							<div class="mui-row mui-row-place">
-								<div class="mui-col-xs-5">
-									<div>大连 - 中国</div>
-								</div>
-								<div class="mui-col-xs-2" style="vertical-align: middle;">
-									<img src="../../images/circle/pic.jpeg" style="width: 40px; height: 20px;margin-top: 5px;" />
-								</div>
-								<div class="mui-col-xs-5">
-									<div>上海 - 中国</div>
-								</div>
-							</div>
-							<div class="mui-row mui-row-inner">
-								<div class="mui-col-xs-5">
-									<img src="../../images/circle/pic.jpeg" style="width: 20px; height: 20px;margin-top: 5px;" /> 2018-02-02
-								</div>
-								<div class="mui-col-xs-2" style="vertical-align: middle;">
-									<img src="../../images/circle/pic.jpeg" style="width: 40px; height: 20px;margin-top: 5px;" />
-								</div>
-								<div class="mui-col-xs-5">
-									<img src="../../images/circle/pic.jpeg" style="width: 20px; height: 20px;margin-top: 5px;" /> 2018-02-02
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
 			</section>
-
+			<div class="mui-scroll" style="margin-top: 150px;">
+				<div id="takingList" class="list">
+				</div>
+			</div>
 			<nav class="mui-bar mui-bar-tab" style="	background-color: #FFFFFF;">
 				<a class="mui-tab-item mui-active" href="#tabbar">
 					<span class="mui-icon mui-icon-home"></span>
@@ -113,10 +88,30 @@
 					<span class="mui-tab-label">我的</span>
 				</a>
 			</nav>
+			<div class="mui-backdrop" id="push" hidden="hidden">
+				<div class="push-div">
+					<div class="left-btn">
+						<img src="../../images/index/navbar/buying-push.png" id="pushBuyingBtn" />
+						<div>发布求带</div>
+					</div>
+					<div class="right-btn">
+						<img src="../../images/index/navbar/taking-push.png" id="pushTakingBtn" />
+						<div>发布帮带</div>
+					</div>
+				</div>
+				<div class="push-bottom-div">
+					<div class="bottom-div">
+						<img src="../../images/index/navbar/close.png" id="closeBtn" />
+					</div>
+				</div>
+			</div>
 		</div>
 
 		<script src="../../js/swiper/swiper.min.js"></script>
 		<script src="../../js/mui/mui.min.js"></script>
+		<script src="../../js/jquery/jquery-2.1.1.min.js"></script>
+		<script src="../../js/common/common.js"></script>
+		<script src="takingList.js"></script>
 		<!-- Initialize Swiper -->
 		<script>
 			window.onload = function() {

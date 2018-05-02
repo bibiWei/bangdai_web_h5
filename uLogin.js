@@ -2,90 +2,97 @@ mui.init({
 
 });
 
-login = {
+uLogin = {
 
-		// 事件注册
-		event: function() {
-			$("#qqLogin").on("click", login.service.qqLogin);
-			$("#loginBtn").on("click", login.service.doLogin);
-			$("#registerBtn").on("click", login.service.doRegister);
-			$("#homeBtn").on("click", login.service.doHome);
+	// 事件注册
+	event: function() {
+		$("#qqLogin").on("click", uLogin.service.qqLogin);
+		$("#loginBtn").on("click", uLogin.service.doLogin);
+		$("#homeBtn").on("click", uLogin.service.doHome);
+		$("#showAreaCodePicker").on("click", uLogin.service.showAreaCodePicker);
+	},
+
+	// 表单验证
+	validate: function() {
+		var regNumber = /\d+/; //验证0-9的任意数字最少出现1次。
+		var regString = /[a-zA-Z]+/; //验证大小写26个字母任意字母最少出现1次。
+		var passwd = $("#password").val();
+		if($("#userCode").val() == "") {
+			mui.toast("您输入的账号或手机号为空");
+			return false;
+		}
+		if($("#password").val() == "") {
+			mui.toast("您输入的密码为空");
+			return false;
+		}
+		//		if($("#password").val().length < 8) {
+		//			mui.toast("密码位数至少8位哦！");
+		//			return false;
+		//		}
+		if($("#password").val().length > 16) {
+			mui.toast("密码位数最多16位哦！");
+			return false;
+		}
+		//验证第三个字符串
+		//		if(!(regNumber.test(passwd) && regString.test(passwd))) {
+		//			mui.toast("密码必须要包含字母和数字哦！");
+		//			return false;
+		//		}
+		return true;
+	},
+
+	service: {
+
+		showAreaCodePicker: function() {
+			var sexPicker = new mui.PopPicker();
+			sexPicker.setData(areaData);
+			sexPicker.show(function(items) {
+				$("#showAreaCodePicker").val(items[0].text);
+				$("#showAreaCodePicker").attr("countryCode", items[0].value);
+			});
 		},
 
-		// 表单验证
-		validate: function() {
-			var regNumber = /\d+/; //验证0-9的任意数字最少出现1次。
-			var regString = /[a-zA-Z]+/; //验证大小写26个字母任意字母最少出现1次。
-			var passwd = $("#password").val();
-			if($("#userCode").val() == "") {
-				mui.toast("您输入的账号或手机号为空");
-				return false;
-			}
-			if($("#password").val() == "") {
-				mui.toast("您输入的密码为空");
-				return false;
-			}
-			//		if($("#password").val().length < 8) {
-			//			mui.toast("密码位数至少8位哦！");
-			//			return false;
-			//		}
-			if($("#password").val().length > 16) {
-				mui.toast("密码位数最多16位哦！");
-				return false;
-			}
-			//验证第三个字符串
-			//		if(!(regNumber.test(passwd) && regString.test(passwd))) {
-			//			mui.toast("密码必须要包含字母和数字哦！");
-			//			return false;
-			//		}
-			return true;
+		qqLogin: function() {
+
 		},
 
-		service: {
+		doRegister: function() {
+			window.location.href = "register.html"
+		},
 
-			qqLogin: function() {
+		doHome: function() {
+			window.location.href = "register.html"
+		},
 
-			},
+		doLogin: function() {
 
-			doRegister: function() {
-				window.location.href = "register.html"
-			},
+			if(!uLogin.validate()) {
+				return false;
+			}
 
-			doHome: function() {
-				window.location.href = "register.html"
-			},
-
-			doLogin: function() {
-				window.location.href = "uLogin.html"
-
-				if(!login.validate()) {
-					return false;
+			var data = {
+				userCode: $("#userCode").val(),
+				password: $("#password").val(),
+				type:SYS_USER,
+				gtClientId:1
+			}
+			apiHelper.post(CONSTANT.baseUrl + "/login", JSON.stringify(data), function(flag, data) {
+				if(data.status == AJAX_SECCUSS) {
+					localStorage.setItem("token", data.result.token);
+					localStorage.setItem("userVo", data.result.userVo);
+					window.location.href = "view/buying/buyingList.html";
+				} else {
+					mui.toast(data.msg);
 				}
-
-				var data = {
-					userCode: $("#userCode").val(),
-					password: $("#password").val(),
-				}
-				apiHelper.post(CONSTANT.baseUrl + "/login", JSON.stringify(data), function(flag, data) {
-					if(data.status == AJAX_SECCUSS) {
-						alert("登录成功");
-						localStorage.setItem("token", data.result.token);
-						localStorage.setItem("userVo", data.result.userVo);
-						window.location.href = "index.html";
-
-					} else {
-						mui.toast(data.msg);
-					}
-				}, null, AJAX_BODY);
-			}
-		},
+			}, null, AJAX_BODY);
+		}
 	},
 	dao: {},
 	init: function() {
-		login.event();
+		uLogin.event();
 	},
 }
-login.init();
+uLogin.init();
 
 var auths = {};
 
