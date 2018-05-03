@@ -136,10 +136,10 @@
 			<a class="mui-action-back mui-icon mui-icon-back mui-pull-left" style="color: #000000;"></a>
 			<h1 class="mui-title" style="color: #000000;">路线</h1>
 		</header>
-		<div class="mui-content">
+		<div class="mui-content" id="container">
 			<div class="b-line"></div>
 			<ul class="mui-table-view mui-table-view-chevron">
-				<!--<li class="mui-table-view-cell " id='showStartPicker'>
+				<li class="mui-table-view-cell " id='showStartPicker'>
 					<div>选择出发地
 						<span class="mui-pull-right check-font" id="startPlaceName"></span>
 					</div>
@@ -166,7 +166,7 @@
 						<input class="mui-input-clear" placeholder="kg" data-input-clear="5" id="goodWeigh">
 					</div>
 				</li>
-				<!--<li class="mui-table-view-cell ">
+				<li class="mui-table-view-cell ">
 					<div class="mui-pull-right">
 						<div class="btn-group">
 							<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">元 <span class="caret"></span></button>
@@ -177,25 +177,26 @@
 					<div>求带价格
 						<input class="mui-input-clear" placeholder="kg" data-input-clear="5" id="price" style="margin-right: 5px;">
 					</div>
-				</li>-->
-				<!--<div class="b-line"></div>
+				</li>
+				<div class="b-line"></div>
 				<li class="mui-table-view-cell ">
 					<div>留言:
 						<input class="message-info" placeholder="留言" data-input-clear="5" id="remarks">
 					</div>
-				</li>-->
+				</li>
 				<div class="b-line"></div>
 				<li class="mui-table-view-cell ">
-					<div><span class="pic-check-title">物品照片(选填)</span>
-						<div id="preview" class="upload">
-							<img id="imghead" border="0" src="../../images/auth/upload.png" onClick="$('#previewImg').click();" width="80%">
+					<div>
+						<span class="pic-check-title">物品照片(选填)</span>
+						<div id="preview" class="upload mui-btn">
+							<img id="imghead" border="0" src="../../images/auth/upload.png" width="80%" onClick="$('#previewImg').click();">
 						</div>
-						<input type="file" onChange="previewImage(this)" style="display: none;" id="previewImg">
+						<input type="file" onChange="previewImage(this)" class="btn" style="display: none;" id="previewImg">
 					</div>
 				</li>
 			</ul>
 			<div class="height-btn"></div>
-			<div class="footer-btn" id="container">
+			<div class="footer-btn">
 				<a id="uploadBtn" class="mui-btn mui-btn-primary gradient-bg">发布</a>
 				<button type="button" class="mui-btn mui-btn-primary gradient-bg" id="submitBtn">发布</button>
 			</div>
@@ -208,14 +209,13 @@
 		<script src="../../js/common/common.js"></script>
 		<script src="../../js/data/cityList.js"></script>
 		<script src="../../js/mui/mui.dtpicker.js"></script>
-
 		<script>
 			//图片上传预览    IE是用了滤镜。
 			function previewImage(file) {
 				var MAXWIDTH = 487 * 0.8;
 				var MAXHEIGHT = 370 * 0.8;
 				var div = document.getElementById('preview');
-				if(file.files && file.files[0]) {
+				if(file && file[0]) {
 					div.innerHTML = '<img id=imghead onclick=$("#previewImg").click()>';
 					var img = document.getElementById('imghead');
 					img.onload = function() {
@@ -225,11 +225,13 @@
 						//                 img.style.marginLeft = rect.left+'px';
 						img.style.marginTop = rect.top + 'px';
 					}
+					console.log();
 					var reader = new FileReader();
 					reader.onload = function(evt) {
 						img.src = evt.target.result;
 					}
-					reader.readAsDataURL(file.files[0]);
+					reader.readAsDataURL(file[0].getSource().getSource());
+
 				} else //兼容IE
 				{
 					var sFilter = 'filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod=scale,src="';
