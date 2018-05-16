@@ -80,31 +80,33 @@
 			</ul>
 		</div>
 		<div style="height:55px "></div>
-		<nav class="mui-bar mui-bar-tab " style=" background-color: #FFFFFF; ">
-			<a class="mui-tab-item mui-active " href="#tabbar ">
-				<span class="mui-icon "><div class="bar-buying-active "></div></span>
-				<span class="mui-tab-label ">求带</span>
+		<div class="bar-add"><img src="../../images/index/navbar/push.png" style="" /></div>
+		<nav class="mui-bar mui-bar-tab" style="	background-color: #FFFFFF;">
+			<a class="mui-tab-item" id="takingNav">
+				<span class="mui-icon"><div class="bar-buying"></div></span>
+				<span class="mui-tab-label">求带</span>
 			</a>
-			<a class="mui-tab-item " href="#tabbar-with-chat ">
-				<span class="mui-icon "><div class="bar-taking "></div></span>
-				<span class="mui-tab-label ">帮带</span>
+			<a class="mui-tab-item" id="buyingNav">
+				<span class="mui-icon"><div class="bar-taking"></div></span>
+				<span class="mui-tab-label">帮带</span>
 			</a>
-			<a class="mui-tab-item " id="showAddBtn ">
-				<span class="mui-icon "><div class="bar-add " style="position: absolute; " ></div></span>
+			<a class="mui-tab-item" id="showAddBtn">
+				<span class="mui-icon"></span>
 			</a>
-			<a class="mui-tab-item " href="#tabbar-with-map ">
-				<span class="mui-icon "><div class="bar-circle "></div></span>
-				<span class="mui-tab-label ">熊圈</span>
+			<a class="mui-tab-item  mui-active" id="circleNav">
+				<span class="mui-icon"><div class="bar-circle-active"></div></span>
+				<span class="mui-tab-label">熊圈</span>
 			</a>
-			<a class="mui-tab-item " href="#tabbar-with-map ">
-				<span class="mui-icon "><div class="bar-me "></div></span>
-				<span class="mui-tab-label ">我的</span>
+			<a class="mui-tab-item" id="mineNav">
+				<span class="mui-icon"><div class="bar-me"></div></span>
+				<span class="mui-tab-label">我的</span>
 			</a>
 		</nav>
 	</body>
 	<script src="../../js/mui/mui.min.js "></script>
 	<script src="../../js/jquery/jquery-2.1.1.min.js"></script>
 	<script src="../../js/common/common.js"></script>
+	
 	<script src="circleList.js"></script>
 	<script>
 		mui.init({

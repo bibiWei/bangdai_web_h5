@@ -3,12 +3,20 @@
 })(mui);
 
 var step = 5;
-var startIndex = 0;
+var startIndex = 1;
 var endIndex = 5;
 
-$("#whList").on("tap", ".tap", function() {
+$("#takingList").on("tap", ".tap", function() {
 	var id = $(this).data("id");
-	window.location.href = "takingDetail.html" + "?id=" + id;
+	var departureCity = $(this).attr("departureCity");
+	var departureCountry = $(this).attr("departureCountry");
+	var arrivalCity = $(this).attr("arrivalCity");
+	var arrivalCountry = $(this).attr("arrivalCountry");
+	var departureDate = $(this).attr("departureDate");
+	var arrivalDate = $(this).attr("arrivalDate");
+	var remarks = $(this).attr("remarks");
+	window.location.href = "takingDetail.html" + "?id="+id+ "&departureCity=" + departureCity + "&departureCountry=" + departureCountry 
+	+ "&arrivalCity=" + arrivalCity + "&arrivalCountry=" + arrivalCountry + "&departureDate=" + departureDate + "&arrivalDate=" + arrivalDate + "&remarks=" + remarks ;
 });
 
 mui.init({
@@ -18,7 +26,6 @@ mui.init({
 			contentrefresh: '正在加载...', //可选，正在加载状态时，上拉加载控件上显示的标题内容
 			contentnomore: '没有更多数据了', //可选，请求完毕若没有更多数据时显示的提醒内容；
 			callback: function() {
-
 				startIndex = startIndex + step;
 				endIndex = endIndex + step;
 				takingList.service.doQuery(startIndex, endIndex, QUERY_MODE_UP);
@@ -42,7 +49,10 @@ takingList = {
 		doQuery: function(startIndex, endIndex, type) {
 			$("#takingList").empty();
 			var $list = $("#takingList");
-			var data = {};
+			var data = {
+				pageNo: startIndex,
+				pageSize: endIndex
+			};
 			apiHelper.get(CONSTANT.baseUrl + "/api/helpBring/list", data, function(flag, data) {
 				if(data.status == AJAX_SECCUSS) {
 					//清空原来加载的数据
@@ -62,7 +72,7 @@ takingList = {
 						//重置刷新
 						mui('#takingContainer').pullRefresh().refresh(true);
 					}
-					takingList.service.doDraw($list, data.result);
+					takingList.service.doDraw($list, data.result.data);
 				}
 			});
 		},
@@ -75,14 +85,25 @@ takingList = {
 
 					var li = "";
 					li = $("<div class='tap' id='line'></div>");
-					li.attr("data-id", result.id);
-					container.find("span[id=departureProvince]").text(result.departureProvince);
+					li.attr("data-id",result.id);	
+					li.attr("departureCountry",result.departureCountry);
+					li.attr("departureCity",result.departureCity)
+					li.attr("arrivalCity",result.arrivalCity);
+					li.attr("arrivalCountry",result.arrivalCountry);
+					li.attr("departureDate",result.departureDate.substring(0, 19));
+					li.attr("arrivalDate",result.arrivalDate.substring(0, 19));
+					li.attr("remarks",result.remarks);
+					
+					container.find("span[id=departureCity]").text(result.departureCity);
 					container.find("span[id=departureCountry]").text(result.departureCountry);
-					container.find("span[id=arrivalProvince]").text(result.arrivalProvince);
+					container.find("span[id=arrivalCity]").text(result.arrivalCity);
 					container.find("span[id=arrivalCountry]").text(result.arrivalCountry);
-					container.find("span[id=deadline]").text(result.deadline.substring(0, 10));
-					container.find("span[id=weight]").text(result.weight);
-					container.find("span[id=price]").text(result.price);
+					if(null !== result.departureDate) {
+						container.find("span[id=departureDate]").text(result.departureDate.substring(0, 19));
+					}
+					if(null != result.arrivalDate) {
+						container.find("span[id=arrivalDate]").text(result.arrivalDate.substring(0, 19));
+					}
 					// 模板渲染
 					li.html(container.html());
 					list.append(li);

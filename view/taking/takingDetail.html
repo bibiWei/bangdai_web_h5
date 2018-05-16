@@ -102,7 +102,7 @@
 					</div>
 					<div class="m-username">
 						<a href="#">
-							<div><span class="m-nick">小王</span></div>
+							<div><span class="m-nick" id="nickName"></span></div>
 						</a>
 					</div>
 				</div>
@@ -110,35 +110,35 @@
 					<div class="mui-card-content">
 						<div class="mui-row mui-row-place">
 							<div class="mui-col-xs-5">
-								<div>大连 - 中国</div>
+								<div><span id="departureCity"></span> - <span id="departureCountry"></span></div>
 							</div>
 							<div class="mui-col-xs-2" style="vertical-align: middle;">
 								<img src="../../images/buying/plane.png" style="width: 40px; height: 20px;margin-top: 5px;" />
 							</div>
 							<div class="mui-col-xs-5">
-								<div>上海 - 中国</div>
+								<div><span id="arrivalCity"></span> - <span id="arrivalCountry"></span></div>
 							</div>
 						</div>
 						<div class="mui-row mui-row-inner">
 							<div class="mui-col-xs-5">
-								<img src="../../images/buying/date.png" style="width: 20px; height: 20px;margin-top: 5px;" /> 2018-02-02
+								<img src="../../images/buying/date.png" style="width: 20px; height: 20px;margin-top: 5px;" /> <span id="departureDate"></span>
 							</div>
 							<div class="mui-col-xs-2" style="vertical-align: middle;">
 								<img src="../../images/icon/ticket-check.png" style="width: 40px; height: 20px;margin-top: 5px;" />
 							</div>
 							<div class="mui-col-xs-5">
-								<img src="../../images/buying/date.png" style="width: 20px; height: 20px;margin-top: 5px;" /> 2018-02-02
+								<img src="../../images/buying/date.png" style="width: 20px; height: 20px;margin-top: 5px;" /> <span id="arrivalDate"></span>
 							</div>
 						</div>
 						<div class="mui-row ">
 							<div class="mui-col-xs-5" style="padding-left: 2.4em;">
-								<img src="../../images/icon/weight-icon.png" style="width: 20px; height: 20px;margin-top: 5px;" />5KG
+								<img src="../../images/icon/重量.png" style="width: 20px; height: 20px;margin-top: 5px;" /><span>5</span>KG
 							</div>
 							<div class="mui-col-xs-2" style="vertical-align: middle;">
 								&nbsp;
 							</div>
 							<div class="mui-col-xs-5" style="padding-left: 2.4em;">
-								<img src="../../images/icon/price-icon.png" style="width: 20px; height: 20px;margin-top: 5px;" />$10/KG
+								<img src="../../images/icon/price.png" style="width: 20px; height: 20px;margin-top: 5px;" />$<span>10</span>/KG
 							</div>
 						</div>
 					</div>
@@ -146,7 +146,7 @@
 				<div class="mui-card" style="margin-top: 20px;">
 					<div class="mui-card-content">
 						<div style="margin-left: 15px;margin-top: 15px;">帮带留言:</div>
-						<div style="margin-left: 15px;margin-bottom: 15px;">xxxxxxxxxxxxxxxxxx</div>
+						<div style="margin-left: 15px;margin-bottom: 15px;" id="remarks"></div>
 					</div>
 				</div>
 				<div class="btn-group">
@@ -154,6 +154,7 @@
 					<img src="../../images/icon/addOrder.png" width="70px" height="70px" style="border-radius: 50%; margin-top: 15px; margin-right: 15px;float: right;" />
 				</div>
 			</div>
+			<script src="../../js/swiper/swiper.min.js"></script>
 			<script src="../../js/mui/mui.min.js"></script>
 			<script src="../../js/jquery/jquery-2.1.1.min.js"></script>
 			<script src="../../js/common/common.js"></script>

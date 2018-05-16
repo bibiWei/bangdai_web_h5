@@ -126,15 +126,18 @@
 	</head>
 
 	<body>
-		<div class="mui-content">
+		<div class="mui-content" id="container">
 			<div class="gradient-bg full-info">
 				<div class="info-detail">完善您的个人信息后,我们就能继续了</div>
 			</div>
 			<div class="m-profile ">
 				<div class="m-avatar">
-					<a href="#">
-						<img src="images/register/addPic.png" alt="用户头像">
-					</a>
+					<div class="upload">
+						<div id="preview">
+							<img id="imghead" src="images/register/addPic.png" />
+						</div>
+						<input type="file" onChange="previewImage(this)" class="btn" style="display: none;" id="previewImg">
+					</div>
 				</div>
 			</div>
 			<div class="btn-group-inner">
@@ -168,6 +171,63 @@
 			<script src="js/common/area.code.data.js"></script>
 			<script src="js/jquery/jquery-2.1.1.min.js"></script>
 			<script src="js/common/common.js"></script>
+			<script>
+				//图片上传预览    IE是用了滤镜。
+				function previewImage(file) {
+					var MAXWIDTH = 487 * 0.8;
+					var MAXHEIGHT = 370 * 0.8;
+					var div = document.getElementById('preview');
+					if(file && file[0]) {
+						div.innerHTML = '<img id=imghead onclick=$("#previewImg").click() >';
+						var img = document.getElementById('imghead');
+						img.onload = function() {
+							var rect = clacImgZoomParam(MAXWIDTH, MAXHEIGHT, img.offsetWidth, img.offsetHeight);
+							img.width = rect.width;
+							img.height = rect.height;
+							//                 img.style.marginLeft = rect.left+'px';
+							img.style.marginTop = "0px";
+						}
+						console.log();
+						var reader = new FileReader();
+						reader.onload = function(evt) {
+							img.src = evt.target.result;
+						}
+						reader.readAsDataURL(file[0].getSource().getSource());
+
+					}
+				}
+
+				function clacImgZoomParam(maxWidth, maxHeight, width, height) {
+					var param = {
+						top: 0,
+						left: 0,
+						width: width,
+						height: height
+					};
+					if(width > maxWidth || height > maxHeight) {
+						rateWidth = width / maxWidth;
+						rateHeight = height / maxHeight;
+
+						if(rateWidth > rateHeight) {
+							param.width = maxWidth;
+							param.height = Math.round(height / rateWidth);
+						} else {
+							param.width = Math.round(width / rateHeight);
+							param.height = maxHeight;
+						}
+					}
+					param.left = Math.round((maxWidth - param.width) / 2);
+					param.top = Math.round((maxHeight - param.height) / 2);
+					return param;
+				}
+			</script>
+			<script type="text/javascript" src="plugin/lib/crypto1/crypto/crypto.js"></script>
+			<script type="text/javascript" src="plugin/lib/crypto1/hmac/hmac.js"></script>
+			<script type="text/javascript" src="plugin/lib/crypto1/sha1/sha1.js"></script>
+			<script type="text/javascript" src="plugin/lib/base64.js"></script>
+			<script type="text/javascript" src="plugin/lib/plupload-2.1.2/js/plupload.full.min.js"></script>
+			<script type="text/javascript" src="uRegisterUpload.js"></script>
 			<script src="uRegisterConfirm.js"></script>
 	</body>
+
 </html>

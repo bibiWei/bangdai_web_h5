@@ -188,13 +188,20 @@ body {
 }
 
 .bar-add {
-	background-image: url(../../images/index/navbar/push.png);
-	height: 40px;
-	width: 40px;
-	text-align: center;
-	float: right;
 	background-repeat: no-repeat;
-	background-size: contain;
+	bottom: -5px;
+	z-index: 1000;
+	position: absolute;
+	left: 50%;
+	right: 50%;
+	width: 70px;
+}
+
+.bar-add img {
+	position: relative;
+	width: 70px;
+	height: 70px;
+	transform: translate(-50%, 0);
 }
 
 .bar-circle {
@@ -463,7 +470,7 @@ input[type=submit] {
 	text-align: center;
 }
 
-.userInfo{
+.userInfo {
 	height: 80px;
 	width: 100%;
 	margin-top: 10px;
@@ -477,29 +484,81 @@ input[type=submit] {
 .vertical-inner {
 	display: table-cell;
 	vertical-align: middle;
-
 }
 
-.order-bar{
+.order-bar {
 	width: 100%;
 	height: 10px;
-	background-image:url(../../images/order/bar.png) ;
+	background-image: url(../../images/order/bar.png);
 }
 
-.order-detail{
+.order-detail {
 	width: 100%;
-	
 }
-.order-info{
+
+.order-info {
 	margin-top: 10px;
 }
 
-.price{
+.price {
 	height: 50px;
 	width: 100%;
 }
 
-.order-title{
+.order-title {
 	height: 100px;
 	width: 100%;
+}
+
+.card-title {
+	color: #c3c3c3;
+	margin: 0px 10px;
+}
+
+.card-line {
+	height: 1px;
+	width: 100%;
+	margin-left: 10px;
+	margin-right: 10px;
+	background-color: #F7F7F7;
+}
+
+.mui-row-place {
+	text-align: center;
+	font-size: 18px;
+	margin-top: 10px;
+}
+
+.mui-row-inner {
+	text-align: center;
+	color: gray;
+}
+
+.mui-row-weight {
+	color: gray;
+}
+
+.place span {
+	font-size: 25px;
+}
+
+.green-circle {
+	width: 30px;
+	height: 30px;
+	border-radius: 50%;
+	background-color: #00b868;
+}
+
+.cancle-btn {
+	background-color: #FFFFFF;
+	color: #df3e3e;
+	border: 2px solid #df3e3e;
+	box-sizing: border-box;
+}
+
+.confirm-btn {
+	background-color: #df3e3e;
+	color: #FFFFFF;
+	border: 2px solid #df3e3e;
+	box-sizing: border-box;
 }

@@ -10,6 +10,8 @@ uLogin = {
 		$("#loginBtn").on("click", uLogin.service.doLogin);
 		$("#homeBtn").on("click", uLogin.service.doHome);
 		$("#showAreaCodePicker").on("click", uLogin.service.showAreaCodePicker);
+		$("#doRegister").on("click",uLogin.service.doRegister);
+		$("#fPsw").on("click",uLogin.service.doPassChange);
 	},
 
 	// 表单验证
@@ -57,19 +59,17 @@ uLogin = {
 		},
 
 		doRegister: function() {
-			window.location.href = "register.html"
+			window.location.href = "uRegister.html"
 		},
 
-		doHome: function() {
-			window.location.href = "register.html"
+		doPassChange:function(){
+			window.location.href = "findPsw.html";	
 		},
 
 		doLogin: function() {
-
 			if(!uLogin.validate()) {
 				return false;
-			}
-
+			}	
 			var data = {
 				userCode: $("#userCode").val(),
 				password: $("#password").val(),
@@ -79,7 +79,7 @@ uLogin = {
 			apiHelper.post(CONSTANT.baseUrl + "/login", JSON.stringify(data), function(flag, data) {
 				if(data.status == AJAX_SECCUSS) {
 					localStorage.setItem("token", data.result.token);
-					localStorage.setItem("userVo", data.result.userVo);
+					localStorage.setItem("userVo", JSON.stringify(data.result.userVo));
 					window.location.href = "view/buying/buyingList.html";
 				} else {
 					mui.toast(data.msg);

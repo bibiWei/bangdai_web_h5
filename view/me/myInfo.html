@@ -1,9 +1,164 @@
 <!DOCTYPE html>
 <html>
+
 	<head>
-		<meta charset="UTF-8">
-		<title></title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link rel="stylesheet" href="../../css/mui/mui.min.css">
+		<link rel="stylesheet" href="../../css/base/base.css">
+		<title>xxxxx</title>
+		<style>
+			body {
+				font-family: 'Helvetica Neue', Helvetica, sans-serif;
+				font-size: 18px;
+				line-height: 31px;
+				color: #000;
+				background-color: #efeff4;
+				-webkit-overflow-scrolling: touch;
+			}
+			
+			.btn-col {
+				background-color: #FFFFFF;
+				line-height: 2.3;
+			}
+			
+			.btn-col .inner {
+				padding-top: 10px;
+				padding-bottom: 10px;
+			}
+			
+			.cash-btn {
+				margin-left: 10px;
+				margin-right: 10px;
+				margin-top: 20px;
+			}
+			
+			.cash-btn button {
+				width: 100%;
+				border-radius: 30px;
+				font-size: 18px;
+				color: #FFFFFF;
+			}
+			
+			.mui-card {
+				margin-top: 40px;
+				background-color: rgb(0, 170, 238);
+				border-radius: 14px;
+			}
+			
+			.descible {
+				color: #FFFFFF;
+				margin-top: 1em;
+				font-size: 20px;
+			}
+		</style>
 	</head>
+
 	<body>
-	</body>
+		<header class="mui-bar mui-bar-nav gradient-bg ">
+			<h1 class="mui-title"></h1>
+		</header>
+
+		<body>
+			<div class="mui-content">
+				<div class="m-profile-success gradient-bg">
+					<div class="m-avatar">
+						<a href="#">
+							<img src="../../images/wallet/ownMoney.png" alt="用户头像">
+						</a>
+					</div>
+					<div class="m-username">
+						<a href="#">
+							<div><span class="m-nick-success">无情</span><i class="u-arrow"></i></div>
+						</a>
+						<div><span class="m-nick-success">18766312029</span><i class="u-arrow"></i></div>
+					</div>
+				</div>
+				<div class="b-line"></div>
+				<ul class="mui-table-view mui-table-view-chevron">
+					<li class="mui-table-view-cell " id="audited">
+						<div class="mui-navigate-right place">
+							<img src="../../images/me/me.png" width="30px" />
+							<span class="img-center "></span>
+							<span>个人中心</span>
+						</div>
+					</li>
+					<li class="mui-table-view-cell " id="audited">
+						<div class="mui-navigate-right place">
+							<img src="../../images/me/auth.png" width="30px" />
+							<span class="img-center "></span>
+							<span>认证中心</span>
+						</div>
+					</li>
+					<div class="b-line"></div>
+					<li class="mui-table-view-cell " id="audited">
+						<div class="mui-navigate-right place">
+							<img src="../../images/me/wallet.png" width="30px" />
+							<span class="img-center "></span>
+							<span>我的钱包</span>
+						</div>
+					</li>
+					<li class="mui-table-view-cell " id="orderListBtn">
+						<div class="mui-navigate-right place">
+							<img src="../../images/me/order.png" width="30px" />
+							<span class="img-center "></span>
+							<span>订单管理</span>
+						</div>
+					</li>
+					<div class="b-line"></div>
+					<li class="mui-table-view-cell " id="audited">
+						<div class="mui-navigate-right place">
+							<img src="../../images/me/taking.png" width="30px" />
+							<span class="img-center "></span>
+							<span>帮带管理</span>
+						</div>
+					</li>
+					<li class="mui-table-view-cell " id="audited">
+						<div class="mui-navigate-right place">
+							<img src="../../images/me/taking.png" width="30px" />
+							<span class="img-center "></span>
+							<span>求带管理</span>
+						</div>
+					</li>
+					<div class="b-line"></div>
+					<li class="mui-table-view-cell " id="audited">
+						<div class="mui-navigate-right place">
+							<img src="../../images/me/ask.png" width="20px" />
+							<span class="img-center "></span>
+							<span>联系客服</span>
+						</div>
+					</li>
+				</ul>
+				<div class="bar-add" id="showAddBtnBuying"><img src="../../images/index/navbar/push.png" onclick="buyingList.service.showPush()" /></div>
+				<nav class="mui-bar mui-bar-tab" style="	background-color: #FFFFFF;">
+					<a class="mui-tab-item mui-active" id="buyingNav">
+						<span class="mui-icon"><div class="bar-buying-active"></div></span>
+						<span class="mui-tab-label">求带</span>
+					</a>
+					<a class="mui-tab-item" id="takingNav">
+						<span class="mui-icon"><div class="bar-taking"></div></span>
+						<span class="mui-tab-label">帮带</span>
+					</a>
+					<a class="mui-tab-item">
+						<span class="mui-icon"></span>
+					</a>
+					<a class="mui-tab-item" id="circleNav">
+						<span class="mui-icon"><div class="bar-circle"></div></span>
+						<span class="mui-tab-label">熊圈</span>
+					</a>
+					<a class="mui-tab-item" id="mineNav">
+						<span class="mui-icon"><div class="bar-me"></div></span>
+						<span class="mui-tab-label">我的</span>
+					</a>
+				</nav>
+			</div>
+			<script src="../../js/mui/mui.min.js"></script>
+			<script src="../../js/mui/mui.poppicker.js"></script>
+			<script src="../../js/mui/mui.picker.js"></script>
+			<script src="../../js/common/area.code.data.js"></script>
+			<script src="../../js/jquery/jquery-2.1.1.min.js"></script>
+			<script src="../../js/common/common.js"></script>
+			<script src="myinfo.js"></script>
+		</body>
+
 </html>

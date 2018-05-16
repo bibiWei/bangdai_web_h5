@@ -21,7 +21,7 @@ img{max-width:100%;border:0}
     color: #f2f2f2;
 }
 .npcTalklist{
-    background-color: #C7C7CC;
+    background-color: #F5F5F5;
     box-sizing: border-box;
     min-height: 6.07rem;
     padding-bottom: .5rem;
@@ -35,7 +35,7 @@ img{max-width:100%;border:0}
 .npcTalkTime{
     margin-top: .1rem;
     font-size:.12rem;
-    color: #15597e;
+    color: #c5c5c5;
     text-align: center;
 }
 /*QQ对话*/
@@ -45,12 +45,13 @@ img{max-width:100%;border:0}
 .npcTalk .npcTalkCon {
     max-width: 2.2rem;
     font-size: .15rem;
-    color: #333;
+    color: #ffffff;
     background-color: #fff;
     border-radius: .15rem;
     position: relative;
     padding: .15rem;
     text-align: justify;
+  
 }
 .npcTalkPadding{
     font-size: .15rem;
@@ -71,6 +72,7 @@ img{max-width:100%;border:0}
     border-color: transparent;
     position: absolute;
     top: 16px;
+
 }
 .border-left .npcTalk{
     float: left;
@@ -102,12 +104,14 @@ img{max-width:100%;border:0}
     margin-left: .2rem;
 }
 .border-left .npcTalk .npcTalkCon::after {
-    border-right-color: #fff;
+    border-right-color: #ff6e42;
     left: -20px;
+
 }
 .border-right .npcTalk .npcTalkCon::after {
-    border-left-color: #fff;
+    border-left-color: #ff6e42;
     right: -20px;
+
 }
 
 .footerTalk{
@@ -116,14 +120,12 @@ img{max-width:100%;border:0}
     position: fixed;
     bottom: 0;
     background-color: #fff;
-    border-top: 1px solid #000;
 }
 .footerTalk .left{
     width: 14%;
     height: .5rem;
     background: url("../images/ly.png") no-repeat center;
     background-size: 80% 80%;
-    border-right: 1px solid #000;
     box-sizing: border-box;
 }
 .footerTalk.audio .left{
@@ -153,7 +155,6 @@ img{max-width:100%;border:0}
     color: #111;
     text-align: center;
     box-sizing: border-box;
-    border-left: 1px solid #000;
 }
 
 @media (max-width: 374px) {

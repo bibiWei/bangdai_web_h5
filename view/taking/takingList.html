@@ -37,7 +37,9 @@
 	<body>
 
 		<header class="mui-bar mui-bar-nav aui-header gradient">
-			<h1 class="mui-title">首页</h1>
+			<h1 class="mui-title"><img src="../../images/icon/logo.png"/></h1>
+			<div class="message">
+			</div>
 		</header>
 		<!-- Swiper -->
 		<div id="takingContainer" class="mui-content mui-scroll-wrapper">
@@ -66,25 +68,25 @@
 				<div id="takingList" class="list">
 				</div>
 			</div>
+			<div class="bar-add"><img src="../../images/index/navbar/push.png" style="" /></div>
 			<nav class="mui-bar mui-bar-tab" style="	background-color: #FFFFFF;">
-				<a class="mui-tab-item mui-active" href="#tabbar">
-					<span class="mui-icon mui-icon-home"></span>
+				<a class="mui-tab-item" href="#tabbar">
+					<span class="mui-icon"><div class="bar-buying"></div></span>
 					<span class="mui-tab-label">求带</span>
 				</a>
-				<a class="mui-tab-item" href="#tabbar-with-chat">
-					<span class="mui-icon mui-icon-email"></span>
+				<a class="mui-tab-item  mui-active" href="#tabbar-with-chat">
+					<span class="mui-icon"><div class="bar-taking-active"></div></span>
 					<span class="mui-tab-label">帮带</span>
 				</a>
-				<a class="mui-tab-item" href="views/goods/goodsList.html">
-					<span class="mui-icon mui-icon-contact"></span>
-					<span class="mui-tab-label">发布</span>
+				<a class="mui-tab-item" id="showAddBtn">
+					<span class="mui-icon"></span>
 				</a>
 				<a class="mui-tab-item" href="#tabbar-with-map">
-					<span class="mui-icon mui-icon-gear"></span>
+					<span class="mui-icon"><div class="bar-circle"></div></span>
 					<span class="mui-tab-label">熊圈</span>
 				</a>
 				<a class="mui-tab-item" href="#tabbar-with-map">
-					<span class="mui-icon mui-icon-gear"></span>
+					<span class="mui-icon"><div class="bar-me"></div></span>
 					<span class="mui-tab-label">我的</span>
 				</a>
 			</nav>
@@ -106,11 +108,11 @@
 				</div>
 			</div>
 		</div>
-
 		<script src="../../js/swiper/swiper.min.js"></script>
 		<script src="../../js/mui/mui.min.js"></script>
 		<script src="../../js/jquery/jquery-2.1.1.min.js"></script>
 		<script src="../../js/common/common.js"></script>
+		<script src="../common/common.js"></script>
 		<script src="takingList.js"></script>
 		<!-- Initialize Swiper -->
 		<script>

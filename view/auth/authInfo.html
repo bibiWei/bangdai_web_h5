@@ -6,6 +6,8 @@
 		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
 		<link rel="stylesheet" href="../../css/mui/mui.min.css">
 		<link rel="stylesheet" href="../../css/base/base.css">
+		<link href="../../css/mui/mui.picker.css" rel="stylesheet" />
+		<link href="../../css/mui/mui.poppicker.css" rel="stylesheet" />
 		<title>xxxxx</title>
 		<style>
 			body {
@@ -53,6 +55,11 @@
 				padding: 16px 15px;
 			}
 			
+			.mui-checkbox input[type=checkbox]:checked:before,
+			.mui-radio input[type=radio]:checked:before {
+				color: #ff423b;
+			}
+			
 			input[type=color],
 			input[type=date],
 			input[type=datetime-local],
@@ -89,83 +96,84 @@
 			<a class="mui-action-back mui-icon mui-icon-back mui-pull-left"></a>
 			<h1 class="mui-title">认证中心<h1>
 		</header>
-	
-			<div class="mui-content">
-				<div class="m-profile gradient-bg">
-					<div class="m-avatar">
-						<a href="#">
-							<img src="../../images/wallet/aliy.png" alt="用户头像">
-						</a>
-					</div>
-					<div class="m-username">
-						<a href="#">
-							<div>
-								<span class="m-nick">王小二</span>
-								<i class="u-arrow"></i>
-							</div>
-						</a>
+		<div class="mui-content" id="container">
+			<div class="m-profile gradient-bg">
+				<div class="m-avatar">
+					<a href="#">
+						<img src="../../images/wallet/aliy.png" alt="用户头像" id="">
+					</a>
+				</div>
+				<div class="m-username">
+					<a>
 						<div>
-							<span class="m-nick">18766312029</span>
+							<span class="m-nick" id="nickName"></span>
 							<i class="u-arrow"></i>
 						</div>
+					</a>
+					<div>
+						<span class="m-nick" id="phone"></span>
+						<i class="u-arrow"></i>
 					</div>
 				</div>
-				<div id="slider" class="mui-slider mui-fullscreen ">
-					<div class="mui-segmented-control gradient-bg" id="segmentedControl">
-						<a class="mui-control-item mui-active" id="all">身份认证</a>
-						<a class="mui-control-item " id="notpayed">护照认证</a>
-						<a class="mui-control-item " id="notpayed">外籍认证</a>
-					</div>
+			</div>
+			<div id="slider">
+				<div class="mui-segmented-control gradient-bg" id="segmentedControl">
+					<a class="mui-control-item mui-active" id="idConfirm">身份认证</a>
+					<a class="mui-control-item " id="posConfirm">护照认证</a>
+					<a class="mui-control-item " id="forConfirm">外籍认证</a>
 				</div>
-				<div class="b-line" style="margin-top: 40px;"></div>
-				<div class="idCard" hidden="hidden">
+			</div>
+				<div class="idCard" id="idCard">
 					<ul class="mui-table-view mui-table-view-chevron">
-						<li class="mui-table-view-cell ">
-							<div>
+						<li class="mui-table-view-cell">
 								<span class="pic-check-title">上传你的身份证照片</span>
 								<div class="upload">
-									<img src="../../images/auth/upload.png"/>
+									<div id="preview">
+										<img id="imghead" src="../../images/auth/upload.png"/>
+									</div>
+									<input type="file" o	nChange="previewImage(this)" class="btn" style="display: none;" id="previewImg">
 									<p>(拍摄的证件照必须清晰.完整且与如下填写的信息一直)</p>
-									<p style="text-align: left; margin-left: 30px;">环球易带讲依法保护您的信息</p>
-									<button id="loginBtn" type="button" class="mui-btn gradient-bg cash-btn" style="height: 40px;color: #FFFFFF;width: 100px;border-radius: 50px;">上传</button>
+									<p style="text-align: left; margin-left: 30px;">环球易带将依法保护您的信息</p>
+									<button id="uploadIdBtn" type="button" class="mui-btn gradient-bg cash-btn" style="height: 40px;color: #FFFFFF;width: 100px;border-radius: 50px;">上传</button>
 								</div>
-							</div>
 						</li>
 					</ul>
 					<div class="b-line" ></div>
 					<form class="mui-input-group">
 					<div class="mui-input-row">
 						<label>身份证号</label>
-						<input type="text" placeholder="请输入">
+						<input type="text" placeholder="请输入" id="idNum">
 					</div>
 					<div class="mui-input-row">
 						<label>姓名</label>
-						<input type="text" placeholder="请输入">
+						<input type="text" placeholder="请输入" id="idName">
 					</div>
-					<div class="mui-input-row">
-						<label>性别</label>
+					<div class="mui-input-row" id="showIdSexPicker">
+						<label id="">性别</label>
+						<input type="text" placeholder="选择" id="idSexPicker" readonly="readonly">
 					</div>
 					<div class="mui-input-row">
 						<label>年龄</label>
-						<input type="text" placeholder="请输入">
+						<input type="text" placeholder="请输入" id="idAge">
 					</div>
-				<div>
 					<div class="cash-btn" style="margin-bottom: 50px;">
-						<button id="registerBtn" type="button" class="mui-btn gradient-bg ">立即注册</button>
+						<button id="registerIdBtn" type="button" class="mui-btn gradient-bg ">立即注册</button>
 					</div>
-				</div>
 				</form>
 				</div>
-				<div class="hsCard" hidden="hidden">
+				<div class="hsCard" id="hsCard" >
 					<ul class="mui-table-view mui-table-view-chevron">
 						<li class="mui-table-view-cell ">
 							<div>
 								<span class="pic-check-title">上传你的护照</span>
-								<div class="upload">
-									<img src="../../images/auth/upload.png" />
+								<div class="upload" id="posContainer">
+									<div id="previewPos" class="btn">
+										<img id="imgheadPos" src="../../images/auth/upload.png"/>
+									</div>
+									<input type="file" o	nChange="previewImagePos(this)" class="btn" style="display: none;" id="previewImgPos">
 									<p>(拍摄的证件照必须清晰.完整且与如下填写的信息一直)</p>
 									<p style="text-align: left; margin-left: 30px;">环球易带讲依法保护您的信息</p>
-									<button id="loginBtn" type="button" class="mui-btn gradient-bg cash-btn" style="height: 40px;color: #FFFFFF;width: 100px;border-radius: 50px;">上传</button>
+									<button id="uploadPosBtn" type="button" class="mui-btn gradient-bg cash-btn" style="height: 40px;color: #FFFFFF;width: 100px;border-radius: 50px;">上传</button>
 								</div>
 							</div>
 						</li>
@@ -174,37 +182,40 @@
 					<form class="mui-input-group">
 						<div class="mui-input-row">
 							<label>身份证号</label>
-							<input type="text" placeholder="请输入">
+							<input type="text" placeholder="请输入" id="posNum">
 						</div>
 						<div class="mui-input-row">
 							<label>姓名</label>
-							<input type="text" placeholder="请输入">
+							<input type="text" placeholder="请输入" id="posName">
 						</div>
-						<div class="mui-input-row">
+						<div class="mui-input-row" id="showHsSexPicker">
 							<label>性别</label>
+							<input type="text" placeholder="选择" id="hsSexPicker" readonly="readonly">
 						</div>
 						<div class="mui-input-row">
 							<label>年龄</label>
-							<input type="text" placeholder="请输入">
+							<input type="text" placeholder="请输入" id="posAge">
 						</div>
 						<div>
 							<div class="cash-btn" style="margin-bottom: 50px;">
-								<button id="registerBtn" type="button" class="mui-btn gradient-bg ">立即注册</button>
+								<button id="registerPosBtn" type="button" class="mui-btn gradient-bg ">立即注册</button>
 							</div>
 						</div>
 					</form>
 				</div>
-			
-				<div class="wjCard" >
+				<div class="wjCard" id="wjCard" >
 					<ul class="mui-table-view mui-table-view-chevron">
 						<li class="mui-table-view-cell ">
 							<div>
 								<span class="pic-check-title">上传你的护照/驾驶证</span>
 								<div class="upload">
-									<img src="../../images/auth/upload.png" />
+									<div id="previewFor">
+										<img id="imgheadFor" src="../../images/auth/upload.png"/>
+									</div>
+									<input type="file" o	nChange="previewImageFor(this)" class="btn" style="display: none;" id="previewImgFor">
 									<p>(拍摄的证件照必须清晰.完整且与如下填写的信息一直)</p>
 									<p style="text-align: left; margin-left: 30px;">环球易带讲依法保护您的信息</p>
-									<button id="loginBtn" type="button" class="mui-btn gradient-bg cash-btn" style="height: 40px;color: #FFFFFF;width: 100px;border-radius: 50px;">上传</button>
+									<button id="uploadForBtn" type="button" class="mui-btn gradient-bg cash-btn" style="height: 40px;color: #FFFFFF;width: 100px;border-radius: 50px;">上传</button>
 								</div>
 							</div>
 						</li>
@@ -215,10 +226,13 @@
 							<div>
 								<span class="pic-check-title">上传你的photoId</span>
 								<div class="upload">
-									<img src="../../images/auth/upload.png" />
+									<div id="previewForId">
+										<img id="imgheadForId" src="../../images/auth/upload.png"/>
+									</div>
+									<input type="file" o	nChange="previewImageForId(this)" class="btn" style="display: none;" id="previewImgForId">
 									<p>(拍摄的证件照必须清晰.完整且与如下填写的信息一直)</p>
 									<p style="text-align: left; margin-left: 30px;">环球易带讲依法保护您的信息</p>
-									<button id="loginBtn" type="button" class="mui-btn gradient-bg cash-btn" style="height: 40px;color: #FFFFFF;width: 100px;border-radius: 50px;">上传</button>
+									<button id="uploadForIdBtn" type="button" class="mui-btn gradient-bg cash-btn" style="height: 40px;color: #FFFFFF;width: 100px;border-radius: 50px;">上传</button>
 								</div>
 							</div>
 						</li>
@@ -230,6 +244,148 @@
 					</div>
 				</div>			
 			</div>
-			<script src="authInfo.js"></script>
+
+		<script src="../../js/mui/mui.min.js"></script>
+		<script src="../../js/mui/mui.poppicker.js"></script>
+		<script src="../../js/mui/mui.picker.js"></script>
+		<script src="../../js/jquery/jquery-2.1.1.min.js"></script>
+		<script src="../../js/common/common.js"></script>
+		<script src="../../js/data/cityList.js"></script>
+		<script src="../../js/mui/mui.dtpicker.js"></script>
+		<script>
+			//图片上传预览    IE是用了滤镜。
+			function previewImage(file) {
+				var MAXWIDTH = 487 * 0.8;
+				var MAXHEIGHT = 370 * 0.8;
+				var div = document.getElementById('preview');
+				if(file && file[0]) {
+					div.innerHTML = '<img id=imghead onclick=$("#previewImg").click()>';
+					var img = document.getElementById('imghead');
+					img.onload = function() {
+						var rect = clacImgZoomParam(MAXWIDTH, MAXHEIGHT, img.offsetWidth, img.offsetHeight);
+						img.width = rect.width;
+						img.height = rect.height;
+						//                 img.style.marginLeft = rect.left+'px';
+						img.style.marginTop = rect.top + 'px';
+					}
+					console.log();
+					var reader = new FileReader();
+					reader.onload = function(evt) {
+						img.src = evt.target.result;
+					}
+					reader.readAsDataURL(file[0].getSource().getSource());
+
+				}
+			}
+			
+			function previewImagePos(file) {
+				var MAXWIDTH = 487 * 0.8;
+				var MAXHEIGHT = 370 * 0.8;
+				var div = document.getElementById('previewPos');
+				if(file && file[0]) {
+					div.innerHTML = '<img id=imgheadPos onclick=$("#previewImgPos").click()>';
+					var img = document.getElementById('imgheadPos');
+					img.onload = function() {
+						var rect = clacImgZoomParam(MAXWIDTH, MAXHEIGHT, img.offsetWidth, img.offsetHeight);
+						img.width = rect.width;
+						img.height = rect.height;
+						//                 img.style.marginLeft = rect.left+'px';
+						img.style.marginTop = rect.top + 'px';
+					}
+					console.log();
+					var reader = new FileReader();
+					reader.onload = function(evt) {
+						img.src = evt.target.result;
+					}
+					reader.readAsDataURL(file[0].getSource().getSource());
+
+				}
+			}
+
+			function previewImageFor(file) {
+				var MAXWIDTH = 487 * 0.8;
+				var MAXHEIGHT = 370 * 0.8;
+				var div = document.getElementById('previewFor');
+				if(file && file[0]) {
+					div.innerHTML = '<img id=imgheadFor onclick=$("#previewImgFor").click()>';
+					var img = document.getElementById('imgheadFor');
+					img.onload = function() {
+						var rect = clacImgZoomParam(MAXWIDTH, MAXHEIGHT, img.offsetWidth, img.offsetHeight);
+						img.width = rect.width;
+						img.height = rect.height;
+						//                 img.style.marginLeft = rect.left+'px';
+						img.style.marginTop = rect.top + 'px';
+					}
+					console.log();
+					var reader = new FileReader();
+					reader.onload = function(evt) {
+						img.src = evt.target.result;
+					}
+					reader.readAsDataURL(file[0].getSource().getSource());
+
+				}
+			}
+
+			function previewImageForId(file) {
+				var MAXWIDTH = 487 * 0.8;
+				var MAXHEIGHT = 370 * 0.8;
+				var div = document.getElementById('previewForId');
+				if(file && file[0]) {
+					div.innerHTML = '<img id=imgheadForId onclick=$("#previewImgForId").click()>';
+					var img = document.getElementById('imgheadForId');
+					img.onload = function() {
+						var rect = clacImgZoomParam(MAXWIDTH, MAXHEIGHT, img.offsetWidth, img.offsetHeight);
+						img.width = rect.width;
+						img.height = rect.height;
+						//                 img.style.marginLeft = rect.left+'px';
+						img.style.marginTop = rect.top + 'px';
+					}
+					console.log();
+					var reader = new FileReader();
+					reader.onload = function(evt) {
+						img.src = evt.target.result;
+					}
+					reader.readAsDataURL(file[0].getSource().getSource());
+
+				}
+			}
+
+			function clacImgZoomParam(maxWidth, maxHeight, width, height) {
+				var param = {
+					top: 0,
+					left: 0,
+					width: width,
+					height: height
+				};
+				if(width > maxWidth || height > maxHeight) {
+					rateWidth = width / maxWidth;
+					rateHeight = height / maxHeight;
+
+					if(rateWidth > rateHeight) {
+						param.width = maxWidth;
+						param.height = Math.round(height / rateWidth);
+					} else {
+						param.width = Math.round(width / rateHeight);
+						param.height = maxHeight;
+					}
+				}
+				param.left = Math.round((maxWidth - param.width) / 2);
+				param.top = Math.round((maxHeight - param.height) / 2);
+				return param;
+			}
+		
+		</script>
+		<script type="text/javascript" src="../../plugin/lib/crypto1/crypto/crypto.js"></script>
+		<script type="text/javascript" src="../../plugin/lib/crypto1/hmac/hmac.js"></script>
+		<script type="text/javascript" src="../../plugin/lib/crypto1/sha1/sha1.js"></script>
+		<script type="text/javascript" src="../../plugin/lib/base64.js"></script>
+		<script type="text/javascript" src="../../plugin/lib/plupload-2.1.2/js/plupload.full.min.js"></script>
+		
+		<script type="text/javascript" src="authInfoIdUpload.js"></script>
+		<script type="text/javascript" src="authInfoPosUpload.js"></script>
+		<script type="text/javascript" src="authInfoForUpload.js"></script>
+		<script type="text/javascript" src="authInfoForIdUpload.js"></script>
+		<script src="authInfo.js"></script>
+		
 	</body>
 </html>

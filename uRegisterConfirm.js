@@ -68,10 +68,12 @@ uRegisterConfirm = {
 				countryCode: areaCode,
 				password: $("#passwd").val(),
 				clientId:"",
+				picUrl:localStorage.getItem('register_user_photo')
 			}
 			apiHelper.post(CONSTANT.baseUrl + "/register" + "?smsCode=" + smsCode, JSON.stringify(data), function(flag, data) {
 				if(data.status == AJAX_SECCUSS) {
-					window.location.href = "view/auth/authInfo.html"
+					window.location.href = "uLogin.html"
+
 				} else {
 					mui.toast(data.msg);
 				}

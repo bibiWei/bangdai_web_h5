@@ -7,20 +7,9 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
 		<meta name="apple-mobile-web-app-capable" content="yes">
 		<meta name="apple-mobile-web-app-status-bar-style" content="black">
-		<link rel="stylesheet" href="../../css/mui.min.css">
+		<link rel="stylesheet" href="../../css/mui/mui.min.css">
+		<link rel="stylesheet" href="../../css/base/base.css">
 		<style>
-			html,
-			body {
-				background-color: #efeff4;
-			}
-			
-			.title {
-				padding: 20px 15px 10px;
-				color: #6d6d72;
-				font-size: 15px;
-				background-color: #1e82d2;
-			}
-			
 			.mui-indexed-list-search {
 				border-bottom: solid 1px #e3e3e3;
 				z-index: 15;
@@ -76,111 +65,72 @@
 				font-style: normal;
 			}
 			
-			.mui-bar {
-				background: #1e82d2;
-				color: #FFFFFF;
-			}
-			
-			.mui-title {
-				color: #FFFFFF;
-			}
-			
 			.top-bt {
-				margin-top: 50px;
+				margin-top: 10px;
+			}
+			
+			.mui-card {
+				border-radius: 10px;
+			}
+			
+			.mui-card p {
+				color: #FFFFFF;
+				margin: 10px;
 			}
 		</style>
 	</head>
 
 	<body>
-		<header class="mui-bar mui-bar-nav">
-			<h1 id="title" class="mui-title">消息</h1>
+		<header class="mui-bar mui-bar-nav gradient-bg">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title">消息</h1>
 		</header>
-		<div class="mui-segmented-control" id="segmentedControl" style="margin-top: 50px;">
-			<a class="mui-control-item mui-active" href="#nav_1" id="all">用户消息</a>
-			<a class="mui-control-item dd" href="#nav_2" id="notpayed">系统消息</a>
-		</div>
+
 		<div id="pullrefresh" class="mui-content mui-scroll-wrapper mui-content-reset">
-			<div class="mui-scroll">
-				<!--<div class="mui-indexed-list-search mui-input-row mui-search">
-					<input type="search" class="mui-input-clear mui-indexed-list-search-input" placeholder="搜索">
-				</div>-->
-				<ul class="mui-table-view mui-table-view-chevron evaluate-content top-bt" id="messageList" >
+
+			<div id="slider">
+				<div class="mui-segmented-control gradient-bg" id="segmentedControl">
+					<a class="mui-control-item mui-active" id="sysMessage">系统消息</a>
+					<a class="mui-control-item " id="userMessage">用户消息</a>
+					<a class="mui-control-item " id="checkMessage">争议消息</a>
+				</div>
+			</div>
+			<div class="mui-scroll" id="sysMsg">
+				<div class="mui-card gradient-bg" style="margin-top: -10px;">
+					<div class="mui-card-content">
+						<div class="mui-row">
+							<div class="mui-col-xs-9">
+								<p>您有新的消息发布请您及时查看</p>
+								<p>您有新的消息发布请您及时查看</p>
+							</div>
+							<div class="mui-col-xs-2">
+								<div class="vertical-base" style="height:100px;margin-left: 10px;">
+									<div class="vertical-inner" style="text-align: center;">
+										<img src="../../images/dialogue/checkInfo.png" width="50px" height="50px" />
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="mui-scroll" id="userMsg" hidden="hidden">
+				<ul class="mui-table-view mui-table-view-chevron evaluate-content" style="margin-top: -10px;" id="messageList">
 				</ul>
 			</div>
+			<div class="mui-scroll" id="checkMsg" hidden="hidden">
+				<ul class="mui-table-view  evaluate-content" style="margin-top: -10px;" id="messageCheckList">
+				</ul>
+			</div>
+
 		</div>
-		<script src="../../js/mui.min.js"></script>
+		<script src="../../js/mui/mui.min.js"></script>
 		<script src="../../js/jquery/jquery-2.1.1.min.js"></script>
 		<script src="../../js/common/common.js"></script>
 		<script src="../../js/sdk/webim.min.js"></script>
 		<script src="weixinInfo.js"></script>
 		<script type="text/javascript" src="../../js/sdk/json2.js"></script>
 		<script src="messageList.js"></script>
-
-		<!--<script>
-			mui.init({
-				swipeBack: false,
-				pullRefresh: {
-					container: '#pullrefresh',
-					down: {
-						callback: pulldownRefresh
-					},
-					up: {
-						contentrefresh: '正在加载...',
-						callback: pullupRefresh
-					}
-				}
-			});
-			mui.plusReady(function(){
-				plus.navigator.setStatusBarBackground('#1e82d2')
-			})
-			/**
-			 * 下拉刷新具体业务实现
-			 */
-			function pulldownRefresh() {
-				setTimeout(function() {
-					var table = document.body.querySelector('.mui-table-view');
-					var cells = document.body.querySelectorAll('.mui-table-view-cell');
-					for (var i = cells.length, len = i + 3; i < len; i++) {
-						var li = document.createElement('li');
-						li.className = 'mui-table-view-cell mui-media chat-li';
-						var inner  = '<a href="" class="evalItem">';
-						    inner +=		'<img class="mui-media-object mui-pull-left" src="../../images/chat/qq.png">' ;
-						    inner += 	'<i class="mes-badge">1</i>';
-						    inner += 	'<div class="mui-media-body mui-left">3<p class="mui-ellipsis">第三次测试</p></div>'
-						    inner +=    '<p class="mui-time">2:00</p>';
-						    inner += '</a>'
-						    
-						li.innerHTML = inner;
-						//下拉刷新，新纪录插到最前面；
-						table.insertBefore(li, table.firstChild);
-					}
-					mui('#pullrefresh').pullRefresh().endPulldownToRefresh(); //refresh completed
-				}, 1000);
-			}
-			var count = 0;
-			/**
-			 * 上拉加载具体业务实现
-			 */
-			function pullupRefresh() {
-				setTimeout(function() {
-					mui('#pullrefresh').pullRefresh().endPullupToRefresh((++count > 2)); //参数为true代表没有更多数据了。
-					var table = document.body.querySelector('.mui-table-view');
-					var cells = document.body.querySelectorAll('.mui-table-view-cell');
-					for (var i = cells.length, len = i + 20; i < len; i++) {
-						var li = document.createElement('li');
-						li.className = 'mui-table-view-cell mui-media chat-li';
-						var inner  = '<a href="" class="evalItem">';
-						    inner +=		'<img class="mui-media-object mui-pull-left" src="../../images/chat/qq.png">' ;
-						    inner += 	'<i class="mes-badge">1</i>';
-						    inner += 	'<div class="mui-media-body mui-left">3<p class="mui-ellipsis">第三次测试</p></div>'
-						    inner +=    '<p class="mui-time">2:00</p>';
-						    inner += '</a>'
-						li.innerHTML = inner;
-						table.appendChild(li);
-					}
-				}, 1000);
-			}
-		</script>-->
 	</body>
 
 </html>

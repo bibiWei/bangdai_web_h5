@@ -18,28 +18,11 @@
 			border-radius: 7px;
 		}
 		
-		.mui-row-place {
-			text-align: center;
-			font-size: 18px;
-			margin-top: 10px;
-		}
-		
-		.mui-row-inner {
-			text-align: center;
-			color: gray;
-		}
-		
-		.mui-row-weight {
-			color: gray;
-		}
-		
-		.place span {
-			font-size: 25px;
-		}
+
 		
 		#push {
 			position: fixed;
-			z-index: 998;
+			z-index: 1001;
 			top: 200px;
 			right: 0;
 			bottom: 0;
@@ -52,8 +35,8 @@
 
 		<header class="mui-bar mui-bar-nav aui-header gradient">
 			<h1 class="mui-title"><img src="../../images/icon/logo.png"/></h1>
-			<div class="message">
-			</div>
+			<div class="message" id="showMessge">
+			</div> 
 		</header>
 		<!-- Swiper -->
 		<div id="buyingContainer" class="mui-content mui-scroll-wrapper">
@@ -82,41 +65,42 @@
 				<div id="buyingList" class="list">
 				</div>
 			</div>
+			<div class="bar-add" id="showAddBtnBuying"  ><img src="../../images/index/navbar/push.png" onclick="buyingList.service.showPush()" /></div>
 			<nav class="mui-bar mui-bar-tab" style="	background-color: #FFFFFF;">
-				<a class="mui-tab-item mui-active" href="#tabbar">
+				<a class="mui-tab-item mui-active" id="buyingNav">
 					<span class="mui-icon"><div class="bar-buying-active"></div></span>
 					<span class="mui-tab-label">求带</span>
 				</a>
-				<a class="mui-tab-item" href="#tabbar-with-chat">
+				<a class="mui-tab-item" id="takingNav">
 					<span class="mui-icon"><div class="bar-taking"></div></span>
 					<span class="mui-tab-label">帮带</span>
 				</a>
-				<a class="mui-tab-item" id="showAddBtn">
-					<span class="mui-icon"><div class="bar-add" style="position: absolute;" ></div></span>
+				<a class="mui-tab-item" >
+					<span class="mui-icon"></span>
 				</a>
-				<a class="mui-tab-item" href="#tabbar-with-map">
+				<a class="mui-tab-item" id="circleNav">
 					<span class="mui-icon"><div class="bar-circle"></div></span>
 					<span class="mui-tab-label">熊圈</span>
 				</a>
-				<a class="mui-tab-item" href="#tabbar-with-map">
+				<a class="mui-tab-item" id="mineNav">
 					<span class="mui-icon"><div class="bar-me"></div></span>
 					<span class="mui-tab-label">我的</span>
 				</a>
 			</nav>
 			<div class="mui-backdrop" id="push" hidden="hidden">
 				<div class="push-div">
-					<div class="left-btn">
-						<img src="../../images/index/navbar/buying-push.png" id="pushBuyingBtn" />
+					<div class="left-btn" id="pushBuyingBtn">
+						<img src="../../images/index/navbar/buying-push.png"  />
 						<div>发布求带</div>
 					</div>
-					<div class="right-btn">
-						<img src="../../images/index/navbar/taking-push.png" id="pushTakingBtn" />
+					<div class="right-btn" id="pushTakingBtn">
+						<img src="../../images/index/navbar/taking-push.png"  />
 						<div>发布帮带</div>
 					</div>
 				</div>
 				<div class="push-bottom-div">
-					<div class="bottom-div">
-						<img src="../../images/index/navbar/close.png" id="closeBtn" />
+					<div class="bottom-div" id="closeBtn">
+						<img src="../../images/index/navbar/close.png"  />
 					</div>
 				</div>
 			</div>
@@ -125,6 +109,7 @@
 		<script src="../../js/mui/mui.min.js"></script>
 		<script src="../../js/jquery/jquery-2.1.1.min.js"></script>
 		<script src="../../js/common/common.js"></script>
+		<script src="../common/common.js"></script>
 		<script src="buyingList.js"></script>
 		<!-- Initialize Swiper -->
 		<script>

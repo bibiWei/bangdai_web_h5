@@ -78,7 +78,6 @@ buyingPush = {
 			if(!buyingPush.validate()) {
 				return false;
 			}
-
 			var data = {
 				departureCity: $("#showStartPicker").attr("data-city"),
 				departureProvince: $("#showStartPicker").attr("data-province"),

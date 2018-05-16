@@ -2,6 +2,8 @@
 	$.init();
 })(mui);
 
+
+
 takingPush = {
 	// 事件注册
 	event: function() {

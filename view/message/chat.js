@@ -30,12 +30,12 @@ chat = {
 		sendMessageImage: function(img, file) {
 			var chatInfo = JSON.parse(localStorage.getItem("chatInfo"));
 			var toAccount = chatInfo.wxid;
-			debugger;
-			var html = '<div class="npcTalkItem clearFix border-left" > ' +
-				'<div class="npcTalkImg fl"> ' +
-				'<img src="../../images/dialogue/2.jpg" alt="头像"> ' +
+	
+			var html = '<div class="npcTalkItem clearFix border-right" > ' +
+				'<div class="npcTalkImg fr"> ' +
+				'<img src="../../images/chat/qq.png" alt="头像"> ' +
 				'</div> ' +
-				'<div class="npcTalk fl" > ' +
+				'<div class="npcTalk fr" > ' +
 				'<div class="npcTalkCon" >' +
 				'<div><img src="' + img + '" /></div>' + ' </div> </div> </div>';
 			$('.npcTalklist').append(html);
@@ -56,19 +56,18 @@ chat = {
 					sendFile(resp, file.name);
 				},
 				function(err) {
-					debugger;
 					alert(err.ErrorInfo);
 				}
 			);
 		},
 		sendEndMessage: function() {
 			var str = $('#val').val();
-			var html = '<div class="npcTalkItem clearFix border-left" > ' +
-				'<div class="npcTalkImg fl"> ' +
-				'<img src="../../images/dialogue/2.jpg" alt="头像"> ' +
+			var html = '<div class="npcTalkItem clearFix border-right" > ' +
+				'<div class="npcTalkImg fr"> ' +
+				'<img src="../../images/chat/qq.png" alt="头像"> ' +
 				'</div> ' +
-				'<div class="npcTalk fl" > ' +
-				'<div class="npcTalkCon" >' +
+				'<div class="npcTalk fr" > ' +
+				'<div class="npcTalkCon gradient-bg" >' +
 				"已经为您下了处方,请您付款" + ' </div> </div> </div>';
 			$('.npcTalklist').append(html);
 			$('#val').val('');
@@ -77,12 +76,12 @@ chat = {
 
 		sendMessage: function() {
 			var str = $('#val').val();
-			var html = '<div class="npcTalkItem clearFix border-left" > ' +
-				'<div class="npcTalkImg fl"> ' +
-				'<img src="../../images/dialogue/2.jpg" alt="头像"> ' +
+			var html = '<div class="npcTalkItem clearFix border-right" > ' +
+				'<div class="npcTalkImg fr"> ' +
+				'<img src="../../images/chat/qq.png" alt="头像"> ' +
 				'</div> ' +
-				'<div class="npcTalk fl" > ' +
-				'<div class="npcTalkCon" >' +
+				'<div class="npcTalk fr" > ' +
+				'<div class="npcTalkCon gradient-bg" >' +
 				str + ' </div> </div> </div>';
 			$('.npcTalklist').append(html);
 			$('#val').val('');
@@ -168,7 +167,6 @@ function webimLogin() {
 	webim.login(
 		loginInfo, listeners, options,
 		function(resp) {
-			debugger;
 			loginInfo.identifierNick = resp.identifierNick; //设置当前用户昵称
 			loginInfo.headurl = resp.headurl; //设置当前用户头
 			getLastC2CHistoryMsgs(function(msgList) {
@@ -186,14 +184,12 @@ function onProgressCallBack() {}
 
 //发送文件消息
 function sendFile(images, imgName) {
-	debugger
 	window.scrollTo(0,1000);
 	var chatInfo = JSON.parse(localStorage.getItem("chatInfo"));
 	var toAccount = chatInfo.wxid;
 	var selSess = new webim.Session(webim.SESSION_TYPE.C2C, toAccount, toAccount, '',
 		Math.round(new Date().getTime() / 1000));
-
-	var sess = webim.MsgStore.sessByTypeId(webim.SESSION_TYPE.C2C, toAccount);
+	var sess = w	ebim.MsgStore.sessByTypeId(webim.SESSION_TYPE.C2C, toAccount);
 	if(!sess) {
 		sess = new webim.Session(webim.SESSION_TYPE.C2C, toAccount, toAccount, friendHeadUrl, Math.round(new Date().getTime() / 1000));
 	}
@@ -269,23 +265,23 @@ var getLastC2CHistoryMsgs = function(cbOk, cbError) {
 					content = elem.getContent(); //获取元素对象
 					if(type == webim.MSG_ELEMENT_TYPE.TEXT) {
 
-						var html = '<div class="npcTalkItem clearFix border-left" > ' +
-							'<div class="npcTalkImg fl"> ' +
-							'<img src="../../images/dialogue/2.jpg" alt="头像"> ' +
+						var html = '<div class="npcTalkItem clearFix border-right" > ' +
+							'<div class="npcTalkImg fr"> ' +
+							'<img src="../../images/chat/qq.png" alt="头像"> ' +
 							'</div> ' +
-							'<div class="npcTalk fl" > ' +
-							'<div class="npcTalkCon" >' +
+							'<div class="npcTalk fr" > ' +
+							'<div class="npcTalkCon gradient-bg" >' +
 							newMsg.elems[0].content.text + ' </div> </div> </div>';
 						$('.npcTalklist').append(html);
 					}
 					if(type == webim.MSG_ELEMENT_TYPE.IMAGE) {
 						console.log(newMsg.elems[0].content.ImageInfoArray[1].url);
-						var html = '<div class="npcTalkItem clearFix border-left" > ' +
-							'<div class="npcTalkImg fl"> ' +
-							'<img src="../../images/dialogue/2.jpg" alt="头像"> ' +
+						var html = '<div class="npcTalkItem clearFix border-right" > ' +
+							'<div class="npcTalkImg fr"> ' +
+							'<img src="../../images/chat/qq.png" alt="头像"> ' +
 							'</div> ' +
-							'<div class="npcTalk fl" > ' +
-							'<div class="npcTalkCon" >' +
+							'<div class="npcTalk fr" > ' +
+							'<div class="npcTalkCon gradient-bg" >' +
 							'<div><img src="' + newMsg.elems[0].content.ImageInfoArray[1].url + '" /></div>' + ' </div> </div> </div>';
 						$('.npcTalklist').append(html);
 					}
@@ -298,10 +294,10 @@ var getLastC2CHistoryMsgs = function(cbOk, cbError) {
 					if(type == webim.MSG_ELEMENT_TYPE.TEXT) {
 						var html = '<div class="npcTalkItem clearFix border-right" > ' +
 							'<div class="npcTalkImg fr"> ' +
-							'<img src="../../images/dialogue/2.jpg" alt="头像"> ' +
+							'<img src="../../images/chat/qq.png" alt="头像"> ' +
 							'</div> ' +
 							'<div class="npcTalk fr" > ' +
-							'<div class="npcTalkCon" >' +
+							'<div class="npcTalkCon gradient-bg" >' +
 							newMsg.elems[0].content.text + ' </div> </div> </div>';
 						$('.npcTalklist').append(html);
 					}
@@ -310,10 +306,10 @@ var getLastC2CHistoryMsgs = function(cbOk, cbError) {
 
 						var html = '<div class="npcTalkItem clearFix border-right" > ' +
 							'<div class="npcTalkImg fr"> ' +
-							'<img src="../../images/dialogue/2.jpg" alt="头像"> ' +
+							'<img src="../../images/chat/qq.png" alt="头像"> ' +
 							'</div> ' +
 							'<div class="npcTalk fr" > ' +
-							'<div class="npcTalkCon" >' +
+							'<div class="npcTalkCon gradient-bg" >' +
 							'<img src="' + newMsg.elems[0].content.ImageInfoArray[1].url + '" />' + ' </div> </div> </div>';
 						$('.npcTalklist').append(html);
 					}

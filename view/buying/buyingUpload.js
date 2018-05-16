@@ -1,6 +1,6 @@
-var accessid = '6MKOqxGiGU4AUk44';
-var accesskey = 'ufu7nS8kS59awNihtjSonMETLI0KLy';
-var host = 'http://post-test.oss-cn-hangzhou.aliyuncs.com';
+var accessid = 'LTAImzbZN1i8405z';
+var accesskey = '4bR3jvuWNYsLNN78MuuHD3ds7qNPVv';
+var host = 'http://huanqiuyidai.oss-cn-beijing.aliyuncs.com';
 
 g_dirname = ''
 g_object_name = ''

@@ -3,12 +3,43 @@
 })(mui);
 
 var step = 5;
-var startIndex = 0;
+var startIndex = 1;
 var endIndex = 5;
 
-$("#whList").on("tap", ".tap", function() {
+$("#buyingList").on("tap", ".tap", function() {
 	var id = $(this).data("id");
-	window.location.href = "buyingDetail.html" + "?id=" + id;
+	
+
+	
+	var departureCity = $(this).attr("departureCity");
+	var departureCountry = $(this).attr("departureCountry");
+	var arrivalCity = $(this).attr("arrivalCity");
+	var arrivalCountry = $(this).attr("arrivalCountry");
+	var deadline = $(this).attr("deadline");
+	var weight = $(this).attr("weight");
+	var price = $(this).attr("price");
+
+	window.location.href = "buyingDetail.html" + "?id=" + id + "&departureCity=" + departureCity  + "&departureCountry=" + departureCountry
+	+ "&arrivalCity=" + arrivalCity + "&arrivalCountry=" + arrivalCountry + "&deadline=" + deadline + "&weight=" + weight + "&price=" + price;
+
+});
+
+$("#showAddBtnBuying").on("tap", "img", function(event) {
+
+	buyingList.service.showPush();
+
+});
+
+$("#pushBuyingBtn").on("tap", "img", function() {
+	buyingList.service.pushBuying();
+});
+
+$("#pushTakingBtn").on("tap", "img", function() {
+	buyingList.service.pushTaking();
+});
+
+$("#closeBtn").on("tap", "img", function() {
+	buyingList.service.closePush();
 });
 
 mui.init({
@@ -29,8 +60,8 @@ mui.init({
 buyingList = {
 	// 事件注册
 	event: function() {
-		$("#pushBuyingBtn").on("click", buyingList.service.pushBuying);
-		$("#pushTakingBtn").on("click", buyingList.service.pushTaking);
+
+		$("#showMessge").on("click", buyingList.service.showMessage);
 	},
 
 	// 表单验证
@@ -39,15 +70,19 @@ buyingList = {
 	},
 
 	service: {
+
 		doQuery: function(startIndex, endIndex, type) {
 			$("#buyingList").empty();
 			var $list = $("#buyingList");
-			var data = {};
+			var data = {
+				pageNo: startIndex,
+				pageSize: endIndex
+			};
 			apiHelper.get(CONSTANT.baseUrl + "/api/requestBring/list", data, function(flag, data) {
 				if(data.status == AJAX_SECCUSS) {
 					//清空原来加载的数据
 					if(type === QUERY_MODE_UP) {
-						if(endIndex >= data.result.totalNumber) {
+						if(endIndex >= data.result.total) {
 							mui('#buyingContainer').pullRefresh().endPullupToRefresh(true);
 						} else {
 							mui('#buyingContainer').pullRefresh().endPullupToRefresh(false);
@@ -62,7 +97,7 @@ buyingList = {
 						//重置刷新
 						mui('#buyingContainer').pullRefresh().refresh(true);
 					}
-					buyingList.service.doDraw($list, data.result);
+					buyingList.service.doDraw($list, data.result.data);
 				}
 			});
 		},
@@ -76,9 +111,18 @@ buyingList = {
 					var li = "";
 					li = $("<div class='tap' id='line'></div>");
 					li.attr("data-id", result.id);
-					container.find("span[id=departureProvince]").text(result.departureProvince);
+
+					li.attr("departureCity", result.departureCity);
+					li.attr("departureCountry", result.departureCountry);
+					li.attr("arrivalCity", result.arrivalCity);
+					li.attr("arrivalCountry", result.arrivalCountry);
+					li.attr("deadline", result.deadline.substring(0, 10));
+					li.attr("weight", result.weight);
+					li.attr("price", result.price);
+
+					container.find("span[id=departureCity]").text(result.departureCity);
 					container.find("span[id=departureCountry]").text(result.departureCountry);
-					container.find("span[id=arrivalProvince]").text(result.arrivalProvince);
+					container.find("span[id=arrivalCity]").text(result.arrivalCity);
 					container.find("span[id=arrivalCountry]").text(result.arrivalCountry);
 					container.find("span[id=deadline]").text(result.deadline.substring(0, 10));
 					container.find("span[id=weight]").text(result.weight);
@@ -93,6 +137,9 @@ buyingList = {
 		showAdd: function() {
 			$("#push").show();
 		},
+		showMessage: function() {
+			window.location.href = "../../view/message/messageList.html";
+		},
 		pushBuying: function(event) {
 			window.location.href = "../../view/buying/buyingPush.html";
 			event.stopPropagation();
@@ -102,6 +149,7 @@ buyingList = {
 			event.stopPropagation();
 		},
 		showPush: function() {
+
 			$("#push").show();
 		},
 		closePush: function(event) {

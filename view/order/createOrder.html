@@ -10,14 +10,7 @@
 		<link href="../../css/mui/mui.poppicker.css" rel="stylesheet" />
 		<title>xxxxx</title>
 		<style>
-			body {
-				font-family: 'Helvetica Neue', Helvetica, sans-serif;
-				font-size: 18px;
-				line-height: 31px;
-				color: #000;
-				-webkit-overflow-scrolling: touch;
-			}
-			
+	
 			.mui-content {
 				background-color: #ffffff;
 			}
@@ -110,13 +103,108 @@
 				border-radius: 50%;
 				overflow: hidden;
 			}
-			.b-line-title{
-				text-align: left; 
+			
+			.b-line-title {
+				text-align: left;
 				padding-top: 10px;
 				padding-left: 10px;
 				color: #000000;
-				font-size: 12px; 
+				font-size: 12px;
 			}
+			
+			input {
+				float: right;
+				line-height: 26px;
+				width: 30%;
+				height: auto;
+				margin-bottom: 0px;
+				padding: 0px 0px;
+				-webkit-user-select: text;
+				border: 0px solid rgba(0, 0, 0, .2);
+				border-radius: 3px;
+				outline: 0;
+				background-color: #fff;
+				-webkit-appearance: none;
+				text-align: right;
+			}
+			
+			.message-info {
+				float: right;
+				line-height: 26px;
+				width: 80%;
+				height: auto;
+				margin-bottom: 0px;
+				padding: 0px 0px;
+				-webkit-user-select: text;
+				border: 0px solid rgba(0, 0, 0, .2);
+				border-radius: 3px;
+				outline: 0;
+				background-color: #fff;
+				-webkit-appearance: none;
+				text-align: left;
+			}
+			
+			::-webkit-input-placeholder {
+				color: #c7c7c7;
+				direction: rtl;
+				font-size: 14px;
+			}
+			
+			:-moz-placeholder {
+				color: #c7c7c7;
+				direction: rtl;
+				font-size: 14px;
+			}
+			
+			::-moz-placeholder {
+				color: #c7c7c7;
+				direction: rtl;
+				font-size: 14px;
+			}
+			
+			:-ms-input-placeholder {
+				color: #c7c7c7;
+				direction: rtl;
+				font-size: 14px;
+			}
+			
+			.mui-table-view-chevron .mui-table-view-cell {
+				padding-right: 15px;
+			}
+			
+			.btn-default {
+				color: #333;
+				background-color: #fff;
+				border-color: #FFFFFF;
+			}
+			
+			.pic-check-title {
+				position: relative;
+			}
+			
+			.footer-btn {
+				width: 100%;
+				position: relative;
+				bottom: 0px;
+				padding-left: 20px;
+				padding-right: 20px;
+				padding-bottom: 40px;
+			}
+			
+			.footer-btn button {
+				width: 100%;
+				border-radius: 40px;
+			}
+			
+			.upload {
+				text-align: center;
+				margin-left: 10px;
+			}
+			
+			.upload img {
+				margin-top: 10px;
+			}
+			
 		</style>
 	</head>
 
@@ -139,9 +227,9 @@
 					<div class="mui-col-xs-10">
 						<div class="vertical-base" style="height:80px;margin-left: 10px;">
 							<div class="vertical-inner">
-								<div><span>接收人:铁手</span><span class="mui-pull-right" style="margin-right: 30px;">18766312029</span></div>
+								<div><span>接收人:<span id="receiver">铁手</span></span><span class="mui-pull-right" style="margin-right: 30px;" id="phone">18766312029</span></div>
 								<div>
-									<p style="font-size: 14px;">详细地址:北京市昌平区隆起广场</p>
+									<p style="font-size: 14px;">详细地址:<span id="arrivalAddr">北京市昌平区隆起广场</span></p>
 								</div>
 							</div>
 						</div>
@@ -173,7 +261,7 @@
 					<div class="mui-col-xs-4">
 						<div class="vertical-base">
 							<div class="vertical-inner" style="text-align: center;">
-								北京-中国
+								<span id="departureCity"></span>-<span id="departureCountry">中国</span>
 							</div>
 						</div>
 					</div>
@@ -187,7 +275,17 @@
 					<div class="mui-col-xs-4">
 						<div class="vertical-base">
 							<div class="vertical-inner" style="text-align: center;">
-								北京-中国
+								<span id="arrivalCity"></span>-<span id="arrivalCountry"></span>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="order-info mui-row">
+					<div class="mui-col-xs-6">
+						<div class="vertical-base">
+							<div class="vertical-inner" style="text-align: center;">
+								<img src="../../images/buying/date.png" /><span id="deadline"></span>
+								<span>截止</span>
 							</div>
 						</div>
 					</div>
@@ -196,69 +294,42 @@
 					<div class="mui-col-xs-4">
 						<div class="vertical-base">
 							<div class="vertical-inner" style="text-align: center;">
-								<img src="../../images/buying/date.png" /><span>2018-12-12</span>
+								<img src="../../images/icon/weight.png" width="15%" /><span>手机</span>
 							</div>
 						</div>
 					</div>
 					<div class="mui-col-xs-4">
 						<div class="vertical-base" style="margin-left: 10px;">
 							<div class="vertical-inner" style="text-align: center;">
-								&nbsp;
+								<img src="../../images/icon/price.png" width="15%" /><span>$<span id="price"></span></span>
 							</div>
 						</div>
 					</div>
 					<div class="mui-col-xs-4">
 						<div class="vertical-base">
 							<div class="vertical-inner" style="text-align: center;">
-								<img src="../../images/buying/date.png" /><span>2018-12-12</span>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="order-info mui-row">
-					<div class="mui-col-xs-4">
-						<div class="vertical-base">
-							<div class="vertical-inner" style="text-align: center;">
-								<img src="../../images/icon/重量.png" width="15%" /><span>手机</span>
-							</div>
-						</div>
-					</div>
-					<div class="mui-col-xs-4">
-						<div class="vertical-base" style="margin-left: 10px;">
-							<div class="vertical-inner" style="text-align: center;">
-								<img src="../../images/icon/price.png" width="15%" /><span>$20</span>
-							</div>
-						</div>
-					</div>
-					<div class="mui-col-xs-4">
-						<div class="vertical-base">
-							<div class="vertical-inner" style="text-align: center;">
-								<img src="../../images/icon/重量.png" width="15%" /><span>5KG</span>
+								<img src="../../images/icon/weight.png" width="15%" /><span><span id="weight"></span>KG</span>
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
 			<div class="b-line"></div>
-			<div class="price">
-				<div class="mui-row">
-					<div class="mui-col-xs-6">
-						<div class="vertical-base" style="height: 50px;margin-left: 10px;">
-							<div class="vertical-inner">
-								商讨价格:
-							</div>
+			<ul class="mui-table-view mui-table-view-chevron">
+				<li class="mui-table-view-cell ">
+					<div class="mui-pull-right">
+						<div class="btn-group">
+							<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">元 <span class="caret"></span></button>
+							<ul class="dropdown-menu">
+							</ul>
 						</div>
 					</div>
-					<div class="mui-col-xs-6">
-						<div class="vertical-base" style="height: 50px;">
-							<div class="vertical-inner ">
-								<div class="mui-pull-right" style="margin-right: 10px;">300 人民币</div>
-							</div>
-						</div>
+					<div>商讨价格
+						<input class="mui-input-clear"  data-input-clear="5" id="price" style="margin-right: 5px;">
 					</div>
-				</div>
-			</div>
-			<div class="b-line-title" >*价格会换算成人民币,并且使用人民币进行支付</div>
+				</li>
+			</ul>
+			<div class="b-line-title">*价格会换算成人民币,并且使用人民币进行支付</div>
 		</div>
 		<div>
 			<div style="position:absolute ;bottom: 0; width: 100% ;height: 50px;">
@@ -266,13 +337,13 @@
 					<div class="mui-col-xs-8">
 						<div class="vertical-base" style="height:50px;margin-left: 10px;">
 							<div class="vertical-inner">
-								需付金额:<span style="color: red;">¥4300.80</span>
+								需付金额:<span style="color: red;">¥<span id="negotiatePrice">4300.80</span></span>
 							</div>
 						</div>
 					</div>
 					<div class="mui-col-xs-4 gradient-bg" style="height: 50px;text-align: center;">
 						<div class="vertical-base" style="height:50px;text-align: center;">
-							<div class="vertical-inner" style="padding-left: 10px;color: #FFFFFF;">
+							<div class="vertical-inner" style="padding-left: 10px;color: #FFFFFF;" id="createOrderBtn"> 
 								生成订单
 							</div>
 						</div>

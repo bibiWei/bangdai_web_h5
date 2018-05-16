@@ -12,6 +12,13 @@ var QUERY_MODE_UP = 2;
 
 var PAGE_SIZE = "5";
 
+
+var ORDER_START = 1;
+var ORDER_CONFRM = 2;
+var ORDER_PAY = 3;
+var ORDER_WAITING_PRO = 4;
+var ORDER_SUC = 5;
+
 var CONSTANT = {
 	token: "token",
 	auth: "auth",
