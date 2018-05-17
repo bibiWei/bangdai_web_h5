@@ -68,8 +68,7 @@ var iflytek = (function(document){
                       alert( "没有获取到识别结果");}
                     else{
                         console.log(result);
-                        debugger;
-                
+                   
                         var html=' <div class="npcTalkItem clearFix border-left" > ' +
                             '<div class="npcTalkImg fl"> ' +
                             '<img src="../../images/dialogue/2.jpg" alt="头像"> ' +
@@ -186,7 +185,6 @@ function webimLogin() {
 
 //上传文件
 function uploadFile() {
-	debugger;
 	var s = "blob:http://127.0.0.1:8020/427dbbd1-28fa-43da-a87e-44ebfef8b542";
 	var test = ["blob:http://127.0.0.1:8020/427dbbd1-28fa-43da-a87e-44ebfef8b542"];
 	var objFile=new File(test,"st");  

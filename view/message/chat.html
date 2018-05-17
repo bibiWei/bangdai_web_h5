@@ -12,7 +12,6 @@
 	<script type="text/javascript" src="../../js/chat/resize.min.js"></script>
 	<script>
 		function onMsgNotify(newMsgList) {
-			debugger;
 			//console.warn(newMsgList);
 			var sess, newMsg;
 			//获取所有聊天会话
@@ -20,7 +19,6 @@
 			for(var j in newMsgList) { //遍历新消息
 				newMsg = newMsgList[j];
 				console.log(newMsg);
-				debugger;
 				elems = newMsg.getElems();
 				elem = elems[0];
 				type = elem.getType(); //获取元素类型
@@ -103,7 +101,6 @@
 	}
 	maxSize = 200 * 1024; //200KB
 	$("#choose").change = function() {
-		debugger;
 		var file = this.files[0], //读取文件
 			reader = new FileReader();
 		reader.onload = function() {

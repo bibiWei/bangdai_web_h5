@@ -3,7 +3,17 @@ var pageSize = 10;
 var endIndex = 5;
 
 $("#buying").on("tap", ".pruduct", function() {
-	alert("订单详情");
+	var id = $(this).parent().parent().parent().data("id");
+	var status = $(this).parent().parent().parent().attr("status");
+	localStorage.setItem("buyingOrder-info", $(this).parent().parent().parent().attr("result"));
+
+	if(status == ORDER_START) {
+		window.location.href = "../order/taking/takingConfirmOrder.html" + "?id=" + id;
+	} else if(status == ORDER_CONFRM) {
+		window.location.href = "../order/buying/buyingOrder.html" + "?id=" + id;
+	}else if (status == ORDER_SUC){
+		window.location.href = "../order/buying/buyingOrderSuc.html" + "?id=" + id;
+	}
 });
 
 $("#taking").on("tap", ".pruduct", function() {
@@ -18,7 +28,6 @@ $("#taking").on("tap", ".pruduct", function() {
 		window.location.href = "../order/taking/SettingOrder.html" + "?id=" + id;
 	}
 
-	
 });
 
 mui.init({
@@ -161,7 +170,8 @@ myOrderList = {
 					var li = "";
 					li = $("<div class='tap' id='line'></div>");
 					li.attr("data-id", result.id);
-
+					li.attr("result", JSON.stringify(result));
+					li.attr("status", result.status);
 					container.find("span[id=departureCity]").text(result.helpBringVo.departureCity);
 					container.find("span[id=departureCountry]").text(result.helpBringVo.departureCountry);
 					container.find("span[id=arrivalCity]").text(result.helpBringVo.arrivalCity);
@@ -173,8 +183,8 @@ myOrderList = {
 
 					if(result.status == ORDER_START) {
 						container.find("span[id=status]").text("待确认");
-					} else {
-
+					} else if(result.status == ORDER_CONFRM) {
+						container.find("span[id=status]").text("待支付");
 					}
 					container.find("span[id=departureCity-d]").text(result.helpBringVo.departureCity);
 					container.find("span[id=departureCountry-d]").text(result.helpBringVo.departureCountry);

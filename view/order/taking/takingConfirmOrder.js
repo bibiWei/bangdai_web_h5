@@ -35,7 +35,6 @@ takingConfirmOrder = {
 		},
 
 		confirmOrder: function() {
-			debugger;
 			var data = {
 				orderId: id
 			};

@@ -39,7 +39,6 @@ $('#messageList').on('tap', '.mui-btn', function(event) {
 	var li = elem.parentNode.parentNode;
 	var to_id = $(this).closest(".item-messageAsk").data("id");
 	var sess_type = 'C2C';
-	debugger;
 	mui.confirm('确认删除该条记录？', '提示', btnArray, function(e) {
 		if(e.index == 0) {
 			li.parentNode.removeChild(li);
@@ -431,12 +430,10 @@ function getMyGroup() {
 
 function deleteFriend(toAccount) {
 
-	debugger;
 	var to_account = [];
 	to_account = [
 		toAccount.toString()
 	];
-	debugger;
 	if(to_account.length <= 0) {
 		return;
 	}

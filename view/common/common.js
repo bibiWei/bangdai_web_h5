@@ -28,9 +28,8 @@ common = {
 			window.location.href = "../../view/circle/circleList.html"
 		},
 		showMineList:function(){
-			window.location.href = "../../view/me/center.html"
+			window.location.href = "../../view/me/myInfo.html"
 		}
-		
 	},
 	dao: {},
 	init: function() {

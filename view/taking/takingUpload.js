@@ -26,7 +26,6 @@ function check_object_radio() {
 }
 
 function get_dirname() {
-	debugger;
 	dir = document.getElementById("previewImg").value;
 	if(dir != '' && dir.indexOf('/') != dir.length - 1) {
 		dir = dir + '/'
@@ -114,13 +113,10 @@ var uploaderTaking = new plupload.Uploader({
 		},
 
 		FilesAdded: function(up, files) {
-			debugger;
 			previewImage(files);
-
 		},
 
 		BeforeUpload: function(up, file) {
-			debugger;
 			check_object_radio();
 			get_dirname();
 			set_upload_param(up, file.name, true);
@@ -132,7 +128,7 @@ var uploaderTaking = new plupload.Uploader({
 
 		FileUploaded: function(up, file, info) {
 			if(info.status == 200) {
-				debugger;
+
 				mui.toast("上传图片成功");
 			} else {
 				mui.toast("上传图片失败");

@@ -19,6 +19,10 @@ var ORDER_PAY = 3;
 var ORDER_WAITING_PRO = 4;
 var ORDER_SUC = 5;
 
+var ACCESS_TAKING = 1;
+var ACCESS_BUYING = 2;
+
+
 var CONSTANT = {
 	token: "token",
 	auth: "auth",

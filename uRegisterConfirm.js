@@ -57,7 +57,7 @@ uRegisterConfirm = {
 	},
 	service: {
 		doRegister: function() {
-			debugger
+
 			if(!uRegisterConfirm.validate()) {
 				return false;
 			}

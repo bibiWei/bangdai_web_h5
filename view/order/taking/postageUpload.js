@@ -1,10 +1,10 @@
-accessid = '6MKOqxGiGU4AUk44';
-accesskey = 'ufu7nS8kS59awNihtjSonMETLI0KLy';
-host = 'http://post-test.oss-cn-hangzhou.aliyuncs.com';
+var accessid = 'LTAImzbZN1i8405z';
+var accesskey = '4bR3jvuWNYsLNN78MuuHD3ds7qNPVv';
+var host = 'http://huanqiuyidai.oss-cn-beijing.aliyuncs.com';
 
 g_dirname = ''
 g_object_name = ''
-g_object_name_type = ''
+g_object_name_type = 'random_name'
 now = timestamp = Date.parse(new Date()) / 1000;
 
 var policyText = {
@@ -22,17 +22,10 @@ var bytes = Crypto.HMAC(Crypto.SHA1, message, accesskey, {
 var signature = Crypto.util.bytesToBase64(bytes);
 
 function check_object_radio() {
-	var tt = document.getElementsByName('myradio');
-	for(var i = 0; i < tt.length; i++) {
-		if(tt[i].checked) {
-			g_object_name_type = tt[i].value;
-			break;
-		}
-	}
 }
 
 function get_dirname() {
-	dir = document.getElementById("dirname").value;
+	dir = document.getElementById("previewImg").value;
 	if(dir != '' && dir.indexOf('/') != dir.length - 1) {
 		dir = dir + '/'
 	}
@@ -86,6 +79,7 @@ function set_upload_param(up, filename, ret) {
 		suffix = get_suffix(filename)
 		calculate_object_name(filename)
 	}
+	localStorage.setItem("postage_photo",host + "/" + g_object_name);
 	new_multipart_params = {
 		'key': g_object_name,
 		'policy': policyBase64,
@@ -98,63 +92,49 @@ function set_upload_param(up, filename, ret) {
 		'url': host,
 		'multipart_params': new_multipart_params
 	});
-
 	up.start();
 }
 
-var uploader = new plupload.Uploader({
+var postageUpload = new plupload.Uploader({
 	runtimes: 'html5,flash,silverlight,html4',
-	browse_button: 'selectfiles',
+	browse_button: 'previewPostage',
 	//multi_selection: false,
-	container: document.getElementById('container'),
-	flash_swf_url: 'lib/plupload-2.1.2/js/Moxie.swf',
-	silverlight_xap_url: 'lib/plupload-2.1.2/js/Moxie.xap',
+	container: document.getElementById('postageContainer'),
+	flash_swf_url: '../../../plugin/lib/plupload-2.1.2/js/Moxie.swf',
+	silverlight_xap_url: '../../../plugin/lib/plupload-2.1.2/js/Moxie.xap',
 	url: 'http://oss.aliyuncs.com',
-
 	init: {
 		PostInit: function() {
-			document.getElementById('ossfile').innerHTML = '';
-			document.getElementById('postfiles').onclick = function() {
-				set_upload_param(uploader, '', false);
-				return false;
-			};
+			set_upload_param(postageUpload, '', false);
+			return false;
 		},
-
+		
 		FilesAdded: function(up, files) {
-			plupload.each(files, function(file) {
-				document.getElementById('ossfile').innerHTML += '<div id="' + file.id + '">' + file.name + ' (' + plupload.formatSize(file.size) + ')<b></b>' +
-					'<div class="progress"><div class="progress-bar" style="width: 0%"></div></div>' +
-					'</div>';
-			});
+			previewImage(files);
 		},
 
 		BeforeUpload: function(up, file) {
 			check_object_radio();
 			get_dirname();
-			debugger;
 			set_upload_param(up, file.name, true);
 		},
 
 		UploadProgress: function(up, file) {
-			var d = document.getElementById(file.id);
-			d.getElementsByTagName('b')[0].innerHTML = '<span>' + file.percent + "%</span>";
-			var prog = d.getElementsByTagName('div')[0];
-			var progBar = prog.getElementsByTagName('div')[0]
-			progBar.style.width = 2 * file.percent + 'px';
-			progBar.setAttribute('aria-valuenow', file.percent);
+
 		},
 
 		FileUploaded: function(up, file, info) {
 			if(info.status == 200) {
-				document.getElementById(file.id).getElementsByTagName('b')[0].innerHTML = 'upload to oss success, object name:' + get_uploaded_object_name(file.name);
+				mui.toast("上传图片成功");
 			} else {
-				document.getElementById(file.id).getElementsByTagName('b')[0].innerHTML = info.response;
+				mui.toast("上传图片失败");
 			}
 		},
+		
 		Error: function(up, err) {
 			document.getElementById('console').appendChild(document.createTextNode("\nError xml:" + err.response));
 		}
 	}
 });
 
-uploader.init();
+postageUpload.init();
