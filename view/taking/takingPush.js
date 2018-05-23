@@ -2,8 +2,6 @@
 	$.init();
 })(mui);
 
-
-
 takingPush = {
 	// 事件注册
 	event: function() {
@@ -12,6 +10,7 @@ takingPush = {
 		$("#showStartDatePicker").on("click", takingPush.service.pickStartDate);
 		$("#showEndDatePicker").on("click", takingPush.service.pickEndDate);
 		$("#submitBtn").on("click", takingPush.service.doPush);
+		$("#showCurrencyPicker").on("click", takingPush.service.showCurrencyPicker);
 	},
 
 	// 表单验证
@@ -32,7 +31,7 @@ takingPush = {
 			mui.toast("请您输入商品名称");
 			return false;
 		}
-		if($("#goodWeigh").val() === "") {
+		if($("#weight").val() === "") {
 			mui.toast("请您输入商品重量");
 			return false;
 		}
@@ -45,6 +44,35 @@ takingPush = {
 	},
 
 	service: {
+
+		showCurrencyPicker: function() {
+			var sexPicker = new mui.PopPicker();
+			sexPicker.setData([{
+					value: '0',
+					text: '人民币'
+				}, {
+					value: '1',
+					text: '美元'
+				},
+				{
+					value: '2',
+					text: '欧元'
+				},
+				{
+					value: '3',
+					text: '日元'
+				},
+				{
+					value: '3',
+					text: '韩元'
+				}
+			]);
+			sexPicker.show(function(items) {
+				$("#currency").text(items[0].text);
+				$("#showCurrencyPicker").attr("currencyId", items[0].value);
+			});
+		},
+
 		showStartPicker: function() {
 			var startPicker = new mui.PopPicker({
 				layer: 2
@@ -53,7 +81,7 @@ takingPush = {
 			startPicker.show(function(items) {
 				$("#showStartPicker").attr("data-province", items[0].text);
 				$("#showStartPicker").attr("data-city", items[1].text);
-				$("#startPlaceName").text(items[0].text + items[1].text);
+				$("#startPlaceName").text(items[0].text +"/"+  items[1].text);
 
 			});
 		},
@@ -65,7 +93,7 @@ takingPush = {
 			endPicker.show(function(items) {
 				$("#showEndPicker").attr("data-province", items[0].text);
 				$("#showEndPicker").attr("data-city", items[1].text);
-				$("#endPlaceName").text(items[0].text + items[1].text);
+				$("#endPlaceName").text(items[0].text +"/"+ items[1].text);
 			});
 		},
 		pickStartDate: function() {　
@@ -76,7 +104,7 @@ takingPush = {
 				$("#startDate").text(selectItems);
 			})
 		},
-		
+
 		pickEndDate: function() {　
 			var dtPicker = new mui.DtPicker({
 				"type": "date",
@@ -85,8 +113,6 @@ takingPush = {
 				$("#endDate").text(selectItems);
 			})
 		},
-		
-		
 
 		doPush: function() {
 			if(!takingPush.validate()) {
@@ -100,16 +126,17 @@ takingPush = {
 				arrivalCity: $("#showEndPicker").attr("data-city"),
 				arrivalProvince: $("#showEndPicker").attr("data-province"),
 				arrivalCountry: "中国",
-				deadline: $("#endDate").text(),
+				departureDate: $("#startDate").text(),
+				arrivalDate: $("#endDate").text(),
 				price: $("#price").val(),
-				weight: $("#goodWeigh").val(),
-				matePicUrl: "",
+				weight: $("#weight").val(),
+				ticketPicUrl: localStorage.getItem("for_taking_good_photo"),
 				remarks: $("#remarks").val(),
 			}
 			apiHelper.post(CONSTANT.baseUrl + "/api/helpBring/add", JSON.stringify(data), function(flag, data) {
 				if(data.status == AJAX_SECCUSS) {
 					mui.alert('发布成功', function() {
-						window.location.href = "../../view/buying/buyingList.html";
+						window.location.href = "../../view/buying/takingList.html";
 					});
 				} else {
 					mui.toast(data.msg);

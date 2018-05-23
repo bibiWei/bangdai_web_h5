@@ -23,6 +23,11 @@ var ACCESS_TAKING = 1;
 var ACCESS_BUYING = 2;
 
 
+var ORDER_TOTAL = 1;
+var ORDER_T = 2;
+var ORDER_U = 3;
+
+
 var CONSTANT = {
 	token: "token",
 	auth: "auth",

@@ -53,7 +53,7 @@ takingList = {
 				pageNo: startIndex,
 				pageSize: endIndex
 			};
-			apiHelper.get(CONSTANT.baseUrl + "/api/helpBring/list", data, function(flag, data) {
+			apiHelper.get(CONSTANT.baseUrl + "/api/helpBring/listAll", data, function(flag, data) {
 				if(data.status == AJAX_SECCUSS) {
 					//清空原来加载的数据
 					if(type === QUERY_MODE_UP) {
@@ -90,19 +90,19 @@ takingList = {
 					li.attr("departureCity",result.departureCity)
 					li.attr("arrivalCity",result.arrivalCity);
 					li.attr("arrivalCountry",result.arrivalCountry);
-					li.attr("departureDate",result.departureDate.substring(0, 19));
-					li.attr("arrivalDate",result.arrivalDate.substring(0, 19));
+					li.attr("departureDate",result.departureDate.substring(0, 10));
+					li.attr("arrivalDate",result.arrivalDate.substring(0, 10));
 					li.attr("remarks",result.remarks);
-					
 					container.find("span[id=departureCity]").text(result.departureCity);
 					container.find("span[id=departureCountry]").text(result.departureCountry);
 					container.find("span[id=arrivalCity]").text(result.arrivalCity);
 					container.find("span[id=arrivalCountry]").text(result.arrivalCountry);
+					container.find("span[id=price]").text(result.price);
 					if(null !== result.departureDate) {
-						container.find("span[id=departureDate]").text(result.departureDate.substring(0, 19));
+						container.find("span[id=departureDate]").text(result.departureDate.substring(0, 10));
 					}
 					if(null != result.arrivalDate) {
-						container.find("span[id=arrivalDate]").text(result.arrivalDate.substring(0, 19));
+						container.find("span[id=arrivalDate]").text(result.arrivalDate.substring(0, 10));
 					}
 					// 模板渲染
 					li.html(container.html());

@@ -71,7 +71,7 @@
 	<body>
 		<header class="mui-bar mui-bar-nav  ">
 			<a class="mui-action-back mui-icon mui-icon-back mui-pull-left" style="color: #000000;"></a>
-			<h1 class="mui-title" style="color: #000000;">选择帮带人</h1>
+			<h1 class="mui-title" style="color: #000000;">选择求带人</h1>
 		</header>
 		<div class="mui-content">
 			<div class="mui-card">
@@ -98,10 +98,20 @@
 						</div>
 					</div>
 					<div class="mui-row mui-row-inner">
-						<div class=" list-left">
-							<img src="../../images/buying/date.png" class="icon-img" />
-							<span id="deadline" class="icon-name"></span>
-							<span class="icon-name">截止</span>
+						<div class="mui-col-xs-5">
+							<div class=" list-left">
+								<img src="../../images/buying/date.png" class="icon-img" />
+								<span id="departureDate" class="icon-name"></span>
+							</div>
+						</div>
+						<div class="mui-col-xs-2" style="vertical-align: middle;">
+							&nbsp;
+						</div>
+						<div class="mui-col-xs-5">
+							<div class=" list-right">
+								<img src="../../images/buying/date.png" class="icon-img" />
+								<span id="arrivalDate" class="icon-name"></span>
+							</div>
 						</div>
 					</div>
 					<div class="mui-row">
@@ -118,18 +128,18 @@
 							<div style="display: inline;">
 								<img src="../../images/icon/weight.png" class="icon-img" />
 							</div>
-							<div style="display: inline;"><span id="price"></span> <span>KG</span></div>
+							<div style="display: inline;"><span id="price"></span></div>
 						</div>
 					</div>
 				</div>
 			</div>
 			<p style="margin-left: 20px;">系统匹配的帮带信息</p>
-			<div id="matchTakingList">
+			<div id="matchBuyingList">
 			</div>
 			<script src="../../js/mui/mui.min.js"></script>
 			<script src="../../js/jquery/jquery-2.1.1.min.js"></script>
 			<script src="../../js/common/common.js"></script>
-			<script src="checkBuying.js"></script>
+			<script src="checkTaking.js"></script>
 	</body>
 
 </html>

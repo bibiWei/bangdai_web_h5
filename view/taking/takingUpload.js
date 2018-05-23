@@ -80,6 +80,7 @@ function set_upload_param(up, filename, ret) {
 		suffix = get_suffix(filename)
 		calculate_object_name(filename)
 	}
+	localStorage.setItem("for_taking_good_photo", host + "/" + g_object_name);
 	new_multipart_params = {
 		'key': g_object_name,
 		'policy': policyBase64,
@@ -106,10 +107,7 @@ var uploaderTaking = new plupload.Uploader({
 	url: 'http://oss.aliyuncs.com',
 	init: {
 		PostInit: function() {
-			document.getElementById('uploadBtn').onclick = function() {
-				set_upload_param(uploaderTaking, '', false);
-				return false;
-			};
+			set_upload_param(uploaderTaking, '', false);
 		},
 
 		FilesAdded: function(up, files) {

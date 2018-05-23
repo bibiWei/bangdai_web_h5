@@ -7,14 +7,13 @@
 		<link rel="stylesheet" href="../../css/mui/mui.min.css" />
 		<!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
 		<link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-
 		<!-- less.min.js 编译 less 为 css -->
 		<!--<link rel="stylesheet/less" type="text/css" href="css/common/common.less">-->
 		<link rel="stylesheet" href="../../css/base/base.css" />
 		<link href="../../css/mui/mui.poppicker.css" rel="stylesheet" />
 		<link href="../../css/mui/mui.picker.css" rel="stylesheet" />
 		<link rel="stylesheet" type="text/css" href="../../css/mui/mui.picker.min.css" />
-		
+
 		<title>XX</title>
 		<style>
 			body {
@@ -28,10 +27,10 @@
 			
 			input {
 				float: right;
-				line-height: 26px;
+				line-height: 30px;
 				width: 30%;
 				height: auto;
-				margin-bottom: 0px;
+				margin-top: 2px;
 				padding: 0px 0px;
 				-webkit-user-select: text;
 				border: 0px solid rgba(0, 0, 0, .2);
@@ -44,10 +43,10 @@
 			
 			.message-info {
 				float: right;
-				line-height: 26px;
+				line-height: 30px;
 				width: 80%;
 				height: auto;
-				margin-bottom: 0px;
+				margin-top: 0px;
 				padding: 0px 0px;
 				-webkit-user-select: text;
 				border: 0px solid rgba(0, 0, 0, .2);
@@ -61,25 +60,25 @@
 			::-webkit-input-placeholder {
 				color: #c7c7c7;
 				direction: rtl;
-				font-size: 14px;
+				font-size: 20px;
 			}
 			
 			:-moz-placeholder {
 				color: #c7c7c7;
 				direction: rtl;
-				font-size: 14px;
+				font-size: 20px;
 			}
 			
 			::-moz-placeholder {
 				color: #c7c7c7;
 				direction: rtl;
-				font-size: 14px;
+				font-size: 20px;
 			}
 			
 			:-ms-input-placeholder {
 				color: #c7c7c7;
 				direction: rtl;
-				font-size: 14px;
+				font-size: 20px;
 			}
 			
 			.mui-table-view-chevron .mui-table-view-cell {
@@ -161,6 +160,11 @@
 						<input class="mui-input-clear" placeholder="名称" data-input-clear="5" id="goodName">
 					</div>
 				</li>
+				<li class="mui-table-view-cell " id='showGoodTypePicker'>
+					<div>物品类型
+						<span class="mui-pull-right check-font" id="goodTypeName"></span>
+					</div>
+				</li>
 				<li class="mui-table-view-cell ">
 					<div>物品重量(KG)
 						<input class="mui-input-clear" placeholder="kg" data-input-clear="5" id="goodWeigh">
@@ -169,13 +173,11 @@
 				<li class="mui-table-view-cell ">
 					<div class="mui-pull-right">
 						<div class="btn-group">
-							<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">元 <span class="caret"></span></button>
-							<ul class="dropdown-menu">
-							</ul>
+							<div id="showCurrencyPicker"><span id="currency">请选择货币</span><span class="caret"></span></div>
 						</div>
 					</div>
 					<div>求带价格
-						<input class="mui-input-clear" placeholder="kg" data-input-clear="5" id="price" style="margin-right: 5px;">
+						<input class="mui-input-clear" data-input-clear="5" id="price" style="margin-right: 5px;">
 					</div>
 				</li>
 				<div class="b-line"></div>
@@ -195,6 +197,9 @@
 					</div>
 				</li>
 			</ul>
+			<div class="mui-input-row mui-radio mui-left mui-disabled">
+			</div>
+			</input>
 			<div class="height-btn"></div>
 			<div class="footer-btn">
 				<button type="button" class="mui-btn mui-btn-primary gradient-bg" id="submitBtn">发布</button>
@@ -219,8 +224,8 @@
 					var img = document.getElementById('imghead');
 					img.onload = function() {
 						var rect = clacImgZoomParam(MAXWIDTH, MAXHEIGHT, img.offsetWidth, img.offsetHeight);
-						img.width = rect.width;
-						img.height = rect.height;
+						img.width = rect.width / 1.2;
+						img.height = rect.height / 1.2;
 						//                 img.style.marginLeft = rect.left+'px';
 						img.style.marginTop = rect.top + 'px';
 					}
@@ -230,7 +235,7 @@
 						img.src = evt.target.result;
 					}
 					reader.readAsDataURL(file[0].getSource().getSource());
-
+					set_upload_param(uploader, file[0].name, true);
 				} else //兼容IE
 				{
 					var sFilter = 'filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod=scale,src="';
@@ -268,7 +273,6 @@
 				param.top = Math.round((maxHeight - param.height) / 2);
 				return param;
 			}
-			
 		</script>
 		<script type="text/javascript" src="../../plugin/lib/crypto1/crypto/crypto.js"></script>
 		<script type="text/javascript" src="../../plugin/lib/crypto1/hmac/hmac.js"></script>

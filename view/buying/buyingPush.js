@@ -6,9 +6,11 @@ buyingPush = {
 	// 事件注册
 	event: function() {
 		$("#showStartPicker").on("click", buyingPush.service.showStartPicker);
+		$("#showGoodTypePicker").on("click", buyingPush.service.showGoodTypePicker);
 		$("#showEndPicker").on("click", buyingPush.service.showEndPicker);
 		$("#endDatePicker").on("click", buyingPush.service.pickDate);
 		$("#submitBtn").on("click", buyingPush.service.doPush);
+		$("#showCurrencyPicker").on("click", buyingPush.service.showCurrencyPicker);
 	},
 
 	// 表单验证
@@ -42,6 +44,35 @@ buyingPush = {
 	},
 
 	service: {
+
+		showCurrencyPicker: function() {
+			var sexPicker = new mui.PopPicker();
+			sexPicker.setData([{
+					value: '0',
+					text: '人民币'
+				}, {
+					value: '1',
+					text: '美元'
+				},
+				{
+					value: '2',
+					text: '欧元'
+				},
+				{
+					value: '3',
+					text: '日元'
+				},
+				{
+					value: '3',
+					text: '韩元'
+				}
+			]);
+			sexPicker.show(function(items) {
+				$("#currency").text(items[0].text);
+				$("#showCurrencyPicker").attr("currencyId", items[0].value);
+			});
+		},
+
 		showStartPicker: function() {
 			var startPicker = new mui.PopPicker({
 				layer: 2
@@ -50,7 +81,7 @@ buyingPush = {
 			startPicker.show(function(items) {
 				$("#showStartPicker").attr("data-province", items[0].text);
 				$("#showStartPicker").attr("data-city", items[1].text);
-				$("#startPlaceName").text(items[0].text + items[1].text);
+				$("#startPlaceName").text(items[0].text + "/" + items[1].text);
 
 			});
 		},
@@ -62,9 +93,34 @@ buyingPush = {
 			endPicker.show(function(items) {
 				$("#showEndPicker").attr("data-province", items[0].text);
 				$("#showEndPicker").attr("data-city", items[1].text);
-				$("#endPlaceName").text(items[0].text + items[1].text);
+				$("#endPlaceName").text(items[0].text + "/" + items[1].text);
 			});
 		},
+
+		showGoodTypePicker: function() {
+			var sexPicker = new mui.PopPicker();
+			sexPicker.setData([{
+					value: '0',
+					text: '电子产品'
+				}, {
+					value: '1',
+					text: '化妆品'
+				},
+				{
+					value: '2',
+					text: '衣服'
+				},
+				{
+					value: '3',
+					text: '其他'
+				}
+			]);
+			sexPicker.show(function(items) {
+				$("#goodTypeName").text(items[0].text);
+				$("#showGoodTypePicker").attr("goodType", items[0].value);
+			});
+		},
+
 		pickDate: function() {　
 			var dtPicker = new mui.DtPicker({
 				"type": "date",
@@ -88,8 +144,9 @@ buyingPush = {
 				deadline: $("#endDate").text(),
 				price: $("#price").val(),
 				weight: $("#goodWeigh").val(),
-				matePicUrl: "",
+				matePicUrl: localStorage.getItem("for_buying_good_photo"),
 				remarks: $("#remarks").val(),
+				mateType:$("#goodTypeName").text()
 			}
 			apiHelper.post(CONSTANT.baseUrl + "/api/requestBring/add", JSON.stringify(data), function(flag, data) {
 				if(data.status == AJAX_SECCUSS) {

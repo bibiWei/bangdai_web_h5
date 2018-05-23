@@ -8,9 +8,6 @@ var endIndex = 5;
 
 $("#buyingList").on("tap", ".tap", function() {
 	var id = $(this).data("id");
-	
-
-	
 	var departureCity = $(this).attr("departureCity");
 	var departureCountry = $(this).attr("departureCountry");
 	var arrivalCity = $(this).attr("arrivalCity");
@@ -18,10 +15,11 @@ $("#buyingList").on("tap", ".tap", function() {
 	var deadline = $(this).attr("deadline");
 	var weight = $(this).attr("weight");
 	var price = $(this).attr("price");
+	var remarks = $(this).attr("remarks");
 
 	window.location.href = "buyingDetail.html" + "?id=" + id + "&departureCity=" + departureCity  + "&departureCountry=" + departureCountry
-	+ "&arrivalCity=" + arrivalCity + "&arrivalCountry=" + arrivalCountry + "&deadline=" + deadline + "&weight=" + weight + "&price=" + price;
-
+	+ "&arrivalCity=" + arrivalCity + "&arrivalCountry=" + arrivalCountry + "&deadline=" + deadline + "&weight=" + weight + "&price=" + price
+	+ "&remarks=" + remarks;
 });
 
 $("#showAddBtnBuying").on("tap", "img", function(event) {
@@ -78,7 +76,7 @@ buyingList = {
 				pageNo: startIndex,
 				pageSize: endIndex
 			};
-			apiHelper.get(CONSTANT.baseUrl + "/api/requestBring/list", data, function(flag, data) {
+			apiHelper.get(CONSTANT.baseUrl + "/api/requestBring/listAll", data, function(flag, data) {
 				if(data.status == AJAX_SECCUSS) {
 					//清空原来加载的数据
 					if(type === QUERY_MODE_UP) {
@@ -111,7 +109,6 @@ buyingList = {
 					var li = "";
 					li = $("<div class='tap' id='line'></div>");
 					li.attr("data-id", result.id);
-
 					li.attr("departureCity", result.departureCity);
 					li.attr("departureCountry", result.departureCountry);
 					li.attr("arrivalCity", result.arrivalCity);
@@ -119,7 +116,7 @@ buyingList = {
 					li.attr("deadline", result.deadline.substring(0, 10));
 					li.attr("weight", result.weight);
 					li.attr("price", result.price);
-
+					li.attr("remarks", result.remarks);
 					container.find("span[id=departureCity]").text(result.departureCity);
 					container.find("span[id=departureCountry]").text(result.departureCountry);
 					container.find("span[id=arrivalCity]").text(result.arrivalCity);
@@ -127,6 +124,7 @@ buyingList = {
 					container.find("span[id=deadline]").text(result.deadline.substring(0, 10));
 					container.find("span[id=weight]").text(result.weight);
 					container.find("span[id=price]").text(result.price);
+					container.find("span[id=mateType]").text(result.mateType);
 					// 模板渲染
 					li.html(container.html());
 					list.append(li);

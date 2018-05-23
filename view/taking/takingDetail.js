@@ -2,7 +2,7 @@ var id = URL.getRequest().id;
 var departureCity = decodeURI(URL.getRequest().departureCity);
 var departureCountry = decodeURI(URL.getRequest().departureCountry);
 var arrivalCity = decodeURI(URL.getRequest().arrivalCity);
-var arrivalCountry =decodeURI( URL.getRequest().arrivalCountry);
+var arrivalCountry = decodeURI(URL.getRequest().arrivalCountry);
 var departureDate = decodeURI(URL.getRequest().departureDate);
 var arrivalDate = decodeURI(URL.getRequest().arrivalDate);
 var remarks = decodeURI(URL.getRequest().remarks);
@@ -13,7 +13,9 @@ var remarks = decodeURI(URL.getRequest().remarks);
 
 takingDetail = {
 	// 事件注册
-	event: function() {},
+	event: function() {
+		$("#showBuyingList").on("tap", takingDetail.service.showBuyingList);
+	},
 
 	// 表单验证
 	validate: function() {
@@ -22,6 +24,9 @@ takingDetail = {
 
 	service: {
 
+		showBuyingList:function(){
+			window.location.href = "checkTaking.html" +"?id=" + id;
+		},
 		takingInfo: function() {
 			$("#departureCity").text(departureCity);
 			$("#departureCountry").text(departureCountry);

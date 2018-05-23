@@ -144,6 +144,31 @@ authInfo = {
 			$("#wjCard").show();
 			uploaderForId.init();
 			uploaderFor.init();
+		},
+
+		getAuthInfo: function() {
+			var data = {
+				authId:2
+			};
+			apiHelper.get(CONSTANT.baseUrl + "/api/auth/detail" , data, function(flag, data) {
+				if(data.status == AJAX_SECCUSS) {
+					debugger;
+					if(data.result == ""){
+						return;
+					}
+					if(data.result.certType == ID_CONFIRM){
+						$("#idNum").val(data.result.certNo);
+						$("#idName").val(data.result.name);
+						$("#idSexPicker").val(data.result.gender);
+						$("#idAge").val(data.result.age);
+					}else if(data.result.certType == POS_CONFIRM){
+						
+					}else{
+						
+					}
+				}
+			});
+
 		}
 
 	},
@@ -157,6 +182,7 @@ authInfo = {
 		$("#wjCard").hide();
 		uploaderID.init();
 		authInfo.service.doUserInfo();
+		authInfo.service.getAuthInfo();
 	}
 }
 

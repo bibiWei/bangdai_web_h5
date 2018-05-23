@@ -9,6 +9,7 @@ buyingOrder = {
 		$("#confirmBtn").on('tap', buyingOrder.service.uglBtn);
 		$("#setTariffBtn").on('tap', buyingOrder.service.showTariff);
 		$("#setPostageBtn").on('tap', buyingOrder.service.showPostage);
+		$("#payBtn").on('tap', buyingOrder.service.dopay);
 	},
 
 	// 表单验证
@@ -40,7 +41,7 @@ buyingOrder = {
 				$("#tpicUrl").attr("src", orderInfo.orderTariffVo.picUrl);
 				$a("#tremarks").text(orderInfo.orderTariffVo.remarks);
 				$("#totalTprice").text(orderInfo.orderTariffVo.tariffPrice + "元");
-			}else{
+			} else {
 				$("#setTariffBtn").hide();
 			}
 			if(orderInfo.orderPostageVo != null) {
@@ -48,7 +49,7 @@ buyingOrder = {
 				$("#ppicUrl").attr("src", orderInfo.orderPostageVo.picUrl);
 				$("#premarks").text(orderInfo.orderPostageVo.remarks);
 				$("#totalTprice").text(orderInfo.orderPostageVo.logisticsPrice + "元");
-			}else{
+			} else {
 				$("#setPostageBtn").hide();
 			}
 		},
@@ -66,6 +67,7 @@ buyingOrder = {
 			});
 		},
 		cancleBtn: function() {
+
 			var data = {
 				orderId: id
 			};
@@ -82,6 +84,21 @@ buyingOrder = {
 		},
 		showPostage: function() {
 			//window.location.href = "showPostage.html" + "?id=" + id;
+		},
+		dopay: function() {
+
+			//window.location.href = CONSTANT.baseUrl + "/api/alipay/genPay" +  "?orderId=" + ORDER_TOTAL 
+
+			var data = {
+				orderId: id,
+				type: ORDER_TOTAL
+			};
+			apiHelper.post(CONSTANT.baseUrl + "/api/alipay/genPay", data, function(flag, data) {
+				debugger;
+	
+				$("#pay").empty();
+				$("#pay").append(data.responseText);
+			});
 		}
 	},
 	dao: {},
