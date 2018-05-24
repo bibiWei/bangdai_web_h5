@@ -17,9 +17,9 @@ $("#buyingList").on("tap", ".tap", function() {
 	var price = $(this).attr("price");
 	var remarks = $(this).attr("remarks");
 
-	window.location.href = "buyingDetail.html" + "?id=" + id + "&departureCity=" + departureCity  + "&departureCountry=" + departureCountry
-	+ "&arrivalCity=" + arrivalCity + "&arrivalCountry=" + arrivalCountry + "&deadline=" + deadline + "&weight=" + weight + "&price=" + price
-	+ "&remarks=" + remarks;
+	window.location.href = "buyingDetail.html" + "?id=" + id + "&departureCity=" + departureCity + "&departureCountry=" + departureCountry +
+		"&arrivalCity=" + arrivalCity + "&arrivalCountry=" + arrivalCountry + "&deadline=" + deadline + "&weight=" + weight + "&price=" + price +
+		"&remarks=" + remarks;
 });
 
 $("#showAddBtnBuying").on("tap", "img", function(event) {
@@ -155,12 +155,30 @@ buyingList = {
 			event.stopPropagation();
 		},
 
+		getAdList: function() {
+			var data = {};
+			apiHelper.get(CONSTANT.baseUrl + "/ad/listAllAds", data, function(flag, data) {
+				if(data.status == AJAX_SECCUSS) {
+					debugger;	
+					$("#firstBanner").attr("src",data.result[0].picUrl);
+					$("#secondBanner").attr("src",data.result[1].picUrl);
+					$("#thirdBanner").attr("src",data.result[2].picUrl);
+					$("#forthBanner").attr("src",data.result[0].picUrl);
+					$("#fifthBanner").attr("src",data.result[1].picUrl);
+					$("#sixBanner").attr("src",data.result[2].picUrl);
+					
+					
+				}
+			});
+		}
+
 	},
 
 	dao: {},
 	init: function() {
 		buyingList.event();
 		buyingList.service.doQuery(startIndex, endIndex, QUERY_MODE_UP);
+		buyingList.service.getAdList();
 	},
 }
 buyingList.init();

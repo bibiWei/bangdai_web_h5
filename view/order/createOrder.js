@@ -17,6 +17,7 @@ createOrder = {
 	// 事件注册
 	event: function() {
 		$("#createOrderBtn").on('tap', createOrder.service.doCreateOrder);
+		$("#addressShow").on('tap', createOrder.service.doAddressShow);
 	},
 
 	// 表单验证
@@ -26,6 +27,14 @@ createOrder = {
 
 	service: {
 		orderInfo: function() {
+			var addressInfo = JSON.parse(localStorage.getItem("checkAddress"));
+
+			if(addressInfo != null) {
+
+				$("#receiver").text(addressInfo.contactName);
+				$("#arrivalAddr").text(addressInfo.contactAddress);
+				$("#phone").text(addressInfo.phone);
+			}
 			$("#departureCity").text(departureCity);
 			$("#departureCountry").text(departureCountry);
 			$("#arrivalCity").text(arrivalCity);
@@ -39,14 +48,19 @@ createOrder = {
 			var userInfo = JSON.parse(localStorage.getItem("userVo"));
 			$("#nickName").text(userInfo.nickName);
 			$("#negotiatePrice").text(price);
+
 		},
 
 		doCreateOrder: function() {
 			if(id == "undefined") {
 				createOrder.service.doCreate();
-			}else{
+			} else {
 				createOrder.service.doCheckCreate();
 			}
+		},
+
+		doAddressShow: function() {
+			window.location.href = "../../view/me/addressList.html"
 		},
 
 		doCheckCreate: function() {
@@ -87,7 +101,7 @@ createOrder = {
 				}
 			}, null, AJAX_BODY);
 		},
-		checkPrice:function(){
+		checkPrice: function() {
 			$("#negotiatePrice").text($("#price").val());
 		}
 	},
