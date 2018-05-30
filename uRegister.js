@@ -1,4 +1,3 @@
-
 mui.init({
 
 });
@@ -40,8 +39,8 @@ uRegister = {
 		if($("#code").val() === "") {
 			mui.toast("您输入的验证码为空");
 			return false;
-		}		
-		if($("#userRes").is(':checked') === false){
+		}
+		if($("#userRes").is(':checked') === false) {
 			mui.toast("请您勾选用户协议");
 			return false;
 		}
@@ -117,13 +116,13 @@ uRegister = {
 				phone: $("#uPhone").val(),
 				code: $("#code").val()
 			}
-			apiHelper.post(CONSTANT.baseUrl + "/validateCode" , data, function(flag, data) {
+			apiHelper.post(CONSTANT.baseUrl + "/validateCode", data, function(flag, data) {
 				if(data.status == AJAX_SECCUSS) {
-					window.location.href = "uRegisterConfirm.html" + "?areaCode=" + $("#showAreaCodePicker").attr("countryCode") + "&uPhone=" + $("#uPhone").val() + "&smsCode=" + $("#code").val() ; 
+					window.location.href = "uRegisterConfirm.html" + "?areaCode=" + $("#showAreaCodePicker").attr("countryCode") + "&uPhone=" + $("#uPhone").val() + "&smsCode=" + $("#code").val();
 				} else {
 					mui.toast('您输入的验证码有误');
 				}
-			},null);
+			}, null);
 		}
 
 	},

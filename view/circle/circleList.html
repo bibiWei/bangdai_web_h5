@@ -68,21 +68,25 @@
 				font-size: 10px;
 				margin-top: 5px;
 			}
+			
+			.mui-bar-nav~.mui-content {
+				 padding-top: 0px; 
+			}
 		</style>
 	</head>
 
 	<body>
-		<header class="mui-bar mui-bar-nav  ">
-			<h1 class="mui-title" style="color: #000000;">熊圈列表</h1>
+		<header class="mui-bar mui-bar-nav gradient-bg ">
+			<h1 class="mui-title">熊圈列表</h1>
 		</header>
 		<div class="mui-content" style="background-color:#fff" id="buyingContainer">
-			<ul class="mui-table-view mui-grid-view" id="circleList">
+			<ul class="mui-table-view mui-grid-view" id="circleList" style="overflow: hidden">
 			</ul>
 		</div>
 		<div style="height:55px "></div>
 		<div class="bar-add"><img src="../../images/index/navbar/push.png" style="" /></div>
 		<nav class="mui-bar mui-bar-tab" style="	background-color: #FFFFFF;">
-			<a class="mui-tab-item" id="takingNav">
+			<a class="mui-tab-item" id="buyingNav">
 				<span class="mui-icon"><div class="bar-buying"></div></span>
 				<span class="mui-tab-label">求带</span>
 			</a>
@@ -106,7 +110,7 @@
 	<script src="../../js/mui/mui.min.js "></script>
 	<script src="../../js/jquery/jquery-2.1.1.min.js"></script>
 	<script src="../../js/common/common.js"></script>
-	
+	<script src="../common/common.js"></script>
 	<script src="circleList.js"></script>
 	<script>
 		mui.init({

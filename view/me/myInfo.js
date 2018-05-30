@@ -10,6 +10,8 @@ myInfo = {
 		$("#authInfo").on("click",myInfo.service.showAuthInfo);
 		$("#myWallet").on("click",myInfo.service.myWallet);
 		$("#myCenter").on("click",myInfo.service.myCenter);
+		$("#takingBtn").on("tap",myInfo.service.doTakingList);
+		$("#buyingBtn").on("tap",myInfo.service.doBuyingList);
 	},
 
 	// 表单验证
@@ -29,6 +31,12 @@ myInfo = {
 		},
 		myWallet:function(){
 			window.location.href = "../../view/wallet/myWallet.html";
+		},
+		doTakingList:function(){
+			window.location.href = "../../view/me/myTakingList.html";
+		},
+		doBuyingList:function(){
+			window.location.href = "../../view/me/myBuyingList.html"
 		}
 	},
 	dao: {},

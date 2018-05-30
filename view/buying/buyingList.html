@@ -37,73 +37,75 @@
 			</div>
 		</header>
 		<!-- Swiper -->
-		<div id="buyingContainer" class="mui-content mui-scroll-wrapper">
-			<section class="pc-banner">
+		<div id="buyingContainer" class=" mui-content mui-scroll-wrapper">
+			<!--<section class="pc-banner">
 				<div class="swiper-container">
-					<div class="swiper-wrapper">
+					<div class="swiper-wrapper"  >
 						<div class="swiper-slide swiper-slide-center none-effect">
-							<a href="#"><img id="firstBanner"></a>
+							<a href="#"><img id="firstBanner" style="height: 180px;"></a>
 						</div>
 						<div class="swiper-slide">
-							<a href="#"><img id="secondBanner"></a>
+							<a href="#"><img id="secondBanner"  style="height: 180px;"></a>
 						</div>
 						<div class="swiper-slide">
-							<a href="#"><img id="thirdBanner"></a>
+							<a href="#"><img id="thirdBanner"  style="height: 180px;"></a>
 						</div>
 						<div class="swiper-slide">
-							<a href="#"><img id="forthBanner"></a>
+							<a href="#"><img id="forthBanner"  style="height: 180px;"></a>
 						</div>
 						<div class="swiper-slide">
-							<a href="#"><img id="fifthBanner"></a>
+							<a href="#"><img id="fifthBanner"  style="height: 180px;"></a>
 						</div>
-				
 					</div>
 				</div>
-			</section>
-			<div class="mui-scroll" style="margin-top: 150px;">
-				<div id="buyingList" class="list">
-				</div>
-			</div>
-			<div class="bar-add" id="showAddBtnBuying"><img src="../../images/index/navbar/push.png" onclick="buyingList.service.showPush()" /></div>
-			<nav class="mui-bar mui-bar-tab" style="	background-color: #FFFFFF;">
-				<a class="mui-tab-item mui-active" id="buyingNav">
-					<span class="mui-icon"><div class="bar-buying-active"></div></span>
-					<span class="mui-tab-label">求带</span>
-				</a>
-				<a class="mui-tab-item" id="takingNav">
-					<span class="mui-icon"><div class="bar-taking"></div></span>
-					<span class="mui-tab-label">帮带</span>
-				</a>
-				<a class="mui-tab-item">
-					<span class="mui-icon"></span>
-				</a>
-				<a class="mui-tab-item" id="circleNav">
-					<span class="mui-icon"><div class="bar-circle"></div></span>
-					<span class="mui-tab-label">熊圈</span>
-				</a>
-				<a class="mui-tab-item" id="mineNav">
-					<span class="mui-icon"><div class="bar-me"></div></span>
-					<span class="mui-tab-label">我的</span>
-				</a>
-			</nav>
-			<div class="mui-backdrop" id="push" hidden="hidden">
-				<div class="push-div">
-					<div class="left-btn" id="pushBuyingBtn">
-						<img src="../../images/index/navbar/buying-push.png" />
-						<div>发布求带</div>
-					</div>
-					<div class="right-btn" id="pushTakingBtn">
-						<img src="../../images/index/navbar/taking-push.png" />
-						<div>发布帮带</div>
-					</div>
-				</div>
-				<div class="push-bottom-div">
-					<div class="bottom-div" id="closeBtn">
-						<img src="../../images/index/navbar/close.png" />
-					</div>
+			</section>-->
+
+			<div class="mui-scroll" style="margin-top: 200px;">
+				<div id="buyingList" class="list" style="margin-bottom: 250px;">
 				</div>
 			</div>
 		</div>
+
+		<div class="bar-add" id="showAddBtnBuying"><img src="../../images/index/navbar/push.png" onclick="buyingList.service.showPush()" /></div>
+		<nav class="mui-bar mui-bar-tab" style="	background-color: #FFFFFF;">
+			<a class="mui-tab-item mui-active" id="buyingNav">
+				<span class="mui-icon"><div class="bar-buying-active"></div></span>
+				<span class="mui-tab-label">求带</span>
+			</a>
+			<a class="mui-tab-item" id="takingNav">
+				<span class="mui-icon"><div class="bar-taking"></div></span>
+				<span class="mui-tab-label">帮带</span>
+			</a>
+			<a class="mui-tab-item">
+				<span class="mui-icon"></span>
+			</a>
+			<a class="mui-tab-item" id="circleNav">
+				<span class="mui-icon"><div class="bar-circle"></div></span>
+				<span class="mui-tab-label">熊圈</span>
+			</a>
+			<a class="mui-tab-item" id="mineNav">
+				<span class="mui-icon"><div class="bar-me"></div></span>
+				<span class="mui-tab-label">我的</span>
+			</a>
+		</nav>
+		<div class="mui-backdrop" id="push" hidden="hidden">
+			<div class="push-div">
+				<div class="left-btn" id="pushBuyingBtn">
+					<img src="../../images/index/navbar/buying-push.png" />
+					<div>发布求带</div>
+				</div>
+				<div class="right-btn" id="pushTakingBtn">
+					<img src="../../images/index/navbar/taking-push.png" />
+					<div>发布帮带</div>
+				</div>
+			</div>
+			<div class="push-bottom-div">
+				<div class="bottom-div" id="closeBtn">
+					<img src="../../images/index/navbar/close.png" />
+				</div>
+			</div>
+		</div>
+
 		<script src="../../js/swiper/swiper.min.js"></script>
 		<script src="../../js/mui/mui.min.js"></script>
 		<script src="../../js/jquery/jquery-2.1.1.min.js"></script>

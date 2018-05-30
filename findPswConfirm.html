@@ -87,29 +87,36 @@
 				<div class="mui-card">
 					<div class="mui-card-content-inner">
 						<div class="input-header">验证码</div>
-						<input id='account' type="text" class="mui-input-clear mui-input" placeholder="请选择" style="width: 50%;">
-						<span class="mui-pull-right gradient-send">发送</span>
+						<input id='code' type="text" class="mui-input-clear mui-input" placeholder="请选择" style="width: 50%;">
+						<span id="getCode" class="mui-pull-right gradient-send">发送</span>
 					</div>
 				</div>
 				<div class="mui-card">
 					<div class="mui-card-content-inner">
 						<div class="input-header">登录密码</div>
-						<input id='account' type="text" class="mui-input-clear mui-input" placeholder="请输入">
+						<input id='passwd' type="text" class="mui-input-clear mui-input" placeholder="请输入">
 					</div>
 				</div>
 				<div class="mui-card">
 					<div class="mui-card-content-inner">
 						<div class="input-header">确认密码</div>
-						<input id='account' type="password" class="mui-input-clear mui-input" placeholder="请输入">
+						<input id='confirmPsw' type="password" class="mui-input-clear mui-input" placeholder="请输入">
 					</div>
 				</div>
 			</div>
 
 			<div>
 				<div class="cash-btn">
-					<button type="button" class="mui-btn gradient-bg ">完成重置</button>
+					<button id="resetBtn" type="button" class="mui-btn gradient-bg ">完成重置</button>
 				</div>
 			</div>
+			<script src="js/mui/mui.min.js"></script>
+			<script src="js/mui/mui.poppicker.js"></script>
+			<script src="js/mui/mui.picker.js"></script>
+			<script src="js/common/area.code.data.js"></script>
+			<script src="js/jquery/jquery-2.1.1.min.js"></script>
+			<script src="js/common/common.js"></script>
+			<script src="findPswConfirm.js"></script>
 	</body>
 
 </html>

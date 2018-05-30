@@ -43,8 +43,6 @@
 				padding-top: 10px;
 				padding-bottom: 10px;
 			}
-			
-		
 		</style>
 	</head>
 
@@ -79,22 +77,28 @@
 							<a href="#">
 								<div><span class="m-nick">我的账户</span><i class="u-arrow"></i></div>
 							</a>
-							<div><span class="m-nick">¥ 4800.00</span><i class="u-arrow"></i></div>
+							<div><span class="m-nick">¥ <span id='currentBalance'></span></span><i class="u-arrow"></i></div>
 						</div>
 					</div>
 				</div>
 				<div class="btn-col">
 					<div class="mui-row inner">
-						<div class="mui-col-xs-6" style="border-right: 1px solid #ff9d92;text-align: center;padding-right: 1px;">
+						<div id="payDetail" class="mui-col-xs-6" style="border-right: 1px solid #ff9d92;text-align: center;padding-right: 1px;">
 							<span>消费明细</span>
 						</div>
-						<div class="mui-col-xs-6" style="border-left: 1px solid #ff9d92;text-align: center;padding-left: 1px;">
+						<div id="withDrawBtn" class="mui-col-xs-6" style="border-left: 1px solid #ff9d92;text-align: center;padding-left: 1px;">
 							<span>提现</span>
 						</div>
 					</div>
-					<div>
-					</div>
-					<script src="center.js"></script>
+
+					<script src="../../js/mui/mui.min.js"></script>
+					<script src="../../js/mui/mui.poppicker.js"></script>
+					<script src="../../js/mui/mui.picker.js"></script>
+					<script src="../../js/jquery/jquery-2.1.1.min.js"></script>
+					<script src="../../js/common/common.js"></script>
+					<script src="../../js/data/cityList.js"></script>
+					<script src="../../js/mui/mui.dtpicker.js"></script>
+					<script src="myWallet.js"></script>
 		</body>
 
 </html>

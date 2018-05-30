@@ -5,8 +5,8 @@ var isLogOn = true; //是否开启sdk在控制台打印日志
 var sdkAppID = 1400059049;
 var accountType = 24414;
 
-var identifier = 'admin'
-var userSig = 'eJxlj0FPgzAAhe-8iqZn40qhGkw8KCqSrJuEwZQLAVqwWQqEtm7L4n9XcYlNfNfve3l5JwcAADfL9LJqmsH0utTHkUNwAyCCF39wHAUrK116E-sH*WEUEy*rVvNphi4hBCNkO4LxXotWnI2KSdFbWLFdOW-89v3vMgmQH9iK6GZIH7MwTsKFyVYrydT7mu67l4dmuzb7iHMRZGZZt4bXUVPHRZi-RndxF3l5cFW8qdRN6GY4JDsPpflzwZqjfKoX99SlrcYs7LZS3VqTWkh*PoTxNUa*Tyz6wSclhn4WMHKJiz30E*h8Ol90NF2t'
+var identifier = JSON.parse(localStorage.getItem("userVo")).userCode + JSON.parse(localStorage.getItem("userVo")).type;
+var userSig = localStorage.getItem("wxchatId");
 //当前用户身份
 var loginInfo = {
   'sdkAppID': sdkAppID, //用户所属应用id,必填

@@ -53,13 +53,13 @@
 			}
 			
 			.mui-input-group .mui-input-row:after {
-				background-color: #FFFFFF; 
+				background-color: #FFFFFF;
 			}
 		</style>
 	</head>
 
 	<body>
-		<header class="mui-bar mui-bar-nav aui-header ">
+		<header class="mui-bar mui-bar-nav aui-header gradient-bg">
 			<a class="mui-action-back mui-icon mui-icon-back mui-pull-left"></a>
 			<h1 class="mui-title">修改密码</h1>
 		</header>
@@ -69,21 +69,25 @@
 				<form id='login-form' class="mui-input-group">
 					<div class="mui-input-row">
 						<label>原密码</label>
-						<input id='account' type="text" class="mui-input-clear mui-input" placeholder="请输入账号">
+						<input id='oldPsw' type="text" class="mui-input-clear mui-input" placeholder="请输入原密码">
 					</div>
 					<div class="b-line"></div>
 					<div class="mui-input-row">
 						<label>新密码</label>
-						<input type="password" class="mui-input-clear mui-input" placeholder="请输入密码">
+						<input id="newPsw" class="mui-input-clear mui-input" placeholder="请输入密码">
 					</div>
 					<div class="b-line"></div>
 					<div class="mui-input-row">
 						<label>确认新密码</label>
-						<input type="password" class="mui-input-clear mui-input" placeholder="请输入密码">
+						<input id="confirmPsw" class="mui-input-clear mui-input" placeholder="请输入密码">
 					</div>
 				</form>
-				<div class="logout-btn"><button type="button" class="mui-btn mui-btn-primary" style="width: 100%;">修改密码</button></div>
+				<div class="logout-btn" id="changeBtn"><button type="button" class="mui-btn mui-btn-primary gradient-bg" style="width: 100%;">修改密码</button></div>
 			</div>
+			<script src="../../js/swiper/swiper.min.js"></script>
+			<script src="../../js/mui/mui.min.js"></script>
+			<script src="../../js/jquery/jquery-2.1.1.min.js"></script>
+			<script src="../../js/common/common.js"></script>
 			<script src="changePsw.js"></script>
 		</body>
 

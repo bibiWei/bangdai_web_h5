@@ -78,7 +78,9 @@ uLogin = {
 			}
 			apiHelper.post(CONSTANT.baseUrl + "/login", JSON.stringify(data), function(flag, data) {
 				if(data.status == AJAX_SECCUSS) {
+					debugger;
 					localStorage.setItem("token", data.result.token);
+					localStorage.setItem("wxchatId", data.result["tls-usersig"]);
 					localStorage.setItem("userVo", JSON.stringify(data.result.userVo));
 					window.location.href = "view/buying/buyingList.html";
 				} else {

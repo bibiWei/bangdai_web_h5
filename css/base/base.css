@@ -191,7 +191,7 @@ body {
 	background-repeat: no-repeat;
 	bottom: -5px;
 	z-index: 1000;
-	position: absolute;
+	position: fixed;
 	left: 50%;
 	right: 50%;
 	width: 70px;
@@ -621,3 +621,4 @@ input[type=submit] {
 	background-color: #ffffff;
 	top: -1px;
 }
+

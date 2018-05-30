@@ -59,9 +59,10 @@
 			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
 			<h1 class="mui-title">卡片管理</h1>
 		</header>
+
 		<body>
 			<div class="mui-content">
-				<div class="mui-card">
+				<div class="mui-card" onclick="card.service.doCheck()">
 					<div class="mui-card-content">
 						<div class="mui-row">
 							<div class="mui-col-xs-4">
@@ -74,10 +75,10 @@
 								</div>
 							</div>
 							<div class="mui-col-xs-8">
-								<div class="descible">
-									支付宝
+								<div class="descible" id="payeeRealName">
+									魏博文
 								</div>
-								<div class="descible">
+								<div class="descible" id="payeeAccount">
 									314052187@qq.com
 								</div>
 							</div>
@@ -86,10 +87,13 @@
 
 				</div>
 				<div class="cash-btn">
-					<button type="button" class="mui-btn mui-btn-warning gradient-bg">添加银行卡</button>
+					<button id="addBtn" type="button" class="mui-btn mui-btn-warning gradient-bg">添加银行卡</button>
 				</div>
 			</div>
-			<script src="center.js"></script>
+			<script src="../../js/mui/mui.min.js"></script>
+			<script src="../../js/jquery/jquery-2.1.1.min.js"></script>
+			<script src="../../js/common/common.js"></script>
+			<script src="card.js"></script>
 		</body>
 
 </html>

@@ -45,67 +45,34 @@
 				color: gray;
 			}
 			
-			.mui-row-weight{
+			.mui-row-weight {
 				color: gray;
-			
 			}
 		</style>
 	</head>
 
 	<body>
-		<header class="mui-bar mui-bar-nav aui-header gradient">
+		<header class="mui-bar mui-bar-nav aui-header gradient-bg">
 			<a class="mui-action-back mui-icon mui-icon-back mui-pull-left"></a>
 			<h1 class="mui-title">我的帮带</h1>
 		</header>
-		<div class="mui-content">
-			<div id="slider" class="mui-slider mui-fullscreen">
-				<div class="mui-segmented-control" id="segmentedControl">
+		<div class="mui-content mui-scroll-wrapper" id="takingContainer">
+			<div id="slider" class="mui-slider ">
+				<div class="mui-segmented-control gradient-bg" id="segmentedControl" style="z-index: 2;"> 
 					<a class="mui-control-item mui-active" href="#nav_1" id="all">发布中</a>
 					<a class="mui-control-item dd" href="#nav_2" id="notpayed">已完成</a>
 				</div>
 			</div>
-
-			<div id="buyingList" class="list">
-				<div class="mui-card">
-					<div class="mui-card-content">
-						<div class="mui-row mui-row-place">
-							<div class="mui-col-xs-5">
-								<div>大连 - 中国</div>
-							</div>
-							<div class="mui-col-xs-2" style="vertical-align: middle;">
-								<img src="../../images/circle/pic.jpeg" style="width: 40px; height: 20px;margin-top: 5px;" />
-							</div>
-							<div class="mui-col-xs-5">
-								<div>上海 - 中国</div>
-							</div>
-						</div>
-						<div class="mui-row mui-row-inner">
-							<div class="mui-col-xs-5">
-								<img src="../../images/circle/pic.jpeg" style="width: 20px; height: 20px;margin-top: 5px;" /> 2018-02-02
-							</div>
-							<div class="mui-col-xs-2" style="vertical-align: middle;">
-								<img src="../../images/circle/pic.jpeg" style="width: 40px; height: 20px;margin-top: 5px;" />
-							</div>
-							<div class="mui-col-xs-5">
-								<img src="../../images/circle/pic.jpeg" style="width: 20px; height: 20px;margin-top: 5px;" /> 2018-02-02
-							</div>
-						</div>
-						<div class="mui-row ">
-							<div class="mui-col-xs-5" style="padding-left: 1.7em;" >
-								<img src="../../images/circle/pic.jpeg" style="width: 20px; height: 20px;margin-top: 5px;" />5KG
-							</div>
-							<div class="mui-col-xs-2" style="vertical-align: middle;">
-								&nbsp;
-							</div>
-							<div class="mui-col-xs-5" style="padding-left: 1.7em;">
-								<img src="../../images/circle/pic.jpeg" style="width: 20px; height: 20px;margin-top: 5px;" />$10/KG
-							</div>
-						</div>
-					</div>
-				</div>
+			<div class="mui-scroll">
+				<div id="myTakingList"></div>
 			</div>
+		</div>
 
+			<script src="../../js/swiper/swiper.min.js"></script>
 			<script src="../../js/mui/mui.min.js"></script>
+			<script src="../../js/jquery/jquery-2.1.1.min.js"></script>
+			<script src="../../js/common/common.js"></script>
+			<script src="myTakingList.js"></script>
 
 	</body>
 

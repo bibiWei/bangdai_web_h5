@@ -3,8 +3,9 @@
 })(mui);
 
 var step = 5;
-var startIndex = 1;
-var endIndex = 5;
+var pageNo = 1;
+var pageSize = 1;
+var totalAmout = 0;
 
 $("#buyingList").on("tap", ".tap", function() {
 	var id = $(this).data("id");
@@ -47,10 +48,9 @@ mui.init({
 			contentrefresh: '正在加载...', //可选，正在加载状态时，上拉加载控件上显示的标题内容
 			contentnomore: '没有更多数据了', //可选，请求完毕若没有更多数据时显示的提醒内容；
 			callback: function() {
-
-				startIndex = startIndex + step;
-				endIndex = endIndex + step;
-				buyingList.service.doQuery(startIndex, endIndex, QUERY_MODE_UP);
+				pageNo = pageNo + 1;
+			
+				buyingList.service.doQuery(pageNo, pageSize, QUERY_MODE_UP);
 			}
 		},
 	}
@@ -69,33 +69,25 @@ buyingList = {
 
 	service: {
 
-		doQuery: function(startIndex, endIndex, type) {
-			$("#buyingList").empty();
+		doQuery: function(pageNo, pageSize, type) {
+
 			var $list = $("#buyingList");
 			var data = {
-				pageNo: startIndex,
-				pageSize: endIndex
+				pageNo: pageNo,
+				pageSize: pageSize
 			};
 			apiHelper.get(CONSTANT.baseUrl + "/api/requestBring/listAll", data, function(flag, data) {
 				if(data.status == AJAX_SECCUSS) {
 					//清空原来加载的数据
 					if(type === QUERY_MODE_UP) {
-						if(endIndex >= data.result.total) {
+	
+						if(pageNo > data.result.pagination.total / pageSize) { 
 							mui('#buyingContainer').pullRefresh().endPullupToRefresh(true);
 						} else {
 							mui('#buyingContainer').pullRefresh().endPullupToRefresh(false);
+							buyingList.service.doDraw($list, data.result.data);
 						}
 					}
-					//下拉刷新
-					if(type === QUERY_MODE_DOWN) {
-						//关闭，下拉刷新
-						list.html("");
-
-						mui('#buyingContainer').pullRefresh().endPulldownToRefresh();
-						//重置刷新
-						mui('#buyingContainer').pullRefresh().refresh(true);
-					}
-					buyingList.service.doDraw($list, data.result.data);
 				}
 			});
 		},
@@ -105,7 +97,6 @@ buyingList = {
 				var container = $("<div style=''></div>");
 				container.html(data);
 				$.each(rows, function(index, result) {
-
 					var li = "";
 					li = $("<div class='tap' id='line'></div>");
 					li.attr("data-id", result.id);
@@ -159,7 +150,6 @@ buyingList = {
 			var data = {};
 			apiHelper.get(CONSTANT.baseUrl + "/ad/listAllAds", data, function(flag, data) {
 				if(data.status == AJAX_SECCUSS) {
-					debugger;	
 					$("#firstBanner").attr("src",data.result[0].picUrl);
 					$("#secondBanner").attr("src",data.result[1].picUrl);
 					$("#thirdBanner").attr("src",data.result[2].picUrl);
@@ -177,7 +167,7 @@ buyingList = {
 	dao: {},
 	init: function() {
 		buyingList.event();
-		buyingList.service.doQuery(startIndex, endIndex, QUERY_MODE_UP);
+		buyingList.service.doQuery(pageNo, pageSize, QUERY_MODE_UP);
 		buyingList.service.getAdList();
 	},
 }
